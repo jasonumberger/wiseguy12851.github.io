@@ -56,7 +56,7 @@ gulp.task(
         var from = [
             "./generated/precompile.js", "./generated/**/*.js"
         ];
-        var to = "./client";
+        var to = "./";
 
         return gulp.src(from).pipe(concat("build.js")).pipe(gulp.dest(to)).pipe(livereload()).pipe(rename("build.min.js")).pipe(uglify()).pipe(gulp.dest(to)).pipe(livereload());
     });

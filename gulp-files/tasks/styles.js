@@ -70,7 +70,7 @@ gulp.task(
         var from = [
             "./generated/precompile.css", "./generated/**/*.css"
         ];
-        var to = "./client";
+        var to = "./";
 
         return gulp.src(from)
 

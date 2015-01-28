@@ -2,6 +2,8 @@ CACHE MANIFEST
 
 
 CACHE:
+build.min.js
+build.min.css
 FontAwesome.otf
 fontawesome-webfont.eot
 fontawesome-webfont.svg
@@ -26,4 +28,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 19f2eade50848919c5c62438f1bc5ef0be19afb8d56dce8683ee7cef51522cbc
+# hash: 512ce28a03ea9cb65ac2957cb598f2d19dfb6b40a01685c41b0e0ad96e1bb423
