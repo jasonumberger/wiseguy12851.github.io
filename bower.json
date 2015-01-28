@@ -73,9 +73,5 @@
     "javascript-detect-element-resize": "*",
     "fullcalendar": "*",
     "jqplot": "*"
-  },
-  "resolutions": {
-    "angular": "*",
-    "jquery": "*"
   }
 }
