@@ -1,0 +1,28 @@
+01/26/2015
+    Gulpfile:
+    ===================
+    Gulpfile has drastically changed once again, its been very long needing a
+    rewrite. The old gulpfile mapped source folders to destination folders
+    and did a complete build and re-copy from scratch everytime. While this
+    worked great it also meant any little change would require a 5-10 minute
+    re-build and made gulp.watch useless
+
+     The new gulpfile takes a very different and largely more simplistic
+     approach. Rather than take node/bower libraries and app source code and
+     map it to different folders and such (Quite a complicated build process)
+     It instead simply converts typescript and stylus to css in a generated
+     folder and copies some fonts over. Then builds and minifies.
+
+     Essentially there is no mapping of folders, the client folder is served
+     as-is, exactly how you see it. Anything generated will be in the
+     generated folder so it can safely be deleted. Some files are generated
+     at the client root but gulp knows how to clean them up with the commands.
+
+     This also allows bypassing the concatenated and/or minified files and
+     just using the individual files where desired. It also allows viewing or
+     downloading the raw typescript or stylus files and presents many future
+     oppurtunities like serving up typescript files and converting them
+     on-the-fly with middleware
+
+     Gulp also now precompiles the libraries over, this is important as you
+     wont get any of the libraries unless you run the "Precompile" task first

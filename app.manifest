@@ -1,0 +1,29 @@
+CACHE MANIFEST
+
+
+CACHE:
+FontAwesome.otf
+fontawesome-webfont.eot
+fontawesome-webfont.svg
+fontawesome-webfont.ttf
+fontawesome-webfont.woff
+fontawesome-webfont.woff2
+glyphicons-halflings-regular.eot
+glyphicons-halflings-regular.svg
+glyphicons-halflings-regular.ttf
+glyphicons-halflings-regular.woff
+icomoon.eot
+icomoon.svg
+icomoon.ttf
+icomoon.woff
+fragments/glyph-test.html
+fragments/navbar.html
+
+
+NETWORK:
+*
+
+
+FALLBACK:
+
+# hash: 19f2eade50848919c5c62438f1bc5ef0be19afb8d56dce8683ee7cef51522cbc

@@ -1,0 +1,48 @@
+{
+    "name": "wiseguy12851.github.io",
+    "version": "1.0.0",
+    "description": "Personal Website",
+    "main": "index.html",
+  "author": "John Mothershed",
+  "license": "GPLv3 Affero",
+    "homepage": "https://github.com/wiseguy12851/wiseguy12851.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wiseguy12851/wiseguy12851.github.io.git"
+  },
+  "keywords": [
+    "wiseguy12851"
+  ],
+  "bugs": {
+    "url": "https://github.com/wiseguy12851/wiseguy12851.github.io/issues"
+  },
+  "dependencies": {
+    "bower": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-concat-css": "*",
+    "gulp-download": "*",
+    "gulp-gzip": "*",
+    "gulp-jshint": "*",
+    "gulp-livereload": "*",
+    "gulp-load-plugins": "*",
+    "gulp-manifest": "*",
+    "gulp-minify-css": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-nodemon": "^1.0.5",
+    "gulp-notify": "*",
+    "gulp-rename": "*",
+    "gulp-ruby-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-stylus": "*",
+    "gulp-tar": "*",
+    "gulp-typescript": "*",
+    "gulp-uglify": "*",
+    "gulp-unzip": "*",
+    "gulp-zip": "*",
+    "lodash": "*",
+    "nib": "*"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "wiseguy12851.github.io",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.html",
+  "license": "GPLv3 Affero",
+  "homepage": "https://github.com/wiseguy12851/wiseguy12851.github.io",
+  "private": true,
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "keywords": [
+    "wiseguy12851"
+  ],
+  "authors": [
+    "John Mothershed"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "angular": "*",
+    "fontawesome": "*",
+    "modernizr": "*",
+    "underscore": "*",
+    "d3": "*",
+    "blast-text": "*",
+    "Lettering.js": "*",
+    "tooltipster": "*",
+    "kinetic": "*",
+    "threejs": "*",
+    "unslider": "*",
+    "moment": "*",
+    "localforage": "*",
+    "bootstrap-stylus": "*",
+    "angular-animate": "*",
+    "angular-cookies": "*",
+    "angular-loader": "*",
+    "angular-messages": "*",
+    "angular-mocks": "*",
+    "angular-resource": "*",
+    "angular-sanitize": "*",
+    "angular-scenario": "*",
+    "angular-touch": "*",
+    "angular-gridster": "*",
+    "angular-knob": "*",
+    "angular-parallax": "*",
+    "angular-route": "*",
+    "ui-route": "*",
+    "ui-utils": "*",
+    "angular-ui-select": "*",
+    "angular-ui-calendar": "*",
+    "angular-ui-sortable": "*",
+    "angular-ui-map": "*",
+    "angular-ui-layout": "*",
+    "angular-ui-slider": "*",
+    "angular-ui-date": "*",
+    "angular-ui-chart": "*",
+    "angular-ui-bootstrap-bower": "*",
+    "easeljs": "*",
+    "TweenJS": "*",
+    "PreloadJS": "*",
+    "SoundJS": "*",
+    "jquery.finger": "*",
+    "jquery-textfill-try": "*",
+    "jquery-knob": "*",
+    "javascript-detect-element-resize": "*",
+    "fullcalendar": "*",
+    "jqplot": "*"
+  },
+  "resolutions": {
+    "angular": "*",
+    "jquery": "*"
+  }
+}
