@@ -15,7 +15,13 @@ function genManifest()
             {
                 filename: "app.manifest",
                 exclude: [
-                    "app.manifest"
+                    "app.manifest",
+
+                    "bower_components/**/*",
+                    "demos/**/*",
+                    "gulp-files/**/*",
+                    "node_modules/**/*",
+                    "screenshots/**/*"
                 ],
 
                 network: [
