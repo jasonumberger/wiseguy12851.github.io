@@ -6,12 +6,12 @@ build.css
 build.js
 build.min.css
 build.min.js
+generated/precompile.css
+generated/precompile.js
 fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-generated/precompile.css
-generated/precompile.js
 media/README.md
 scripts/README.md
 styles/README.md
@@ -55,4 +55,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: e56dfc539a1a671bc7a7254f2e261b260c09fe561c740f7bbcb6b70cf79ea14f
+# hash: 3a89e8009ca183804c2029827f7c2abb90f9fe61519f2f628263bbf9133e267e
