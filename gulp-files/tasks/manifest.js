@@ -8,7 +8,7 @@ function genManifest()
 {
     var from = "./src/**/*";
 
-    var to = "./";
+    var to = "./src";
 
     gulp.src(from).pipe(
         manifest(
