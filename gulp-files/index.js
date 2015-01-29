@@ -4,5 +4,7 @@ require('./tasks/scripts');
 require('./tasks/styles');
 require('./tasks/precompile');
 require('./tasks/livereload');
+require('./tasks/git');
+require('./tasks/shell');
 require('./tasks/watch');
 require('./tasks/default');

@@ -1,11 +1,11 @@
 {
-    "name": "wiseguy12851.github.io",
-    "version": "1.0.0",
-    "description": "Personal Website",
-    "main": "index.html",
+  "name": "wiseguy12851.github.io",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.html",
   "author": "John Mothershed",
   "license": "GPLv3 Affero",
-    "homepage": "https://github.com/wiseguy12851/wiseguy12851.github.io",
+  "homepage": "https://github.com/wiseguy12851/wiseguy12851.github.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/wiseguy12851/wiseguy12851.github.io.git"
@@ -24,6 +24,7 @@
     "gulp-concat": "*",
     "gulp-concat-css": "*",
     "gulp-download": "*",
+    "gulp-git": "^0.5.6",
     "gulp-gzip": "*",
     "gulp-jshint": "*",
     "gulp-livereload": "*",

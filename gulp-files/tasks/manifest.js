@@ -6,22 +6,16 @@ var livereload = require("../config/livereload");
 
 function genManifest()
 {
-    var from = "**/*";
+    var from = "./src/**/*";
 
-    var to = "./";
+    var to = "./src";
 
     gulp.src(from).pipe(
         manifest(
             {
                 filename: "app.manifest",
                 exclude: [
-                    "app.manifest",
-
-                    "bower_components/**/*",
-                    "demos/**/*",
-                    "gulp-files/**/*",
-                    "node_modules/**/*",
-                    "screenshots/**/*"
+                    "app.manifest"
                 ],
 
                 network: [
@@ -44,14 +38,14 @@ function genManifest()
 gulp.task(
     "Build:Manifest", ["Prep:Scripts", "Prep:Styles"], function()
     {
-        //genManifest();
+        genManifest();
     });
 
 // Generate application manifest for offline mode app
 gulp.task(
     "Build:ManifestOnly", function()
     {
-        //genManifest();
+        genManifest();
     });
 
 //gulp.task("Build", ["Build:Manifest"]);

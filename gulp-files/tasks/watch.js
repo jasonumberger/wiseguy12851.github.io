@@ -7,13 +7,13 @@ gulp.task("Watch", function()
 {
     livereload.listen();
 
-    gulp.watch("./scripts/**/*", ["Prep:Scripts"]);
-    gulp.watch("./styles/**/*", ["Prep:Styles"]);
+    gulp.watch("./src/scripts/**/*", ["Prep:Scripts"]);
+    gulp.watch("./src/styles/**/*", ["Prep:Styles"]);
 
     gulp.watch(
         [
-            "./fonts/**/*",
-            "./media/**/*",
-            "./partials/**/*"
+            "./src/fonts/**/*",
+            "./src/media/**/*",
+            "./src/partials/**/*"
         ], ["Livereload:FullReload"]);
 });

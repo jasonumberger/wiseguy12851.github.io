@@ -140,6 +140,26 @@ won't touch even if enabled in the browser.
 
 #### Gulp
 
+**Shortcuts**
+
+The idea is to have gulp do absolutely everything, just leave it all to gulp.
+Here is a list of gulp commands that perform a set of gulp tasks. For this to
+work you may have to have gulp installed globally, either that or the local
+```node_modules/.bin``` folder in your path.
+
+This one performs a normal build, then stages all files, commits them, and
+pushes it to the default repo.
+
+    gulp Do:GitTo --msg=Commit message goes here
+
+This one pull in git changes, complimenting GitTo
+
+    gulp Do:GitFrom
+
+This cleans out everything, precompiles, and rebuilds from scratch
+
+    gulp Do:Startover
+
 **Precompilation**
 
 To take all the used Javascript and CSS from NPM and Bower packages and place
@@ -259,6 +279,45 @@ To just remove all generated **and precompiled files** use this command
 or just to be even simpler
 
     gulp Clean
+
+**Git Management**
+
+gulp can manage git for you
+
+This stages your files for you, it defaults to staging everything. It
+optionally takes a stageArgs and stageFiles arguments
+
+    gulp Git:Stage
+
+This commits your files, It optionally takes a commitArgs, commitFiles, and
+msg arguments. Defaults to all files.
+
+    gulp Git:Commit
+
+This adds a new remote. Optionally takes name and url args.
+
+    gulp Git:AddRemote
+
+Push changes. repo, branch, and pushArgs optional parameters. Defaults to
+origin/master
+
+    gulp Git:Push
+
+Pull changes, repo, branch, and pulArgs optional. Defaults to default/master.
+
+    gulp GitPull
+
+Create a tag. Optional parameters include name and msg.
+
+    gulp Git:Tag
+
+Create a new branch, optional args is name.
+
+    gulp Git:CreateBranch
+
+Switch to a branch, optional args is name.
+
+    gulp Git:SwitchBranch
 
 ### Technology
 

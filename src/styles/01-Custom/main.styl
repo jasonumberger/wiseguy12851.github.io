@@ -1,0 +1,73 @@
+body
+{
+	position: relative;
+}
+
+/* Fix Angular's Cloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+{
+	display: none !important;
+}
+
+/*Fix Angular-UI-Bootstrap according to the website*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/*Make carousel's fade*/
+.carousel .item
+{
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s; 
+	-ms-transition: opacity 1s; 
+	-o-transition: opacity 1s; 
+	transition: opacity 1s;
+}
+
+.carousel .active.left, .carousel .active.right
+{
+	left:0;
+	opacity:0;
+	z-index:2;
+}
+
+.carousel .next
+{
+	left:0;
+	opacity:1;
+	z-index:1;
+}
+
+form.ng-dirty
+{
+    form.ng-invalid
+    {
+        box-shadow: 0px 0px 5px rgba(150, 0, 0, .8);
+    }
+    
+    form.ng-valid
+    {
+        box-shadow: 0px 0px 5px rgba(0, 150, 0, .8);
+    }
+}
+
+form.ng-pristine:focus
+{
+    box-shadow: 0px 0px 5px rgba(150, 150, 150, .8);
+}
+
+input.ng-dirty
+{
+    input.ng-invalid
+    {
+        box-shadow: 0px 0px 5px rgba(150, 0, 0, .8);
+    }
+    
+    input.ng-valid
+    {
+        box-shadow: 0px 0px 5px rgba(0, 150, 0, .8);
+    }
+}
+
+input.ng-pristine:focus
+{
+    box-shadow: 0px 0px 5px rgba(150, 150, 150, .8);
+}

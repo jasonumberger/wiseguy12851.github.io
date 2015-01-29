@@ -15,7 +15,7 @@ gulp.task(
         // the bower javascript files as well, also ensure these go before the
         // user supplied files
         var from = jsLibs;
-        var to = "./generated";
+        var to = "./src/generated";
 
         return gulp.src(from).pipe(concat("precompile.js")).pipe(gulp.dest(to));
     });
@@ -27,7 +27,7 @@ gulp.task(
         // the bower javascript files as well, also ensure these go before the
         // user supplied files
         var from = cssLibs;
-        var to = "./generated";
+        var to = "./src/generated";
 
         return gulp.src(from).pipe(concat("precompile.css")).pipe(gulp.dest(to));
     });
@@ -38,8 +38,8 @@ var fontLibs = require("../config/font-libraries");
 gulp.task(
     "Precompile:Fonts", function()
     {
-        var from = fontLibs.concat(["./fonts/**/*"]);
-        var to = "./generated/fonts";
+        var from = fontLibs.concat(["./src/fonts/**/*"]);
+        var to = "./src/generated/fonts";
 
         return gulp.src(from).pipe(gulp.dest(to));
     });

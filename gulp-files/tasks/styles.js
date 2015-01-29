@@ -15,8 +15,8 @@ var stylusLibs = require("../config/stylus-libraries");
 gulp.task(
     "Prep:CSS", function()
     {
-        var from = "./styles/**/*.css";
-        var to = "./generated";
+        var from = "./src/styles/**/*.css";
+        var to = "./src/generated";
 
         // Compile to Javascript
         return gulp.src(from)
@@ -28,10 +28,10 @@ gulp.task(
 gulp.task(
     "Prep:Stylus", function()
     {
-        var from = "./styles/**/*.styl";
-        var to = "./generated";
+        var from = "./src/styles/**/*.styl";
+        var to = "./src/generated";
 
-        var searchPaths = ["./styles"];
+        var searchPaths = ["./src/styles"];
         searchPaths = searchPaths.concat(stylusLibs);
 
         return gulp.src(from).pipe(
@@ -68,9 +68,9 @@ gulp.task(
         // Concat the libraries first in the order given above
         // followed by the user libraries in alphabetical order
         var from = [
-            "./generated/precompile.css", "./generated/**/*.css"
+            "./src/generated/precompile.css", "./generated/**/*.css"
         ];
-        var to = "./";
+        var to = "./src/";
 
         return gulp.src(from)
 

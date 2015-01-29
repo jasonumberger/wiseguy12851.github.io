@@ -11,8 +11,8 @@ var livereload = require("../config/livereload");
 gulp.task(
     "Prep:Javascript", function()
     {
-        var from = "./scripts/**/*.js";
-        var to = "./generated";
+        var from = "./src/scripts/**/*.js";
+        var to = "./src/generated";
 
         // Compile to Javascript
         return gulp.src(from)
@@ -24,8 +24,8 @@ gulp.task(
 gulp.task(
     "Prep:Typescript", function()
     {
-        var from = "./scripts/**/*.ts";
-        var to = "./generated";
+        var from = "./src/scripts/**/*.ts";
+        var to = "./src/generated";
 
         // Compile to Javascript
         return gulp.src(from).pipe(
@@ -54,9 +54,9 @@ gulp.task(
         // the bower javascript files as well, also ensure these go before the
         // user supplied files
         var from = [
-            "./generated/precompile.js", "./generated/**/*.js"
+            "./src/generated/precompile.js", "./src/generated/**/*.js"
         ];
-        var to = "./";
+        var to = "./src/";
 
         return gulp.src(from).pipe(concat("build.js")).pipe(gulp.dest(to)).pipe(livereload()).pipe(rename("build.min.js")).pipe(uglify()).pipe(gulp.dest(to)).pipe(livereload());
     });

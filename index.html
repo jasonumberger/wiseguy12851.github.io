@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="app.manifest"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" manifest="app.manifest"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" manifest="app.manifest"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" manifest="app.manifest"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <base href="/">
@@ -12,14 +12,14 @@
 
         <title>Sandbox Proj1</title>
 
-        <link rel="stylesheet" href="/build.min.css">
+        <link rel="stylesheet" href="/src/build.min.css">
     </head>
     <body ng-app="app">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div ng-include="'/partials/fragments/navbar.html'"></div>
+        <div ng-include="'/src/partials/fragments/navbar.html'"></div>
 
         <div class="container">
             <section ui-view></section>
@@ -27,6 +27,6 @@
 
         <!-- <script src="/socket.io/socket.io.js"></script> -->
 
-        <script src="/build.min.js"></script>
+        <script src="/src/build.min.js"></script>
     </body>
 </html>
