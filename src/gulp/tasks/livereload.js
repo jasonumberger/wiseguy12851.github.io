@@ -1,9 +1,10 @@
 "use strict";
 
 var gulp = require("gulp");
-var livereload = require("../logic/livereload");
+var liveReloadPipes = require("../pipes/livereload");
+var names = require("../../../project/config").gulp.names;
 
-gulp.task("Livereload:FullReload", function()
+gulp.task(names.liveReloadFull, function()
 {
-    livereload.reload();
+    return liveReloadPipes.full();
 });

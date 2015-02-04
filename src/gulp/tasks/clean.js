@@ -3,7 +3,7 @@
 var gulp = require("gulp");
 var runSequence = require('run-sequence');
 var names = require("../../../project/config").gulp.names;
-var cleanPipes = require("../pipes");
+var cleanPipes = require("../pipes/clean");
 
 // Erase the build folder, this erases everything that gulp ever processed or touched
 // resulting in a complete revert of anything gulp might have done

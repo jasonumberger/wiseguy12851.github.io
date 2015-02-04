@@ -2,8 +2,9 @@
 
 var lazypipe = require('lazypipe');
 var notify = require("gulp-notify");
-var msg = require("../../../project/config").gulp.msg;
 var log = require("../logic/log");
+
+var msg = require("../../../project/config").gulp.msg;
 
 module.exports = lazypipe()
     .pipe(notify, msg.pipeEnd)

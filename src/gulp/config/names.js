@@ -27,5 +27,8 @@ module.exports =
     cleanStylesPrecompile: "clean:styles:precompiled",
     cleanAllStyles: "clean:styles",
 
-    cleanManifest: "clean:scripts:concat"
+    cleanManifest: "clean:scripts:concat",
+
+    build: "build",
+    liveReloadFull: "livereload:full"
 };
