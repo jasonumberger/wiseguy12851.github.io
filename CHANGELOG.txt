@@ -1,3 +1,33 @@
+02/04/2015
+    Gulpfile
+    ===================
+    Gulpfile has yet again been rewritten ground-up, this time combining the old
+    style with the new style. There will be a build folder and all generated 
+    elements will be placed in that build whether it be temporary files or
+    permanent files.
+    
+    Despite that much of the last revision will be kept, all files will be
+    copied over and will be included with the temporary and generated files
+    and all will be made available to the client.
+    
+    On top of that, dozens of gulp plugins have been added and some removed.
+    Many new plugins were added to help speedup, optimize, and make more
+    intelligent and flexible the gulp tasks and pipelining.
+    
+    Also the Model, View, Controller approach was taken for gulp tasks to further
+    enahnce gulp and its performance, cleanly code, duplicate prevention, 
+    and documentation. The config folder (model equivelant) holds all data
+    and configurations, the tasks folder (view equivelant) holds all the
+    tasks but contains no logic of its own, merely references the logic.
+    The logic folder (controller equivelant) holds all of the actual logic
+    throughout the gulp file whether directly or indirectly used by tasks.
+    
+    Tons of plugins like plumber, sequencer, and lots more make it easier.
+    Lazypipes also allows building pipes in logic and extedning them where
+    needed then referencing the final pipe build in tasks. Other plugins
+    make heavy use of cache and drastically speedup performance. The
+    list goes on.
+
 01/26/2015
     Gulpfile:
     ===================

@@ -1,0 +1,7 @@
+{
+    // For reference on the configuration you want to override from the defaults
+    // look into "project/config.js". There you will find every possible
+    // option you can override here. Only override what you want to, any objects
+    // or arrays here will merge with the default, any properties here will
+    // overwrite the properties over there.
+}

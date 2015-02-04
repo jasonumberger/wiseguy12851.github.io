@@ -1,1 +1,1 @@
-require("./gulp-files");
+require("./src/gulp/init.js");

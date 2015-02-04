@@ -5,14 +5,6 @@
 node_modules/
 bower_components/
 
-# Build related directories
-#generated/
-#app.manifest
-#build.css
-#build.min.css
-#build.js
-#build.min.js
-
 #Annoying Windows, Mac, and Linux Files
 Thumbs.db
 .DS_Store

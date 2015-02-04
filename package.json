@@ -17,33 +17,59 @@
     "url": "https://github.com/wiseguy12851/wiseguy12851.github.io/issues"
   },
   "dependencies": {
-    "bower": "*",
-    "del": "*",
-    "gulp": "*",
-    "gulp-autoprefixer": "*",
-    "gulp-concat": "*",
-    "gulp-concat-css": "*",
-    "gulp-download": "*",
-    "gulp-git": "^0.5.6",
-    "gulp-gzip": "*",
-    "gulp-jshint": "*",
-    "gulp-livereload": "*",
-    "gulp-load-plugins": "*",
-    "gulp-manifest": "*",
-    "gulp-minify-css": "*",
-    "gulp-ng-annotate": "*",
-    "gulp-nodemon": "^1.0.5",
-    "gulp-notify": "*",
-    "gulp-rename": "*",
-    "gulp-ruby-sass": "*",
-    "gulp-sourcemaps": "*",
-    "gulp-stylus": "*",
-    "gulp-tar": "*",
-    "gulp-typescript": "*",
-    "gulp-uglify": "*",
-    "gulp-unzip": "*",
-    "gulp-zip": "*",
-    "lodash": "*",
-    "nib": "*"
+            "gulp": "*",
+
+      "gulp-autoprefixer": "*",
+      "gulp-less": "*",
+      "gulp-stylus": "*",
+      "gulp-minify-css": "*",
+      "nib": "*",
+
+      "gulp-coffee": "*",
+      "gulp-typescript": "*",
+      "gulp-jshint": "*",
+      "gulp-uglify": "*",
+      "jscs": "*",
+      "eslint": "*",
+      "browserify": "*",
+
+      "gulp-concat": "*",
+      "gulp-imagemin": "*",
+      "gulp-cache": "*",
+
+      "gulp-changed": "*",
+      "gulp-livereload": "*",
+      "gulp-cached": "*",
+      "gulp-remember": "*",
+      "gulp-newer": "*",
+      "gulp-manifest": "*",
+
+      "gulp-if": "*",
+            "lazypipe": "*",
+            "include-all": "*",
+
+            "gulp-notify": "*",
+            "gulp-plumber": "*",
+            "run-sequence": "*",
+
+      "gulp-gzip": "*",
+      "gulp-tar": "*",
+      "gulp-unzip": "*",
+      "gulp-zip": "*",
+
+      "gulp-util": "*",
+      "gulp-download": "*",
+      "lodash": "*",
+            "chalk": "*",
+            "log": "*",
+
+            "del": "*",
+      "mkdirp": "*",
+      "gulp-git": "*",
+
+      "gulp-rename": "*",
+            "rc": "*",
+      "bower": "*",
+      "yargs": "*"
   }
 }
