@@ -30,5 +30,13 @@ module.exports =
     cleanManifest: "clean:scripts:concat",
 
     build: "build",
-    liveReloadFull: "livereload:full"
+
+    manifestAlone: "build:manifest:alone",
+
+    liveReloadFull: "livereload:full",
+
+    precompileScripts: "precompile:scripts",
+    precompileStyles: "precompile:styles",
+    precompileFonts: "precompile:fonts",
+    precompileAll: "precompile:all"
 };

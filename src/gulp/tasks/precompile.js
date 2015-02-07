@@ -1,52 +1,34 @@
 "use strict";
 
 var gulp = require("gulp");
-var concat = require("gulp-concat");
-
-var jsLibs = require("../config/js-libraries");
-var cssLibs = require("../config/css-libraries");
-
+var precompilePipes = require("../pipes/precompile");
+var names = require("../../../project/config").gulp.names;
+var runSequence = require('run-sequence');
 
 // Now get all the scripts then concatenate and minify them
 gulp.task(
-    "Precompile:Scripts", function()
+    names.precompileScripts, function()
     {
-        // Make sure when getting all the javascript files that we dont forget
-        // the bower javascript files as well, also ensure these go before the
-        // user supplied files
-        var from = jsLibs;
-        var to = "./src/generated";
-
-        return gulp.src(from).pipe(concat("precompile.js")).pipe(gulp.dest(to));
+        return precompilePipes.scripts();
     });
 
 gulp.task(
-    "Precompile:Styles", function()
+    names.precompileStyles, function()
     {
-        // Make sure when getting all the javascript files that we dont forget
-        // the bower javascript files as well, also ensure these go before the
-        // user supplied files
-        var from = cssLibs;
-        var to = "./src/generated";
-
-        return gulp.src(from).pipe(concat("precompile.css")).pipe(gulp.dest(to));
-    });
-
-var fontLibs = require("../config/font-libraries");
-
-// Copy fontawesome and any other fonts to the fonts directory
-gulp.task(
-    "Precompile:Fonts", function()
-    {
-        var from = fontLibs.concat(["./src/fonts/**/*"]);
-        var to = "./src/generated/fonts";
-
-        return gulp.src(from).pipe(gulp.dest(to));
+        return precompilePipes.styles();
     });
 
 gulp.task(
-    "Precompile", [
-        "Precompile:Scripts",
-        "Precompile:Styles",
-        "Precompile:Fonts"
-    ]);
+    names.precompileFonts, function()
+    {
+        return precompilePipes.fonts();
+    });
+
+gulp.task(
+    names.precompileAll, function(cb)
+    {
+        runSequence(names.precompileScripts,
+                    names.precompileStyles,
+                    names.precompileFonts,
+                    cb);
+    });
