@@ -5,5 +5,6 @@
 
 module.exports =
 [
-    "./bower_components/bootstrap-stylus/bootstrap"
+    "./bower_components/bootstrap-stylus/bootstrap",
+    "./src/client/styles"
 ];

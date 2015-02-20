@@ -10,10 +10,9 @@ var cache = require("../logic/cache");
 var msg = require("../../../project/config").gulp.msg;
 
 var firstRun = lazypipe()
-    .pipe(function(cb)
+    .pipe(function()
      {
          cache.set("start", true);
-         cb();
      })
     .pipe(plumber)
     .pipe(notify, msg.pipeStart)

@@ -38,5 +38,13 @@ module.exports =
     precompileScripts: "precompile:scripts",
     precompileStyles: "precompile:styles",
     precompileFonts: "precompile:fonts",
-    precompileAll: "precompile:all"
+    precompileAll: "precompile:all",
+
+    prepJS: "prep:javascript",
+    prepTS: "prep:typescript",
+    prepScriptsFinalize: "prep:scripts",
+
+    prepCss: "prep:css",
+    prepStylus: "prep:stylus",
+    prepStylesFinalize: "prep:styles"
 };

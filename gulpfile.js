@@ -1,1 +1,2 @@
-require("./src/gulp/init.js");
+// Just load everything from there
+require("./src/gulp");
