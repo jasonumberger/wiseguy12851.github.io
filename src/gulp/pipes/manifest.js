@@ -7,36 +7,29 @@ var livereloadPipes = require("./livereload");
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
-exports.manifest = lazypipe()
+exports.regular = lazypipe()
+    .pipe(gulp.src, dest.client + "/**/*")
     .pipe(manifest, {
-         filename: "app.manifest",
-         exclude: [
-             "app.manifest"
-         ],
+              filename: prep.manifest,
+              exclude: [
+                  prep.manifest
+              ],
 
-         network: [
-             "*"
-         ],
+              network: [
+                  "*"
+              ],
 
-         fallback: [
+              fallback: [
 
-         ],
+              ],
 
-         preferOnline: false,
+              preferOnline: false,
 
-         timestamp: false,
-         hash: true
+              timestamp: false,
+              hash: true
 
-     });
+          })
+    .pipe(gulp.dest, dest.client);
 
-exports.process = lazypipe()
-    .pipe(function()
-          {
-              var from = dest.client + "/**/*";
-              var to = prep.manifest;
-
-              gulp.src(from)
-                  .pipe(exports.manifest())
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.regularLive = exports.regular
+    .pipe(livereloadPipes.normal);

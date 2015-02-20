@@ -12,67 +12,49 @@ var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.javascript = lazypipe()
-    .pipe(function()
-          {
-              var from = src.javascript;
-              var to = dest.javascript;
+    .pipe(gulp.src, src.javascript)
+    .pipe(gulp.dest, dest.javascript);
 
-              // Compile to Javascript
-              return gulp.src(from)
-                  // Output it to the scripts directory
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.javascriptLive = exports.javascript
+    .pipe(livereloadPipes.normal);
 
 exports.typescript = lazypipe()
+    .pipe(gulp.src, src.typescript)
+    .pipe(ts(
+              {
+                  // Try to keep it looking like
+                  // Javascript
+                  removeComments: false,
+                  noImplicitAny: true,
+                  noLib: false,
+                  target: "ES5",
+                  module: "commonjs",
+                  declarationFiles: false,
+                  noExternalResolve: false
+              })).js
+    .pipe(gulp.dest, dest.typescript);
 
-    .pipe(function()
-          {
-              var from = src.typescript;
-              var to = dest.typescript;
+exports.typescriptLive = exports.typescript
+    .pipe(livereloadPipes.normal);
 
-              // Compile to Javascript
-              return gulp.src(from).pipe(
-                  ts(
-                      {
-                          // Try to keep it looking like
-                          // Javascript
-                          removeComments: false,
-                          noImplicitAny: true,
-                          noLib: false,
-                          target: "ES5",
-                          module: "commonjs",
-                          declarationFiles: false,
-                          noExternalResolve: false
-                      }))
+exports.concat = lazypipe()
+    .pipe(gulp.src,
+          [
+              dest.client + "/" + prep.scripts_precompile,
+              dest.javascript + "/**/*.js",
+              dest.typescript + "/**/*.js"
+          ])
+    .pipe(concat, prep.scripts_concat)
+    .pipe(gulp.dest, dest.client);
 
-                  // Output it to the scripts directory
-                  .js.pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.concatLive = exports.concat
+    .pipe(livereloadPipes.normal);
 
-exports.process = lazypipe()
+exports.concatMinify = exports.concat
+    .pipe(rename, prep.styles_minified)
+    .pipe(uglify)
+    .pipe(gulp.dest, dest.client);
 
-    .pipe(function()
-          {
-              // Make sure when getting all the javascript files that we dont forget
-              // the bower javascript files as well, also ensure these go before the
-              // user supplied files
-              var from = [
-                  dest.client + "/" + prep.scripts_precompile,
-                  dest.javascript + "/**/*.js",
-                  dest.typescript + "/**/*.js"
-              ];
-
-              var to = dest.client;
-
-              return gulp.src(from)
-                  .pipe(concat(prep.scripts_concat))
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal())
-
-                  .pipe(rename(prep.scripts_minified))
-                  .pipe(uglify())
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.concatMinifyLive = exports.concatLive
+    .pipe(exports.concatMinify)
+    .pipe(livereloadPipes.normal);

@@ -4,49 +4,60 @@
 // the project config file to access these, never directly.
 module.exports =
 {
-    cleanAll: "clean",
-    cleanAllPrecompiled: "clean:precompiled",
+    cleanClient: "clean:client",
+    cleanRoot: "clean:root",
+    cleanPrecompiled: "clean:precompiled",
 
     cleanFonts: "clean:fonts",
     cleanMedia: "clean:media",
     cleanPartials: "clean:partials",
 
-    cleanScriptsJS: "clean:scripts:js",
-    cleanScriptsTS: "clean:scripts:ts",
-    cleanScriptsCoffee: "clean:scripts:coffee",
-    cleanScriptsConcat: "clean:scripts:concat",
-    cleanScriptsMinified: "clean:scripts:minified",
-    cleanScriptsPrecompile: "clean:scripts:precompiled",
-    cleanAllScripts: "clean:scripts",
+    cleanScriptsJS: "clean:scripts@js",
+    cleanScriptsTS: "clean:scripts@ts",
+    cleanScriptsCoffee: "clean:scripts@coffee",
+    cleanScriptsConcat: "clean:scripts@concat",
+    cleanScriptsMinified: "clean:scripts@minified",
+    cleanScriptsPrecompile: "clean:scripts@precompiled",
+    cleanScripts: "clean:scripts",
 
-    cleanStylesCSS: "clean:styles:css",
-    cleanStylesLess: "clean:styles:less",
-    cleanStylesStylus: "clean:styles:stylus",
-    cleanStylesConcat: "clean:styles:concat",
-    cleanStylesMinified: "clean:styles:minified",
-    cleanStylesPrecompile: "clean:styles:precompiled",
-    cleanAllStyles: "clean:styles",
+    cleanStylesCSS: "clean:styles@css",
+    cleanStylesLess: "clean:styles@less",
+    cleanStylesStylus: "clean:styles@stylus",
+    cleanStylesConcat: "clean:styles@concat",
+    cleanStylesMinified: "clean:styles@minified",
+    cleanStylesPrecompile: "clean:styles@precompiled",
+    cleanStyles: "clean:styles",
 
-    cleanManifest: "clean:scripts:concat",
+    cleanManifest: "clean:manifest",
+    clean: "clean",
 
-    build: "build",
+    liveReload: "livereload",
+    manifest: "manifest",
 
-    manifestAlone: "build:manifest:alone",
-
-    liveReloadFull: "livereload:full",
+    staticClient: "static:client",
+    staticMedia: "static:media",
+    staticPartials: "static:partials",
+    _static: "static",
 
     precompileScripts: "precompile:scripts",
     precompileStyles: "precompile:styles",
     precompileFonts: "precompile:fonts",
     precompileAll: "precompile:all",
+    precompile: "precompile",
 
-    prepJS: "prep:javascript",
-    prepTS: "prep:typescript",
-    prepScriptsFinalize: "prep:scripts-finalize",
-    prepScripts: "prep:scripts",
+    scriptsJS: "scripts:js",
+    scriptsTS: "scripts:ts",
+    scriptsConcat: "scripts:concat",
+    scriptsMinify: "scripts:minify",
+    scripts: "scripts",
 
-    prepCss: "prep:css",
-    prepStylus: "prep:stylus",
-    prepStylesFinalize: "prep:styles-finalize",
-    prepStyles: "prep:styles"
+    stylesCSS: "styles:css",
+    stylesStylus: "styles:stylus",
+    stylesConcat: "styles:concat",
+    stylesMinify: "styles:minify",
+    styles: "styles",
+
+    buildIncrement: "build:increment",
+    buildFresh: "build:fresh",
+    build: "build"
 };

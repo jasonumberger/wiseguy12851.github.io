@@ -13,36 +13,15 @@ var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.scripts = lazypipe()
-
-    .pipe(function()
-          {
-              var from = jsLibs;
-              var to = dest.client;
-
-              return gulp.src(from)
-                  .pipe(concat(prep.scripts_precompile))
-                  .pipe(gulp.dest(to));
-          });
+    .pipe(gulp.src, jsLibs)
+    .pipe(concat, prep.scripts_precompile)
+    .pipe(gulp.dest, dest.client);
 
 exports.styles = lazypipe()
-
-    .pipe(function()
-          {
-              var from = cssLibs;
-              var to = dest.client;
-
-              return gulp.src(from)
-                  .pipe(concat(prep.styles_precompile))
-                  .pipe(gulp.dest(to));
-          });
+    .pipe(gulp.src, cssLibs)
+    .pipe(concat, prep.styles_precompile)
+    .pipe(gulp.dest, dest.client);
 
 exports.fonts = lazypipe()
-
-    .pipe(function()
-          {
-              var from = fontLibs.concat([src.fonts]);
-              var to = dest.fonts;
-
-              return gulp.src(from)
-                  .pipe(gulp.dest(to));
-          });
+    .pipe(gulp.src, fontLibs.concat([src.fonts]))
+    .pipe(gulp.dest, dest.fonts);

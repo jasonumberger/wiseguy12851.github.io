@@ -32,3 +32,11 @@ gulp.task(
                     names.precompileFonts],
                     cb);
     });
+
+gulp.task(
+    names.precompile, function(cb)
+    {
+        runSequence([
+                        names.precompileAll
+                    ], cb);
+    });

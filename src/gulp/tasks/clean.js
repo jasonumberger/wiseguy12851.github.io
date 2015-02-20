@@ -8,9 +8,23 @@ var cleanPipes = require("../pipes/clean");
 // Erase the build folder, this erases everything that gulp ever processed or touched
 // resulting in a complete revert of anything gulp might have done
 
-gulp.task(names.cleanAll, function()
+gulp.task(names.cleanClient, function()
 {
-    return cleanPipes.all();
+    return cleanPipes.client();
+});
+
+gulp.task(names.cleanRoot, function()
+{
+    return cleanPipes.root();
+});
+
+gulp.task(names.cleanPrecompiled, function(cb)
+{
+    runSequence([
+                    names.cleanScriptsPrecompile,
+                    names.cleanStylesPrecompile,
+                    names.cleanFonts
+                ], cb);
 });
 
 gulp.task(names.cleanFonts, function()
@@ -58,7 +72,7 @@ gulp.task(names.cleanScriptsPrecompile, function()
     return cleanPipes.scriptsPrecompile();
 });
 
-gulp.task(names.cleanAllScripts, function(cb)
+gulp.task(names.cleanScripts, function(cb)
 {
     runSequence([
                     names.cleanScriptsJS,
@@ -100,7 +114,7 @@ gulp.task(names.cleanStylesPrecompile, function()
     return cleanPipes.stylesPrecompile();
 });
 
-gulp.task(names.cleanAllStyles, function(cb)
+gulp.task(names.cleanStyles, function(cb)
 {
     runSequence([
                     names.cleanStylesCSS,
@@ -112,16 +126,14 @@ gulp.task(names.cleanAllStyles, function(cb)
                 ], cb);
 });
 
-gulp.task(names.cleanAllPrecompiled, function(cb)
-{
-    runSequence([
-                    names.cleanScriptsPrecompile,
-                    names.cleanStylesPrecompile,
-                    names.cleanFonts
-                ], cb);
-});
-
 gulp.task(names.cleanManifest, function()
 {
     return cleanPipes.manifest();
+});
+
+gulp.task(names.clean, function(cb)
+{
+    runSequence([
+                    names.cleanRoot
+                ], cb);
 });

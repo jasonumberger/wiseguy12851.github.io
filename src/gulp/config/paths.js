@@ -32,6 +32,7 @@ exports.source =
 // Directly copy source to here, no processing is done
 exports.destination =
 {
+    root: "./build",
     client: "./build/final",
     fonts: "./build/final/fonts",
     media: "./build/final/media",

@@ -6,121 +6,36 @@ var del = require("../logic/delete");
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
-exports.all = lazypipe()
+function makeDelPipe(path)
+{
+    return lazypipe()
+        .pipe(function()
+              {
+                  del(path);
+              });
+}
 
-    .pipe(function()
-          {
-              del(dest.client);
-          });
+exports.root = makeDelPipe(dest.root);
+exports.client = makeDelPipe(dest.client);
 
-exports.fonts = lazypipe()
+exports.fonts = makeDelPipe(dest.fonts);
+exports.media = makeDelPipe(dest.media);
+exports.partials = makeDelPipe(dest.partials);
 
-    .pipe(function()
-          {
-              del(dest.fonts);
-          });
+exports.scriptsJS = makeDelPipe(dest.javascript + "/**/*.js");
+exports.scriptsTS = makeDelPipe(dest.typescript + "/**/*.ts");
+exports.scriptsCoffee = makeDelPipe(dest.coffeescript + "/**/*.coffee");
 
-exports.media = lazypipe()
+exports.scriptsConcat = makeDelPipe(dest.client + "/" + prep.scripts_concat);
+exports.scriptsMinified = makeDelPipe(dest.client + "/" + prep.scripts_minified);
+exports.scriptsPrecompile = makeDelPipe(dest.client + "/" + prep.scripts_precompile);
 
-    .pipe(function()
-          {
-              del(dest.media);
-          });
+exports.stylesCSS = makeDelPipe(dest.css + "/**/*.css");
+exports.stylesLess = makeDelPipe(dest.less + "/**/*.less");
+exports.stylesStylus = makeDelPipe(dest.stylus + "/**/*.styl");
 
-exports.partials = lazypipe()
+exports.stylesConcat = makeDelPipe(dest.client + "/" + prep.styles_concat);
+exports.stylesMinified = makeDelPipe(dest.client + "/" + prep.styles_minified);
+exports.stylesPrecompile = makeDelPipe(dest.client + "/" + prep.styles_precompile);
 
-    .pipe(function()
-          {
-              del(dest.partials);
-          });
-
-exports.scriptsJS = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.javascript + "/**/*.js");
-          });
-
-exports.scriptsTS = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.typescript + "/**/*.ts");
-          });
-
-exports.scriptsCoffee = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.coffeescript + "/**/*.coffee");
-          });
-
-exports.scriptsConcat = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.scripts_concat);
-          });
-
-exports.scriptsMinified = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.scripts_minified);
-          });
-
-exports.scriptsPrecompile = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.scripts_precompile);
-          });
-
-exports.stylesCSS = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.css + "/**/*.css");
-          });
-
-exports.stylesLess = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.less + "/**/*.less");
-          });
-
-exports.stylesStylus = lazypipe()
-
-    .pipe(function()
-          {
-              del(dest.stylus + "/**/*.stylus");
-          });
-
-exports.stylesConcat = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.styles_concat);
-          });
-
-exports.stylesMinified = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.styles_minified);
-          });
-
-exports.stylesPrecompile = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.styles_precompile);
-          });
-
-exports.manifest = lazypipe()
-
-    .pipe(function()
-          {
-              del(prep.manifest);
-          });
+exports.manifest = makeDelPipe(dest.client + "/" + prep.manifest);

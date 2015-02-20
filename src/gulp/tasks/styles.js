@@ -6,30 +6,36 @@ var names = require("../../../project/config").gulp.names;
 var runSequence = require('run-sequence');
 
 gulp.task(
-    names.prepCss, function()
+    names.stylesCSS, function()
     {
         return stylePipes.css();
     });
 
 gulp.task(
-    names.prepStylus, function()
+    names.stylesStylus, function()
     {
         return stylePipes.stylus();
     });
 
 gulp.task(
-    names.prepStylesFinalize, function()
+    names.stylesConcat, function()
     {
-        return stylePipes.process();
+        return stylePipes.concat();
     });
 
 gulp.task(
-    names.prepStyles, function(cb)
+    names.stylesMinify, function()
+    {
+        return stylePipes.minify();
+    });
+
+gulp.task(
+    names.styles, function(cb)
     {
         runSequence([
-                        names.prepCss,
-                        names.prepStylus
+                        names.stylesCSS,
+                        names.stylesStylus
                     ],
-                    names.prepStylesFinalize,
+                    names.stylesMinify,
                     cb);
     });

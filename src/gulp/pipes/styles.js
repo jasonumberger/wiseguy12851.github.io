@@ -15,81 +15,70 @@ var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.css = lazypipe()
+    .pipe(gulp.src, src.css)
+    .pipe(gulp.dest, dest.css);
 
-    .pipe(function()
-          {
-              var from = src.css;
-              var to = dest.css;
+exports.cssLive = exports.css
+    .pipe(livereloadPipes.normal);
 
-              // Compile to Javascript
-              return gulp.src(from)
-                  // Output it to the scripts directory
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.cssPrefix = exports.css
+    .pipe(autoprefix);
+
+exports.cssPrefixLive = exports.css
+    .pipe(autoprefix)
+    .pipe(exports.cssLive);
 
 exports.stylus = lazypipe()
+    .pipe(gulp.src, src.stylus)
+    .pipe(stylus,
+        {
 
-    .pipe(function()
-          {
-              var from = src.stylus;
-              var to = dest.stylus;
+            // Preset some variables
+            define: {},
 
-              return gulp.src(from).pipe(
-                  stylus(
-                      {
+            // Search paths for @import
+            include: stylusLibs,
 
-                          // Preset some variables
-                          define: {},
+            // Files to import anyways
+            "import": [],
 
-                          // Search paths for @import
-                          include: stylusLibs,
+            // Extend features and capability of stylus
+            use:
+            [
+               nib()
+            ]
+        })
+    .pipe(gulp.dest, dest.stylus);
 
-                          // Files to import anyways
-                          "import": [],
+exports.stylusLive = exports.stylus
+    .pipe(livereloadPipes.normal);
 
-                          // Extend features and capability of stylus
-                          use: [
-                              nib()
-                          ]
-                      }))
+exports.stylusPrefix = exports.stylus
+    .pipe(autoprefix);
 
-                  // Auto prefix for last 2 versions of each browser
-                  .pipe(autoprefix("last 2 version"))
+exports.stylusPrefixLive = exports.stylus
+    .pipe(autoprefix)
+    .pipe(exports.stylusLive);
 
-                  // Throw compiled css files to the styles directory
-                  .pipe(gulp.dest(to)).pipe(livereloadPipes.normal());
-          });
+exports.concat = lazypipe()
+    .pipe(gulp.src,
+          [
+              dest.client + "/" + prep.styles_precompile,
+              dest.css + "/**/*.css",
+              dest.less + "/**/*.css",
+              dest.stylus + "/**/*.css"
+          ])
+    .pipe(concat, prep.styles_concat)
+    .pipe(gulp.dest, dest.client);
 
-exports.process = lazypipe()
+exports.concatLive = exports.concat
+    .pipeEnd(livereloadPipes.normal);
 
-    .pipe(function()
-          {
-              // Make sure when getting all the javascript files that we dont forget
-              // the bower javascript files as well, also ensure these go before the
-              // user supplied files
-              var from = [
-                  dest.client + "/" + prep.styles_precompile,
-                  dest.css + "/**/*.css",
-                  dest.less + "/**/*.css",
-                  dest.stylus + "/**/*.css"
-              ];
-              var to = dest.client;
+exports.concatMinify = exports.concat
+    .pipe(rename, prep.styles_minified)
+    .pipe(minifyCss)
+    .pipe(gulp.dest, dest.client);
 
-              return gulp.src(from)
-
-                  // Concatenate all javascript files into one
-                  // to place some files before or after, use alphabetical
-                  // ordering on the necasary files names
-                  // output to build diretory
-                  .pipe(concat(prep.styles_concat))
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal())
-
-                  // Then compress it down tight and
-                  // output to same directory under .min.js
-                  .pipe(rename(prep.styles_minified))
-                  .pipe(minifyCss())
-                  .pipe(gulp.dest(to))
-                  .pipe(livereloadPipes.normal());
-          });
+exports.concatMinifyLive = exports.concatLive
+    .pipe(exports.minify)
+    .pipeEnd(livereloadPipes.normal);
