@@ -50,11 +50,11 @@ exports.destination =
 // here
 exports.preperation =
 {
-    scripts_concat: "./build/final/scripts/build.js",
-    scripts_minified: "./build/final/scripts/build.min.js",
-    scripts_precompile: "./build/final/scripts/precompile.js",
-    styles_concat: "./build/final/styles/build.js",
-    styles_minified: "./build/final/styles/build.min.js",
-    styles_precompile: "./build/final/styles/precompile.css",
-    manifest: "./build/final/app.manifest"
+    scripts_concat: "build.js",
+    scripts_minified: "build.min.js",
+    scripts_precompile: "precompile.js",
+    styles_concat: "build.css",
+    styles_minified: "build.min.css",
+    styles_precompile: "precompile.css",
+    manifest: "app.manifest"
 };

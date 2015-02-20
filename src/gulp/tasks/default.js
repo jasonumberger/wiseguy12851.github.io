@@ -7,7 +7,8 @@ var names = require("../../../project/config").gulp.names;
 
 gulp.task("default", function(cb)
 {
-    runSequence(names.build,
+    runSequence([names.prepScripts,
+                names.prepStyles],
                 names.liveReloadFull,
                 cb);
 });

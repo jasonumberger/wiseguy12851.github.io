@@ -1,21 +1,17 @@
+var gulp = require("gulp");
 var lazypipe = require('lazypipe');
-var start = require("./start");
 
 var ts = require("gulp-typescript");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var rename = require("gulp-rename");
-var livereload = require("../logic/livereload");
+var livereloadPipes = require("./livereload");
 
-var jsLibs = require("../../../project/config").gulp.paths.js;
-var cssLibs = require("../../../project/config").gulp.paths.css;
-var fontLibs = require("../../../project/config").gulp.paths.fonts;
 var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.javascript = lazypipe()
-    .pipe(start)
     .pipe(function()
           {
               var from = src.javascript;
@@ -25,11 +21,11 @@ exports.javascript = lazypipe()
               return gulp.src(from)
                   // Output it to the scripts directory
                   .pipe(gulp.dest(to))
-                  .pipe(livereload());
+                  .pipe(livereloadPipes.normal());
           });
 
 exports.typescript = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = src.typescript;
@@ -52,29 +48,31 @@ exports.typescript = lazypipe()
 
                   // Output it to the scripts directory
                   .js.pipe(gulp.dest(to))
-                  .pipe(livereload());
+                  .pipe(livereloadPipes.normal());
           });
 
 exports.process = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               // Make sure when getting all the javascript files that we dont forget
               // the bower javascript files as well, also ensure these go before the
               // user supplied files
               var from = [
-                  prep.scripts_precompile,
-                  dest.javascript + "/**/*.js"
+                  dest.client + "/" + prep.scripts_precompile,
+                  dest.javascript + "/**/*.js",
+                  dest.typescript + "/**/*.js"
               ];
+
               var to = dest.client;
 
               return gulp.src(from)
-                  .pipe(concat("build.js"))
+                  .pipe(concat(prep.scripts_concat))
                   .pipe(gulp.dest(to))
-                  .pipe(livereload())
+                  .pipe(livereloadPipes.normal())
 
-                  .pipe(rename("build.min.js"))
+                  .pipe(rename(prep.scripts_minified))
                   .pipe(uglify())
                   .pipe(gulp.dest(to))
-                  .pipe(livereload());
+                  .pipe(livereloadPipes.normal());
           });

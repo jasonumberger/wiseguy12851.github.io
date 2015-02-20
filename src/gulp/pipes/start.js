@@ -21,5 +21,7 @@ var firstRun = lazypipe()
 module.exports = lazypipe()
     .pipe(function()
     {
-        return gulpif(!cache.get("start"), firstRun());
+        // Disabled until replacement found
+        // Seems this is abandoned
+        //return gulpif(!cache.get("start"), firstRun());
     });

@@ -1,7 +1,7 @@
 "use strict";
 
+var gulp = require("gulp");
 var lazypipe = require('lazypipe');
-var start = require("./start");
 
 var concat = require("gulp-concat");
 
@@ -13,7 +13,7 @@ var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.scripts = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = jsLibs;
@@ -25,7 +25,7 @@ exports.scripts = lazypipe()
           });
 
 exports.styles = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = cssLibs;
@@ -37,7 +37,7 @@ exports.styles = lazypipe()
           });
 
 exports.fonts = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = fontLibs.concat([src.fonts]);

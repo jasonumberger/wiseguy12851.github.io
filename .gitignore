@@ -12,3 +12,6 @@ Thumbs.db
 
 #Until I have time to go through all waht needs to be included and not included
 .idea/
+
+# All build files go here
+build/

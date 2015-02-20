@@ -42,9 +42,11 @@ module.exports =
 
     prepJS: "prep:javascript",
     prepTS: "prep:typescript",
-    prepScriptsFinalize: "prep:scripts",
+    prepScriptsFinalize: "prep:scripts-finalize",
+    prepScripts: "prep:scripts",
 
     prepCss: "prep:css",
     prepStylus: "prep:stylus",
-    prepStylesFinalize: "prep:styles"
+    prepStylesFinalize: "prep:styles-finalize",
+    prepStyles: "prep:styles"
 };

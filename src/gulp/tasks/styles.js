@@ -18,12 +18,18 @@ gulp.task(
     });
 
 gulp.task(
-    names.prepStylesFinalize, function(cb)
+    names.prepStylesFinalize, function()
+    {
+        return stylePipes.process();
+    });
+
+gulp.task(
+    names.prepStyles, function(cb)
     {
         runSequence([
-            names.prepCss,
-            names.prepStylus
-        ]);
-
-        return stylePipes.process();
+                        names.prepCss,
+                        names.prepStylus
+                    ],
+                    names.prepStylesFinalize,
+                    cb);
     });

@@ -27,8 +27,8 @@ gulp.task(
 gulp.task(
     names.precompileAll, function(cb)
     {
-        runSequence(names.precompileScripts,
+        runSequence([names.precompileScripts,
                     names.precompileStyles,
-                    names.precompileFonts,
+                    names.precompileFonts],
                     cb);
     });

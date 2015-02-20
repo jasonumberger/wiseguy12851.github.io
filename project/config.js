@@ -20,7 +20,7 @@ module.exports = require('rc')("wiseguy12851",
             prep: require("../src/gulp/config/paths").preperation,
 
             // Bower CSS Libraries
-            css: require("../src/gulp/config/css-paths"),
+            css: require("../src/gulp/config/css-libraries"),
 
             // Bower Font Libraries
             fonts: require("../src/gulp/config/font-libraries"),

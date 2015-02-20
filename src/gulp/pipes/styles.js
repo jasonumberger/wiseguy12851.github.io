@@ -1,5 +1,5 @@
 var lazypipe = require('lazypipe');
-var start = require("./start");
+var gulp = require("gulp");
 
 var concat = require("gulp-concat");
 var rename = require("gulp-rename");
@@ -7,17 +7,15 @@ var stylus = require("gulp-stylus");
 var autoprefix = require("gulp-autoprefixer");
 var minifyCss = require("gulp-minify-css");
 var nib = require("nib");
-var livereload = require("../logic/livereload");
+var livereloadPipes = require("./livereload");
 
 var stylusLibs = require("../../../project/config").gulp.paths.stylus;
-var cssLibs = require("../../../project/config").gulp.paths.css;
-var fontLibs = require("../../../project/config").gulp.paths.fonts;
 var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 exports.css = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = src.css;
@@ -27,11 +25,11 @@ exports.css = lazypipe()
               return gulp.src(from)
                   // Output it to the scripts directory
                   .pipe(gulp.dest(to))
-                  .pipe(livereload());
+                  .pipe(livereloadPipes.normal());
           });
 
 exports.stylus = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               var from = src.stylus;
@@ -60,18 +58,18 @@ exports.stylus = lazypipe()
                   .pipe(autoprefix("last 2 version"))
 
                   // Throw compiled css files to the styles directory
-                  .pipe(gulp.dest(to)).pipe(livereload());
+                  .pipe(gulp.dest(to)).pipe(livereloadPipes.normal());
           });
 
 exports.process = lazypipe()
-    .pipe(start)
+
     .pipe(function()
           {
               // Make sure when getting all the javascript files that we dont forget
               // the bower javascript files as well, also ensure these go before the
               // user supplied files
               var from = [
-                  prep.styles_precompile,
+                  dest.client + "/" + prep.styles_precompile,
                   dest.css + "/**/*.css",
                   dest.less + "/**/*.css",
                   dest.stylus + "/**/*.css"
@@ -84,14 +82,14 @@ exports.process = lazypipe()
                   // to place some files before or after, use alphabetical
                   // ordering on the necasary files names
                   // output to build diretory
-                  .pipe(concat("build.css"))
+                  .pipe(concat(prep.styles_concat))
                   .pipe(gulp.dest(to))
-                  .pipe(livereload())
+                  .pipe(livereloadPipes.normal())
 
                   // Then compress it down tight and
                   // output to same directory under .min.js
-                  .pipe(rename("build.min.css"))
+                  .pipe(rename(prep.styles_minified))
                   .pipe(minifyCss())
                   .pipe(gulp.dest(to))
-                  .pipe(livereload());
+                  .pipe(livereloadPipes.normal());
           });
