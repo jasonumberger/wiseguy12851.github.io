@@ -27,3 +27,30 @@ exports.partials = lazypipe()
 exports.partialsLive = exports.partials
     .pipe(livereloadPipes.normal);
 
+exports.typescript = lazypipe()
+    .pipe(gulp.src, src.typescript)
+    .pipe(gulp.dest, dest.typescript);
+
+exports.typescriptLive = exports.typescript
+    .pipe(livereloadPipes.normal);
+
+exports.coffeescript = lazypipe()
+    .pipe(gulp.src, src.coffeescript)
+    .pipe(gulp.dest, dest.coffeescript);
+
+exports.coffeescriptLive = exports.coffeescript
+    .pipe(livereloadPipes.normal);
+
+exports.less = lazypipe()
+    .pipe(gulp.src, src.less)
+    .pipe(gulp.dest, dest.less);
+
+exports.lessLive = exports.less
+    .pipe(livereloadPipes.normal);
+
+exports.stylus = lazypipe()
+    .pipe(gulp.src, src.stylus)
+    .pipe(gulp.dest, dest.stylus);
+
+exports.stylusLive = exports.stylus
+    .pipe(livereloadPipes.normal);

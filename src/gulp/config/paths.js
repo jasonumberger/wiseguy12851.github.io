@@ -33,18 +33,18 @@ exports.source =
 exports.destination =
 {
     root: "./build",
-    client: "./build/final",
-    fonts: "./build/final/fonts",
-    media: "./build/final/media",
-    partials: "./build/final/partials",
+    client: "./build/client",
+    fonts: "./build/client/fonts",
+    media: "./build/client/media",
+    partials: "./build/client/partials",
 
-    javascript: "./build/final/scripts",
-    typescript: "./build/final/scripts",
-    coffeescript: "./build/final/scripts",
+    javascript: "./build/client/scripts",
+    typescript: "./build/client/scripts",
+    coffeescript: "./build/client/scripts",
 
-    css: "./build/final/styles",
-    less: "./build/final/styles",
-    stylus: "./build/final/styles"
+    css: "./build/client/styles",
+    less: "./build/client/styles",
+    stylus: "./build/client/styles"
 };
 
 // These take from the source, do stuff with them, and then place them

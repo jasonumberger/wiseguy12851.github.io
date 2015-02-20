@@ -26,7 +26,7 @@ gulp.task(
 gulp.task(
     names.stylesMinify, function()
     {
-        return stylePipes.minify();
+        return stylePipes.concatMinify();
     });
 
 gulp.task(

@@ -72,7 +72,7 @@ exports.concat = lazypipe()
     .pipe(gulp.dest, dest.client);
 
 exports.concatLive = exports.concat
-    .pipeEnd(livereloadPipes.normal);
+    .pipe(livereloadPipes.normal);
 
 exports.concatMinify = exports.concat
     .pipe(rename, prep.styles_minified)
@@ -80,5 +80,5 @@ exports.concatMinify = exports.concat
     .pipe(gulp.dest, dest.client);
 
 exports.concatMinifyLive = exports.concatLive
-    .pipe(exports.minify)
-    .pipeEnd(livereloadPipes.normal);
+    .pipe(exports.concatMinify)
+    .pipe(livereloadPipes.normal);

@@ -26,7 +26,7 @@ gulp.task(
 gulp.task(
     names.scriptsMinify, function()
     {
-        return scriptPipes.minify();
+        return scriptPipes.concatMinify();
     });
 
 gulp.task(

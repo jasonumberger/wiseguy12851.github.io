@@ -37,6 +37,10 @@ module.exports =
     staticClient: "static:client",
     staticMedia: "static:media",
     staticPartials: "static:partials",
+    staticTS: "static:typescript",
+    staticCoffeescript: "static:coffeescript",
+    staticLess: "static:less",
+    staticStylus: "static:stylus",
     _static: "static",
 
     precompileScripts: "precompile:scripts",

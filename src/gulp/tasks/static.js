@@ -20,13 +20,37 @@ gulp.task(names.staticPartials, function()
     return staticPipes.partials();
 });
 
+gulp.task(names.staticTS, function()
+{
+    return staticPipes.typescript();
+});
+
+gulp.task(names.staticCoffeescript, function()
+{
+    return staticPipes.coffeescript();
+});
+
+gulp.task(names.staticLess, function()
+{
+    return staticPipes.less();
+});
+
+gulp.task(names.staticStylus, function()
+{
+    return staticPipes.stylus();
+});
+
 gulp.task(names._static, function(cb)
 {
     runSequence(
         [
             names.staticClient,
             names.staticMedia,
-            names.staticPartials
+            names.staticPartials,
+            names.staticTS,
+            names.staticCoffeescript,
+            names.staticLess,
+            names.staticStylus
         ],
         cb);
 });

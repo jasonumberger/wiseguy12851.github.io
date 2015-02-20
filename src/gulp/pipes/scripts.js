@@ -20,18 +20,20 @@ exports.javascriptLive = exports.javascript
 
 exports.typescript = lazypipe()
     .pipe(gulp.src, src.typescript)
-    .pipe(ts(
-              {
-                  // Try to keep it looking like
-                  // Javascript
-                  removeComments: false,
-                  noImplicitAny: true,
-                  noLib: false,
-                  target: "ES5",
-                  module: "commonjs",
-                  declarationFiles: false,
-                  noExternalResolve: false
-              })).js
+    .pipe(function()
+           {
+               return ts({
+                   // Try to keep it looking like
+                   // Javascript
+                   removeComments: false,
+                   noImplicitAny: true,
+                   noLib: false,
+                   target: "ES5",
+                   module: "commonjs",
+                   declarationFiles: false,
+                   noExternalResolve: false
+               }).js;
+           })
     .pipe(gulp.dest, dest.typescript);
 
 exports.typescriptLive = exports.typescript
@@ -51,7 +53,7 @@ exports.concatLive = exports.concat
     .pipe(livereloadPipes.normal);
 
 exports.concatMinify = exports.concat
-    .pipe(rename, prep.styles_minified)
+    .pipe(rename, prep.scripts_minified)
     .pipe(uglify)
     .pipe(gulp.dest, dest.client);
 

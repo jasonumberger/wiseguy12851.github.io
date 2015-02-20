@@ -1,5 +1,6 @@
 "use strict";
 
+var gulp = require("gulp");
 var names = require("../../../project/config").gulp.names;
 var runSequence = require('run-sequence');
 
@@ -20,7 +21,7 @@ gulp.task(
     {
         runSequence(
                     names.clean,
-                    names.preload,
+                    names.precompile,
                     names.buildIncrement,
                     cb);
     });
