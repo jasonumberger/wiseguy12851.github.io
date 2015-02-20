@@ -61,6 +61,7 @@
     "nib": "*",
     "rc": "*",
     "run-sequence": "*",
-    "yargs": "*"
+    "yargs": "*",
+    "node-webkit-builder": "*"
   }
 }
