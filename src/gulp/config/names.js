@@ -4,6 +4,10 @@
 // the project config file to access these, never directly.
 module.exports =
 {
+    bowerUpdate: "bower:update",
+    bowerInstall: "bower:install",
+    bower: "bower",
+
     cleanClient: "clean:client",
     cleanRoot: "clean:root",
     cleanPrecompiled: "clean:precompiled",
@@ -65,5 +69,6 @@ module.exports =
 
     buildIncrement: "build:increment",
     buildFresh: "build:fresh",
-    build: "build"
+    build: "build",
+    init: "init"
 };

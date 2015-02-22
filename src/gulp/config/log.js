@@ -5,5 +5,6 @@
 
 module.exports =
 {
-    logLevel: "info"
+    // error, warn, success, or debug
+    enabledLogLevels: ["error", "warn", "success", "debug"]
 };

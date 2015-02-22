@@ -2,14 +2,15 @@
 
 var lazypipe = require('lazypipe');
 var del = require("del");
+var log = require("../wrapper/log");
 
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 function makeDelPipe(path)
 {
-    return lazypipe().pipe(
-        function()
+    return lazypipe()
+        .pipe(function()
         {
             del(path);
         });

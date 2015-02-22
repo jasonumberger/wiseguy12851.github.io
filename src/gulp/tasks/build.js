@@ -33,3 +33,12 @@ gulp.task(
             names.buildIncrement,
             cb);
     });
+
+gulp.task(
+    names.init, function(cb)
+    {
+        runSequence(
+            names.bowerInstall,
+            names.buildFresh,
+            cb);
+    });
