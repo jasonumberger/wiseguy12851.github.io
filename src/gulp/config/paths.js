@@ -6,6 +6,12 @@
 // Project source files
 exports.source =
 {
+    // Initial Webpage (Production)
+    initPageProd: "./index.html",
+
+    // Initial Webpage (Development)
+    initPageDev: "./index-dev.html",
+
     // Project public root files
     client: "./src/client/*",
 

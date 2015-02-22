@@ -56,12 +56,12 @@
     "lazypipe": "*",
     "lodash": "*",
     "log": "*",
-    "mem-cache": "0.0.4",
     "mkdirp": "*",
     "nib": "*",
     "rc": "*",
     "run-sequence": "*",
     "yargs": "*",
-    "node-webkit-builder": "*"
+    "node-webkit-builder": "*",
+    "base-cache": "*"
   }
 }

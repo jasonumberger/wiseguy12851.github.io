@@ -1,7 +1,7 @@
 "use strict";
 
 var gulp = require("gulp");
-var livereload = require("../logic/livereload");
+var livereload = require("../wrapper/livereload");
 var runSequence = require('run-sequence');
 var names = require("../../../project/config").gulp.names;
 

@@ -1,7 +1,7 @@
 "use strict";
 
 var lazypipe = require('lazypipe');
-var livereload = require("../logic/livereload");
+var livereload = require("../wrapper/livereload");
 
 exports.normal = lazypipe()
     .pipe(livereload);

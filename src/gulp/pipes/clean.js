@@ -1,18 +1,18 @@
 "use strict";
 
 var lazypipe = require('lazypipe');
-var del = require("../logic/delete");
+var del = require("del");
 
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
 function makeDelPipe(path)
 {
-    return lazypipe()
-        .pipe(function()
-              {
-                  del(path);
-              });
+    return lazypipe().pipe(
+        function()
+        {
+            del(path);
+        });
 }
 
 exports.root = makeDelPipe(dest.root);
