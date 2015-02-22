@@ -10,6 +10,6 @@ angular.module('app').config(["$stateProvider", "$urlRouterProvider", "$location
         .state('glyph-test',
         {
             url: '/glyph',
-            templateUrl: '/src/partials/fragments/glyph-test.html'
+            templateUrl: '/build/client/partials/fragments/glyph-test.html'
         });
 }]);
