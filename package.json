@@ -62,6 +62,8 @@
     "run-sequence": "*",
     "yargs": "*",
     "node-webkit-builder": "*",
-    "base-cache": "*"
+    "base-cache": "*",
+    "vinyl-source-stream": "*",
+    "fs-readdir-recursive": "*"
   }
 }

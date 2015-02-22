@@ -18,6 +18,12 @@ gulp.task(
     });
 
 gulp.task(
+    names.scriptsBrowserify, function()
+    {
+        return scriptPipes.browserify();
+    });
+
+gulp.task(
     names.scriptsConcat, function()
     {
         return scriptPipes.concat();
@@ -36,6 +42,7 @@ gulp.task(
             names.scriptsJS,
             names.scriptsTS
         ],
+        names.scriptsBrowserify,
         names.scriptsMinify,
         cb);
     });

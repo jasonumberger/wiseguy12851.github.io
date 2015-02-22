@@ -18,6 +18,7 @@ module.exports =
     cleanScriptsConcat: "clean:scripts@concat",
     cleanScriptsMinified: "clean:scripts@minified",
     cleanScriptsPrecompile: "clean:scripts@precompiled",
+    cleanScriptsBrowserify: "clean:scripts@browserify",
     cleanScripts: "clean:scripts",
 
     cleanStylesCSS: "clean:styles@css",
@@ -51,6 +52,7 @@ module.exports =
 
     scriptsJS: "scripts:js",
     scriptsTS: "scripts:ts",
+    scriptsBrowserify: "scripts:browserify",
     scriptsConcat: "scripts:concat",
     scriptsMinify: "scripts:minify",
     scripts: "scripts",

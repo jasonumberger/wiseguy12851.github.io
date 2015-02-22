@@ -57,6 +57,11 @@ gulp.task(names.cleanScriptsCoffee, function()
     return cleanPipes.scriptsCoffee();
 });
 
+gulp.task(names.cleanScriptsBrowserify, function()
+{
+    return cleanPipes.scriptsBrowserify();
+});
+
 gulp.task(names.cleanScriptsConcat, function()
 {
     return cleanPipes.scriptsConcat();
@@ -78,6 +83,7 @@ gulp.task(names.cleanScripts, function(cb)
                     names.cleanScriptsJS,
                     names.cleanScriptsTS,
                     names.cleanScriptsCoffee,
+                    names.cleanScriptsBrowserify,
                     names.cleanScriptsConcat,
                     names.cleanScriptsMinified,
                     names.cleanScriptsPrecompile

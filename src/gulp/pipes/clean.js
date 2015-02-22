@@ -26,6 +26,7 @@ exports.scriptsJS = makeDelPipe(dest.javascript + "/**/*.js");
 exports.scriptsTS = makeDelPipe(dest.typescript + "/**/*.ts");
 exports.scriptsCoffee = makeDelPipe(dest.coffeescript + "/**/*.coffee");
 
+exports.scriptsBrowserify = makeDelPipe(dest.client + "/" + prep.scripts_browserify);
 exports.scriptsConcat = makeDelPipe(dest.client + "/" + prep.scripts_concat);
 exports.scriptsMinified = makeDelPipe(dest.client + "/" + prep.scripts_minified);
 exports.scriptsPrecompile = makeDelPipe(dest.client + "/" + prep.scripts_precompile);

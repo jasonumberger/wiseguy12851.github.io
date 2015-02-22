@@ -6,6 +6,7 @@ build.css
 build.js
 build.min.css
 build.min.js
+bundle.js
 precompile.css
 precompile.js
 fonts/FontAwesome.otf
@@ -25,8 +26,6 @@ fonts/icomoon.woff
 media/README.md
 partials/fragments/glyph-test.html
 partials/fragments/navbar.html
-scripts/02-custom/test.js
-scripts/02-custom/test.ts
 styles/00-Frameworks/bootstrap-variables.css
 styles/00-Frameworks/bootstrap-variables.styl
 styles/00-Frameworks/bootstrap.css
@@ -35,9 +34,9 @@ styles/00-Frameworks/font-awesome.css
 styles/00-Frameworks/icomoon.css
 styles/01-Custom/main.css
 styles/01-Custom/main.styl
-scripts/02-custom/00-modules/app.js
-scripts/02-custom/01-controllers/main.js
-scripts/02-custom/02-config/config.js
+scripts/app/00-modules/app.js
+scripts/app/config/app.js
+scripts/app/controllers/main.js
 
 
 NETWORK:
@@ -46,4 +45,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 49d87def7c74e834b127f8f56629df6ae0a53528788e5ba014a48d8217649714
+# hash: 8721aecba3dace64e3e0546e7d5c0226503da727a9709575c860b943bf41dffd

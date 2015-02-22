@@ -60,6 +60,7 @@ exports.preperation =
     scripts_concat: "build.js",
     scripts_minified: "build.min.js",
     scripts_precompile: "precompile.js",
+    scripts_browserify: "bundle.js",
     styles_concat: "build.css",
     styles_minified: "build.min.css",
     styles_precompile: "precompile.css",
