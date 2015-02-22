@@ -36,8 +36,8 @@ styles/00-Frameworks/icomoon.css
 styles/01-Custom/main.css
 styles/01-Custom/main.styl
 scripts/02-custom/00-modules/app.js
-scripts/02-custom/02-config/config.js
 scripts/02-custom/01-controllers/main.js
+scripts/02-custom/02-config/config.js
 
 
 NETWORK:
@@ -46,4 +46,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 84482c66ff841d9bdb6808eb4f39618567d93999d58c09ba58dc8f5c7e182829
+# hash: 49d87def7c74e834b127f8f56629df6ae0a53528788e5ba014a48d8217649714
