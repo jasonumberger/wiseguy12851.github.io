@@ -18,6 +18,7 @@ module.exports =
     "./bower_components/fullcalendar/fullcalendar.js",
     "./bower_components/jqplot/jquery.jqplot.js",
     "./bower_components/jqplot/plugins/**/*.min.js",
+    "./bower_components/phaser/build/phaser.js",
 
     // jQuery Plugins
     "./bower_components/jquery.finger/dist/jquery.finger.js", // Powerful touch support and mouse fallback

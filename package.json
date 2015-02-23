@@ -21,7 +21,6 @@
     "browserify": "*",
     "chalk": "*",
     "del": "*",
-    "eslint": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-cache": "*",
@@ -65,6 +64,7 @@
     "base-cache": "*",
     "vinyl-source-stream": "*",
     "fs-readdir-recursive": "*",
-    "gulp-bower": "*"
+    "gulp-bower": "*",
+    "gulp-eslint": "*"
   }
 }

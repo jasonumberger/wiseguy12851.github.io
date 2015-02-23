@@ -30,8 +30,9 @@ exports.typescript = lazypipe()
                    // Try to keep it looking like
                    // Javascript
                    removeComments: false,
-                   noImplicitAny: true,
+                   noImplicitAny: false,
                    noLib: false,
+                   noEmitOnError: true,
                    target: "ES5",
                    module: "commonjs",
                    declarationFiles: false,

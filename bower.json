@@ -72,6 +72,7 @@
     "jquery-knob": "*",
     "javascript-detect-element-resize": "*",
     "fullcalendar": "*",
-    "jqplot": "*"
+    "jqplot": "*",
+    "phaser": "*"
   }
 }
