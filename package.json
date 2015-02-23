@@ -17,18 +17,22 @@
     "url": "https://github.com/wiseguy12851/wiseguy12851.github.io/issues"
   },
   "dependencies": {
+    "base-cache": "*",
     "bower": "*",
     "browserify": "*",
     "chalk": "*",
     "del": "*",
+    "fs-readdir-recursive": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-bower": "*",
     "gulp-cache": "*",
     "gulp-cached": "*",
     "gulp-changed": "*",
     "gulp-coffee": "*",
     "gulp-concat": "*",
     "gulp-download": "*",
+    "gulp-eslint": "*",
     "gulp-git": "*",
     "gulp-gzip": "*",
     "gulp-if": "*",
@@ -54,17 +58,13 @@
     "jscs": "*",
     "lazypipe": "*",
     "lodash": "*",
-    "pretty-log": "*",
     "mkdirp": "*",
     "nib": "*",
+    "node-webkit-builder": "*",
+    "pretty-log": "*",
     "rc": "*",
     "run-sequence": "*",
-    "yargs": "*",
-    "node-webkit-builder": "*",
-    "base-cache": "*",
     "vinyl-source-stream": "*",
-    "fs-readdir-recursive": "*",
-    "gulp-bower": "*",
-    "gulp-eslint": "*"
+    "yargs": "*"
   }
 }

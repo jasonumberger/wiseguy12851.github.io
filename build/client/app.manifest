@@ -19,6 +19,7 @@ fonts/glyphicons-halflings-regular.eot
 fonts/glyphicons-halflings-regular.svg
 fonts/glyphicons-halflings-regular.ttf
 fonts/glyphicons-halflings-regular.woff
+fonts/glyphicons-halflings-regular.woff2
 fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
@@ -45,4 +46,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 8721aecba3dace64e3e0546e7d5c0226503da727a9709575c860b943bf41dffd
+# hash: 556e08d4dabc2ac27bd345d1c277579bc4bb97cb250a193cb1ddf5e9e6a6ba1c
