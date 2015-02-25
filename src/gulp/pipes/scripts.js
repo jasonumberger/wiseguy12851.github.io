@@ -9,7 +9,6 @@ var livereloadPipes = require("./livereload");
 var browserify = require("browserify");
 var _ = require('lodash');
 var source = require('vinyl-source-stream');
-var read = require('fs-readdir-recursive');
 
 var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
@@ -46,41 +45,20 @@ exports.typescriptLive = exports.typescript
 
 exports.browserify = lazypipe()
     .pipe(function()
-          {
-              // Gather all script files
-              var jsFiles = read(require("path").resolve(__dirname,  "../../..", dest.javascript));
-              var tsFiles = read(require("path").resolve(__dirname,  "../../..", dest.typescript));
-
-              // Make them absolute
-              _.forEach(jsFiles, function(file, index, _files)
-                        {
-                            jsFiles[index] = require("path").resolve(__dirname,  "../../..", dest.javascript) + "/" + file;
-                        }, this);
-
-              _.forEach(tsFiles, function(file, index, _files)
-              {
-                  tsFiles[index] = require("path").resolve(__dirname,  "../../..", dest.typescript) + "/" + file;
-              }, this);
-
-              // Combine them
-              var files = jsFiles.concat(tsFiles);
-              var newFiles = [];
-
-              // and remove duplicates
+                               {
+              // Using entry point now for better organization
+              // Takes possibly different entry points for each language
+              // and strips entry points that have the exact same path
+              var files =
+                  [require("path").resolve(__dirname, "../../..",
+                                           dest.javascript) + "/index.js",
+                   require("path").resolve(__dirname, "../../..",
+                                           dest.typescript) + "/index.js"
+                  ];
               files = _.uniq(files);
 
-              // Now strip non-javascript files
-              _.forEach(files, function(file, index, _files)
-                        {
-                            if(!_.endsWith(file, ".js")) return;
-                            newFiles.push(file);
-                        }, this);
-
-              // Then sort these files in alphabetical ordering
-              newFiles.sort();
-
               // Then return a useable stream from the bundling
-              return browserify(newFiles).bundle()
+              return browserify(files).bundle()
                   .pipe(source(prep.scripts_browserify));
           })
     .pipe(gulp.dest, dest.client);
