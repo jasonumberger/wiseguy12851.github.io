@@ -17,7 +17,6 @@
     "url": "https://github.com/wiseguy12851/wiseguy12851.github.io/issues"
   },
   "dependencies": {
-    "base-cache": "*",
     "bower": "*",
     "browserify": "*",
     "chalk": "*",

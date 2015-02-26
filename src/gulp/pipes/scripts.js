@@ -9,6 +9,7 @@ var livereloadPipes = require("./livereload");
 var browserify = require("browserify");
 var _ = require('lodash');
 var source = require('vinyl-source-stream');
+var eslint = require("gulp-eslint");
 
 var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
@@ -42,6 +43,14 @@ exports.typescript = lazypipe()
 
 exports.typescriptLive = exports.typescript
     .pipe(livereloadPipes.normal);
+
+exports.eslint = lazypipe()
+    .pipe(gulp.src, [dest.javascript + "/**/*.js",
+                     dest.typescript + "/**/*.js",
+                     dest.coffeescript + "/**/*.js"])
+    .pipe(eslint)
+    .pipe(eslint.format)
+    .pipe(eslint.failOnError);
 
 exports.browserify = lazypipe()
     .pipe(function()

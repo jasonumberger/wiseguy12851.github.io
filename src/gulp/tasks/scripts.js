@@ -23,6 +23,11 @@ gulp.task(
         return scriptPipes.browserify();
     });
 
+gulp.task(names.scriptsLintEslint, function()
+          {
+              return scriptPipes.eslint();
+          });
+
 gulp.task(
     names.scriptsConcat, function()
     {
@@ -42,6 +47,7 @@ gulp.task(
             names.scriptsJS,
             names.scriptsTS
         ],
+        names.scriptsLintEslint,
         names.scriptsBrowserify,
         names.scriptsMinify,
         cb);

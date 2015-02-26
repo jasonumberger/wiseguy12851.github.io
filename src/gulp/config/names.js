@@ -57,6 +57,7 @@ module.exports =
     scriptsJS: "scripts:js",
     scriptsTS: "scripts:ts",
     scriptsBrowserify: "scripts:browserify",
+    scriptsLintEslint: "scripts:lint@eslint",
     scriptsConcat: "scripts:concat",
     scriptsMinify: "scripts:minify",
     scripts: "scripts",

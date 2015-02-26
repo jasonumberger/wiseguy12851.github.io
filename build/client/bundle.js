@@ -7,7 +7,9 @@ module.exports = require("./main");
 
 },{"./main":3}],3:[function(require,module,exports){
 module.exports = {
-    module: require("./src/module"), config: require("./src/config"),
+    module: require("./src/module"),
+    config: require("./src/config"),
+
     controllers: {
         main: require("./src/controllers/main")
     }
@@ -16,34 +18,31 @@ module.exports = {
 },{"./src/config":4,"./src/controllers/main":5,"./src/module":6}],4:[function(require,module,exports){
 module.exports = angular.module("app").config(["$stateProvider", "$urlRouterProvider",
                               "$locationProvider",
-                              function($stateProvider, $urlRouterProvider,
-                                       $locationProvider)
-                              {
-                                  "use strict";
+                              function moduleSetup($stateProvider, $urlRouterProvider,
+                                       $locationProvider) {
+                                "use strict";
 
                                   // Redirect all unknown paths back to root
                                   // page
-                                  $urlRouterProvider.otherwise("/glyph");
+                                $urlRouterProvider.otherwise("/glyph");
 
                                   // Push States
-                                  $locationProvider.html5Mode(false);
+                                $locationProvider.html5Mode(false);
 
-                                  $stateProvider.state("glyph-test", {
-                                      url: "/glyph",
+                                $stateProvider.state("glyph-test", {
+                                      url:         "/glyph",
                                       templateUrl: "/build/client/partials/fragments/glyph-test.html"
                                   });
                               }]);
 
 },{}],5:[function(require,module,exports){
-module.exports = angular.module("app").controller("MainCtrl", function()
-{
-    "use strict";
+module.exports = angular.module("app").controller("MainCtrl", function ctrlCb() {
+  "use strict";
 
-    var self = this;
+  var self = this;
 
-    self.submit = function()
-    {
-        console.log("User clicked submit with ", self.user);
+  self.submit = function submitCb() {
+      console.log("User clicked submit with ", self.user);
     };
 });
 

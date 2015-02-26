@@ -1,11 +1,9 @@
-module.exports = angular.module("app").controller("MainCtrl", function()
-{
-    "use strict";
+module.exports = angular.module("app").controller("MainCtrl", function ctrlCb() {
+  "use strict";
 
-    var self = this;
+  var self = this;
 
-    self.submit = function()
-    {
-        console.log("User clicked submit with ", self.user);
+  self.submit = function submitCb() {
+      console.log("User clicked submit with ", self.user);
     };
 });
