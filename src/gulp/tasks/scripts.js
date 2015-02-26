@@ -6,49 +6,66 @@ var names = require("../../../project/config").gulp.names;
 var runSequence = require('run-sequence');
 
 gulp.task(
-    names.scriptsJS, function()
+    names.scriptsJS,
+    function()
     {
         return scriptPipes.javascript();
-    });
+    }
+);
 
 gulp.task(
-    names.scriptsTS, function()
+    names.scriptsTS,
+    function()
     {
         return scriptPipes.typescript();
-    });
+    }
+);
 
 gulp.task(
-    names.scriptsBrowserify, function()
+    names.scriptsBrowserify,
+    function()
     {
         return scriptPipes.browserify();
-    });
-
-gulp.task(names.scriptsLintEslint, function()
-          {
-              return scriptPipes.eslint();
-          });
+    }
+);
 
 gulp.task(
-    names.scriptsConcat, function()
+    names.scriptsLintEslint,
+    function()
+    {
+        return scriptPipes.eslint();
+    }
+);
+
+gulp.task(
+    names.scriptsConcat,
+    function()
     {
         return scriptPipes.concat();
-    });
+    }
+);
 
 gulp.task(
-    names.scriptsMinify, function()
+    names.scriptsMinify,
+    function()
     {
         return scriptPipes.concatMinify();
-    });
+    }
+);
 
 gulp.task(
-    names.scripts, function(cb)
+    names.scripts,
+    function(cb)
     {
-        runSequence([
-            names.scriptsJS,
-            names.scriptsTS
-        ],
-        names.scriptsLintEslint,
-        names.scriptsBrowserify,
-        names.scriptsMinify,
-        cb);
-    });
+        runSequence(
+            [
+                names.scriptsJS,
+                names.scriptsTS
+            ],
+            names.scriptsLintEslint,
+            names.scriptsBrowserify,
+            names.scriptsMinify,
+            cb
+        );
+    }
+);

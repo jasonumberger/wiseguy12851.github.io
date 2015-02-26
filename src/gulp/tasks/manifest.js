@@ -4,7 +4,10 @@ var gulp = require("gulp");
 var manifestPipes = require("../pipes/manifest");
 var names = require("../../../project/config").gulp.names;
 
-gulp.task(names.manifest, function()
-{
-    return manifestPipes.regular();
-});
+gulp.task(
+    names.manifest,
+    function()
+    {
+        return manifestPipes.regular();
+    }
+);

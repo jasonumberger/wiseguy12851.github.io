@@ -109,15 +109,12 @@
         // Style
         "indent": [
             2,
-            2,
+            4,
             {"indentSwitchCase": true}
         ],
 
-        "brace-style": [
-            2,
-            "1tbs",
-            {"allowSingleLine": false}
-        ],
+        // ESLint doesn't have the brace-style I use
+        "brace-style": 0,
 
         "camelcase": 2,
         "comma-spacing": [

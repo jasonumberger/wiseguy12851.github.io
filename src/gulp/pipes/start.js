@@ -9,19 +9,24 @@ var cache = require("../wrapper/cache");
 
 var msg = require("../../../project/config").gulp.msg;
 
-var firstRun = lazypipe()
-    .pipe(function()
-     {
-         cache["start"] = true;
-     });
-    //.pipe(plumber)
-    //.pipe(notify, msg.pipeStart)
-    //.pipe(log.info,  msg.pipeStart);
+var firstRun = lazypipe().pipe(
+    function()
+    {
+        cache["start"] = true;
+    }
+);
+//.pipe(plumber)
+//.pipe(notify, msg.pipeStart)
+//.pipe(log.info,  msg.pipeStart);
 
-module.exports = lazypipe()
-    .pipe(function()
+module.exports = lazypipe().pipe(
+    function()
     {
         // Disabled until replacement found
         // Seems this is abandoned
-        return gulpif(!cache["start"], firstRun());
-    });
+        return gulpif(
+            !cache["start"],
+            firstRun()
+        );
+    }
+);

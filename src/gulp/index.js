@@ -5,7 +5,8 @@
 // This is also for gulp only so anything returned is ignored as its assumed
 // to be irrevelent
 require('include-all')(
-{
-    dirname     :  __dirname + '/tasks',
-    filter      :  /(.+)\.js$/
-});
+    {
+        dirname: __dirname + '/tasks',
+        filter:  /(.+)\.js$/
+    }
+);

@@ -12,16 +12,32 @@ var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
-exports.scripts = lazypipe()
-    .pipe(gulp.src, jsLibs)
-    .pipe(concat, prep.scripts_precompile)
-    .pipe(gulp.dest, dest.client);
+exports.scripts = lazypipe().pipe(
+    gulp.src,
+    jsLibs
+).pipe(
+    concat,
+    prep.scripts_precompile
+).pipe(
+    gulp.dest,
+    dest.client
+);
 
-exports.styles = lazypipe()
-    .pipe(gulp.src, cssLibs)
-    .pipe(concat, prep.styles_precompile)
-    .pipe(gulp.dest, dest.client);
+exports.styles = lazypipe().pipe(
+    gulp.src,
+    cssLibs
+).pipe(
+    concat,
+    prep.styles_precompile
+).pipe(
+    gulp.dest,
+    dest.client
+);
 
-exports.fonts = lazypipe()
-    .pipe(gulp.src, fontLibs.concat([src.fonts]))
-    .pipe(gulp.dest, dest.fonts);
+exports.fonts = lazypipe().pipe(
+    gulp.src,
+    fontLibs.concat([src.fonts])
+).pipe(
+    gulp.dest,
+    dest.fonts
+);

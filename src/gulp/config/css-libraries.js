@@ -2,8 +2,7 @@
 
 // Note: These are defaults and may be overidden via an rc file. Always use
 // the project config file to access these, never directly.
-module.exports =
-[
+module.exports = [
     "./bower_components/angular-gridster/dist/angular-gridster.min.css",
     "./bower_components/tooltipster/css/tooltipster.css",
     "./bower_components/tooltipster/css/themes/tooltipster-shadow.css",

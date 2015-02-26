@@ -5,8 +5,7 @@
 
 var chalk = require("chalk");
 
-module.exports =
-{
+module.exports = {
     pipeStart: chalk.green + "Begun",
-    pipeEnd: chalk.green + "End"
+    pipeEnd:   chalk.green + "End"
 };

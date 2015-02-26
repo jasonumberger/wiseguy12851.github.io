@@ -6,6 +6,10 @@ var log = require("../wrapper/log");
 
 var msg = require("../../../project/config").gulp.msg;
 
-module.exports = lazypipe()
-    .pipe(notify, msg.pipeEnd)
-    .pipe(log.info,  msg.pipeEnd);
+module.exports = lazypipe().pipe(
+    notify,
+    msg.pipeEnd
+).pipe(
+    log.info,
+    msg.pipeEnd
+);

@@ -14,71 +14,78 @@ var src = require("../../../project/config").gulp.paths.src;
 var dest = require("../../../project/config").gulp.paths.dest;
 var prep = require("../../../project/config").gulp.paths.prep;
 
-exports.css = lazypipe()
-    .pipe(gulp.src, src.css)
-    .pipe(gulp.dest, dest.css);
+exports.css = lazypipe().pipe(
+    gulp.src,
+    src.css
+).pipe(
+    gulp.dest,
+    dest.css
+);
 
-exports.cssLive = exports.css
-    .pipe(livereloadPipes.normal);
+exports.cssLive = exports.css.pipe(livereloadPipes.normal);
 
-exports.cssPrefix = exports.css
-    .pipe(autoprefix);
+exports.cssPrefix = exports.css.pipe(autoprefix);
 
-exports.cssPrefixLive = exports.css
-    .pipe(autoprefix)
-    .pipe(exports.cssLive);
+exports.cssPrefixLive = exports.css.pipe(autoprefix).pipe(exports.cssLive);
 
-exports.stylus = lazypipe()
-    .pipe(gulp.src, src.stylus)
-    .pipe(stylus,
-        {
+exports.stylus = lazypipe().pipe(
+    gulp.src,
+    src.stylus
+).pipe(
+    stylus,
+    {
 
-            // Preset some variables
-            define: {},
+        // Preset some variables
+        define:   {},
 
-            // Search paths for @import
-            include: stylusLibs,
+        // Search paths for @import
+        include:  stylusLibs,
 
-            // Files to import anyways
-            "import": [],
+        // Files to import anyways
+        "import": [],
 
-            // Extend features and capability of stylus
-            use:
-            [
-               nib()
-            ]
-        })
-    .pipe(gulp.dest, dest.stylus);
+        // Extend features and capability of stylus
+        use:      [
+            nib()
+        ]
+    }
+).pipe(
+    gulp.dest,
+    dest.stylus
+);
 
-exports.stylusLive = exports.stylus
-    .pipe(livereloadPipes.normal);
+exports.stylusLive = exports.stylus.pipe(livereloadPipes.normal);
 
-exports.stylusPrefix = exports.stylus
-    .pipe(autoprefix);
+exports.stylusPrefix = exports.stylus.pipe(autoprefix);
 
-exports.stylusPrefixLive = exports.stylus
-    .pipe(autoprefix)
-    .pipe(exports.stylusLive);
+exports.stylusPrefixLive =
+exports.stylus.pipe(autoprefix).pipe(exports.stylusLive);
 
-exports.concat = lazypipe()
-    .pipe(gulp.src,
-          [
-              dest.client + "/" + prep.styles_precompile,
-              dest.css + "/**/*.css",
-              dest.less + "/**/*.css",
-              dest.stylus + "/**/*.css"
-          ])
-    .pipe(concat, prep.styles_concat)
-    .pipe(gulp.dest, dest.client);
+exports.concat = lazypipe().pipe(
+    gulp.src,
+    [
+        dest.client + "/" + prep.styles_precompile,
+        dest.css + "/**/*.css",
+        dest.less + "/**/*.css",
+        dest.stylus + "/**/*.css"
+    ]
+).pipe(
+    concat,
+    prep.styles_concat
+).pipe(
+    gulp.dest,
+    dest.client
+);
 
-exports.concatLive = exports.concat
-    .pipe(livereloadPipes.normal);
+exports.concatLive = exports.concat.pipe(livereloadPipes.normal);
 
-exports.concatMinify = exports.concat
-    .pipe(rename, prep.styles_minified)
-    .pipe(minifyCss)
-    .pipe(gulp.dest, dest.client);
+exports.concatMinify = exports.concat.pipe(
+    rename,
+    prep.styles_minified
+).pipe(minifyCss).pipe(
+    gulp.dest,
+    dest.client
+);
 
-exports.concatMinifyLive = exports.concatLive
-    .pipe(exports.concatMinify)
-    .pipe(livereloadPipes.normal);
+exports.concatMinifyLive =
+exports.concatLive.pipe(exports.concatMinify).pipe(livereloadPipes.normal);
