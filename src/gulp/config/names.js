@@ -7,6 +7,10 @@ module.exports = {
     bowerInstall: "bower:install",
     bower:        "bower",
 
+    gulpEslint: "gulp:lint@eslint",
+    gulpLint: "gulp:lint",
+    gulp: "gulp",
+
     cleanClient:      "clean:client",
     cleanRoot:        "clean:root",
     cleanPrecompiled: "clean:precompiled",

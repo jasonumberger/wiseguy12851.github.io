@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jquery.blast.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/blast-text/jquery.blast.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/blast-text/jquery.blast.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

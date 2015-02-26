@@ -29,20 +29,20 @@ exports.scriptsTS = makeDelPipe(dest.typescript + "/**/*.ts");
 exports.scriptsCoffee = makeDelPipe(dest.coffeescript + "/**/*.coffee");
 
 exports.scriptsBrowserify =
-makeDelPipe(dest.client + "/" + prep.scripts_browserify);
-exports.scriptsConcat = makeDelPipe(dest.client + "/" + prep.scripts_concat);
+makeDelPipe(dest.client + "/" + prep.scriptsBrowserify);
+exports.scriptsConcat = makeDelPipe(dest.client + "/" + prep.scriptsConcat);
 exports.scriptsMinified =
-makeDelPipe(dest.client + "/" + prep.scripts_minified);
+makeDelPipe(dest.client + "/" + prep.scriptsMinified);
 exports.scriptsPrecompile =
-makeDelPipe(dest.client + "/" + prep.scripts_precompile);
+makeDelPipe(dest.client + "/" + prep.scriptsPrecompile);
 
 exports.stylesCSS = makeDelPipe(dest.css + "/**/*.css");
 exports.stylesLess = makeDelPipe(dest.less + "/**/*.less");
 exports.stylesStylus = makeDelPipe(dest.stylus + "/**/*.styl");
 
-exports.stylesConcat = makeDelPipe(dest.client + "/" + prep.styles_concat);
-exports.stylesMinified = makeDelPipe(dest.client + "/" + prep.styles_minified);
+exports.stylesConcat = makeDelPipe(dest.client + "/" + prep.stylesConcat);
+exports.stylesMinified = makeDelPipe(dest.client + "/" + prep.stylesMinified);
 exports.stylesPrecompile =
-makeDelPipe(dest.client + "/" + prep.styles_precompile);
+makeDelPipe(dest.client + "/" + prep.stylesPrecompile);
 
 exports.manifest = makeDelPipe(dest.client + "/" + prep.manifest);

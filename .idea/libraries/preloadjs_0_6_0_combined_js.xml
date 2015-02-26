@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="preloadjs-0.6.0.combined.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/PreloadJS/lib/preloadjs-0.6.0.combined.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/PreloadJS/lib/preloadjs-0.6.0.combined.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

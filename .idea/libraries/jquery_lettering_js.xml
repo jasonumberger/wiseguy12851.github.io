@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jquery.lettering.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/Lettering.js/jquery.lettering.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/Lettering.js/jquery.lettering.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

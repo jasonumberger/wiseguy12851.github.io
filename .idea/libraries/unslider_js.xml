@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="unslider.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/unslider/src/unslider.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/unslider/src/unslider.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jquery.tooltipster.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/tooltipster/js/jquery.tooltipster.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/tooltipster/js/jquery.tooltipster.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

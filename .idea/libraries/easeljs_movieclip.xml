@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="easeljs-movieclip" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/easeljs/lib/movieclip-0.8.0.combined.js" />
+        <item url="file://$PROJECT_DIR$/bower_components/easeljs/lib/easeljs-0.8.0.combined.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/easeljs/lib/movieclip-0.8.0.combined.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/easeljs/lib/easeljs-0.8.0.combined.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

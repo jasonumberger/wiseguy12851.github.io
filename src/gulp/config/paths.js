@@ -1,5 +1,3 @@
-"use strict";
-
 // Note: These are defaults and may be overidden via an rc file. Always use
 // the project config file to access these, never directly.
 
@@ -10,6 +8,9 @@ exports.source = {
 
     // Initial Webpage (Development)
     initPageDev:  "./index-dev.html",
+
+    // Gulp src files
+    gulp:         "./src/gulp/**/*.js",
 
     // Project public root files
     client:       "./src/client/*",
@@ -54,12 +55,14 @@ exports.destination = {
 // These take from the source, do stuff with them, and then place them
 // here
 exports.preperation = {
-    scripts_concat:     "build.js",
-    scripts_minified:   "build.min.js",
-    scripts_precompile: "precompile.js",
-    scripts_browserify: "bundle.js",
-    styles_concat:      "build.css",
-    styles_minified:    "build.min.css",
-    styles_precompile:  "precompile.css",
+    scriptsConcat:     "build.js",
+    scriptsMinified:   "build.min.js",
+    scriptsPrecompile: "precompile.js",
+    scriptsBrowserify: "bundle.js",
+
+    stylesConcat:      "build.css",
+    stylesMinified:    "build.min.css",
+    stylesPrecompile:  "precompile.css",
+
     manifest:           "app.manifest"
 };

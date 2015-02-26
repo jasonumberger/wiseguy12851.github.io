@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Modernizr" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Modernizr" />
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/modernizr/modernizr.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/modernizr/modernizr.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

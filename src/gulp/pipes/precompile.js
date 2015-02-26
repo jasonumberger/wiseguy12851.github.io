@@ -17,7 +17,7 @@ exports.scripts = lazypipe().pipe(
     jsLibs
 ).pipe(
     concat,
-    prep.scripts_precompile
+    prep.scriptsPrecompile
 ).pipe(
     gulp.dest,
     dest.client
@@ -28,7 +28,7 @@ exports.styles = lazypipe().pipe(
     cssLibs
 ).pipe(
     concat,
-    prep.styles_precompile
+    prep.stylesPrecompile
 ).pipe(
     gulp.dest,
     dest.client

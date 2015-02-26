@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="soundjs-0.6.0.combined.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/SoundJS/lib/soundjs-0.6.0.combined.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/SoundJS/lib/soundjs-0.6.0.combined.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

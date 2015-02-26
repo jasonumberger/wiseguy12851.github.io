@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jquery.finger.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/jquery.finger/dist/jquery.finger.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/jquery.finger/dist/jquery.finger.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

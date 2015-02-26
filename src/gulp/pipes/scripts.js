@@ -62,6 +62,8 @@ exports.eslint = lazypipe().pipe(
     ]
 ).pipe(eslint).pipe(eslint.format).pipe(eslint.failOnError);
 
+exports.eslintLive = exports.eslint.pipe(livereloadPipes.normal);
+
 exports.browserify = lazypipe().pipe(
     function()
     {
@@ -83,7 +85,7 @@ exports.browserify = lazypipe().pipe(
         files = _.uniq(files);
 
         // Then return a useable stream from the bundling
-        return browserify(files).bundle().pipe(source(prep.scripts_browserify));
+        return browserify(files).bundle().pipe(source(prep.scriptsBrowserify));
     }
 ).pipe(
     gulp.dest,
@@ -95,12 +97,12 @@ exports.browserifyLive = exports.browserify.pipe(livereloadPipes.normal);
 exports.concat = lazypipe().pipe(
     gulp.src,
     [
-        dest.client + "/" + prep.scripts_precompile,
-        dest.client + "/" + prep.scripts_browserify
+        dest.client + "/" + prep.scriptsPrecompile,
+        dest.client + "/" + prep.scriptsBrowserify
     ]
 ).pipe(
     concat,
-    prep.scripts_concat
+    prep.scriptsConcat
 ).pipe(
     gulp.dest,
     dest.client
@@ -110,7 +112,7 @@ exports.concatLive = exports.concat.pipe(livereloadPipes.normal);
 
 exports.concatMinify = exports.concat.pipe(
     rename,
-    prep.scripts_minified
+    prep.scriptsMinified
 ).pipe(uglify).pipe(
     gulp.dest,
     dest.client

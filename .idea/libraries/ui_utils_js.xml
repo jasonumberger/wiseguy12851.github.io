@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="ui-utils.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/ui-utils/ui-utils.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/ui-utils/ui-utils.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

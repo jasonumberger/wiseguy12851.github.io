@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="localforage.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/localforage/dist/localforage.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/localforage/dist/localforage.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

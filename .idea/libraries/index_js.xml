@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="index.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/raf/index.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/raf/index.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

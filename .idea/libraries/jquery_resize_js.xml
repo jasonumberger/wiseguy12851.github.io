@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jquery.resize.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/javascript-detect-element-resize/jquery.resize.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/bower_components/javascript-detect-element-resize/jquery.resize.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

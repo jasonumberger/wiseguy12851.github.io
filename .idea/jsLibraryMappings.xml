@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{wiseguy12851.github.io node_modules}" />
+    <file url="PROJECT" libraries="{Modernizr, Node.js v0.12.0 Core Modules, angular-animate.js, angular-cookies.js, angular-gridster.min.js, angular-knob.js, angular-loader.js, angular-messages.js, angular-mocks.js, angular-parallax.js, angular-resource.js, angular-route.js, angular-sanitize.js, angular-scenario.js, angular-touch.js, angular-ui-router.js, angular.js, browserify-DefinitelyTyped, calendar.js, chart.js, d3.js, date.js, easeljs-movieclip, fullcalendar.js, index.js, jQuery, jquery.blast.js, jquery.finger.js, jquery.jqplot.js, jquery.js, jquery.lettering.js, jquery.resize.js, jquery.tooltipster.js, konva.js, localforage.js, moment.js, node-DefinitelyTyped, phaser.js, preloadjs-0.6.0.combined.js, select.js, slider.js, sortable.js, soundjs-0.6.0.combined.js, three.js, tweenjs-0.6.0.combined.js, ui-bootstrap-tpls.js, ui-layout.js, ui-map.js, ui-utils.js, underscore.js, unslider.js, wiseguy12851.github.io node_modules}" />
+    <includedPredefinedLibrary name="Node.js Globals" />
+    <includedPredefinedLibrary name="WebGL" />
+  </component>
+</project>

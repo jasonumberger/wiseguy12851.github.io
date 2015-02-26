@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/bower_components" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="wiseguy12851.github.io node_modules" level="project" />
+    <orderEntry type="library" name="browserify-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="node-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular.js" level="project" />
+    <orderEntry type="library" name="angular-mocks.js" level="project" />
+    <orderEntry type="library" name="angular-scenario.js" level="project" />
+    <orderEntry type="library" name="jquery.resize.js" level="project" />
+    <orderEntry type="library" name="angular-route.js" level="project" />
+    <orderEntry type="library" name="angular-gridster.min.js" level="project" />
+    <orderEntry type="library" name="ui-bootstrap-tpls.js" level="project" />
+    <orderEntry type="library" name="sortable.js" level="project" />
+    <orderEntry type="library" name="jquery.js" level="project" />
+    <orderEntry type="library" name="jquery.jqplot.js" level="project" />
+    <orderEntry type="library" name="fullcalendar.js" level="project" />
+    <orderEntry type="library" name="chart.js" level="project" />
+    <orderEntry type="library" name="easeljs-movieclip" level="project" />
+    <orderEntry type="library" name="angular-sanitize.js" level="project" />
+    <orderEntry type="library" name="angular-loader.js" level="project" />
+    <orderEntry type="library" name="angular-knob.js" level="project" />
+    <orderEntry type="library" name="angular-cookies.js" level="project" />
+    <orderEntry type="library" name="select.js" level="project" />
+    <orderEntry type="library" name="date.js" level="project" />
+    <orderEntry type="library" name="slider.js" level="project" />
+    <orderEntry type="library" name="d3.js" level="project" />
+    <orderEntry type="library" name="ui-map.js" level="project" />
+    <orderEntry type="library" name="angular-touch.js" level="project" />
+    <orderEntry type="library" name="angular-parallax.js" level="project" />
+    <orderEntry type="library" name="jquery.blast.js" level="project" />
+    <orderEntry type="library" name="ui-layout.js" level="project" />
+    <orderEntry type="library" name="angular-resource.js" level="project" />
+    <orderEntry type="library" name="angular-animate.js" level="project" />
+    <orderEntry type="library" name="calendar.js" level="project" />
+    <orderEntry type="library" name="angular-messages.js" level="project" />
+    <orderEntry type="library" name="jquery.finger.js" level="project" />
+    <orderEntry type="library" name="jquery.lettering.js" level="project" />
+    <orderEntry type="library" name="jQuery" level="project" />
+    <orderEntry type="library" name="konva.js" level="project" />
+    <orderEntry type="library" name="localforage.js" level="project" />
+    <orderEntry type="library" name="Modernizr" level="project" />
+    <orderEntry type="library" name="phaser.js" level="project" />
+    <orderEntry type="library" name="moment.js" level="project" />
+    <orderEntry type="library" name="preloadjs-0.6.0.combined.js" level="project" />
+    <orderEntry type="library" name="ui-utils.js" level="project" />
+    <orderEntry type="library" name="angular-ui-router.js" level="project" />
+    <orderEntry type="library" name="tweenjs-0.6.0.combined.js" level="project" />
+    <orderEntry type="library" name="three.js" level="project" />
+    <orderEntry type="library" name="soundjs-0.6.0.combined.js" level="project" />
+    <orderEntry type="library" name="jquery.tooltipster.js" level="project" />
+    <orderEntry type="library" name="index.js" level="project" />
+    <orderEntry type="library" name="underscore.js" level="project" />
+    <orderEntry type="library" name="unslider.js" level="project" />
+    <orderEntry type="library" name="Node.js v0.12.0 Core Modules" level="application" />
+  </component>
+</module>

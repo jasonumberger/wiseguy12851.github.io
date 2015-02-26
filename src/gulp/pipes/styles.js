@@ -64,14 +64,14 @@ exports.stylus.pipe(autoprefix).pipe(exports.stylusLive);
 exports.concat = lazypipe().pipe(
     gulp.src,
     [
-        dest.client + "/" + prep.styles_precompile,
+        dest.client + "/" + prep.stylesPrecompile,
         dest.css + "/**/*.css",
         dest.less + "/**/*.css",
         dest.stylus + "/**/*.css"
     ]
 ).pipe(
     concat,
-    prep.styles_concat
+    prep.stylesConcat
 ).pipe(
     gulp.dest,
     dest.client
@@ -81,7 +81,7 @@ exports.concatLive = exports.concat.pipe(livereloadPipes.normal);
 
 exports.concatMinify = exports.concat.pipe(
     rename,
-    prep.styles_minified
+    prep.stylesMinified
 ).pipe(minifyCss).pipe(
     gulp.dest,
     dest.client
