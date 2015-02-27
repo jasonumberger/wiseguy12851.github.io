@@ -46,22 +46,20 @@ gulp.task(
             [names.staticPartials]
         );
 
+        // Building is complex and requires a series of carefully laid
+        // out steps, other speed improvements are integrated into this
+        // So just run a normal incremental build. Its too complex to be
+        // done directly from gulp.watch
         gulp.watch(
             [
                 src.javascript,
                 src.typescript,
-                src.coffeescript
-            ]
-            [names.scripts]
-        );
-
-        gulp.watch(
-            [
+                src.coffeescript,
                 src.css,
                 src.less,
                 src.stylus
             ]
-                [names.styles]
+            [names.build]
         );
     }
 );
