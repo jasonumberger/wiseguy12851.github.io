@@ -1,13 +1,27 @@
-"use strict";
+var gulp = require("gulp"),
+    path = require("path"),
 
-var gulp = require("gulp");
-var manifestPipes = require("../pipes/manifest");
-var names = require("../../../project/config").gulp.names;
+    manifestPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "manifest"
+        )
+    ),
+    names = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names;
 
 gulp.task(
     names.manifest,
-    function()
+    function doManifest()
     {
+        "use strict";
+
         return manifestPipes.regular();
     }
 );

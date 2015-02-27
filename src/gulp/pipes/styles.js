@@ -1,18 +1,48 @@
-var lazypipe = require('lazypipe');
-var gulp = require("gulp");
+var lazypipe        = require("lazypipe"),
+    gulp            = require("gulp"),
 
-var concat = require("gulp-concat");
-var rename = require("gulp-rename");
-var stylus = require("gulp-stylus");
-var autoprefix = require("gulp-autoprefixer");
-var minifyCss = require("gulp-minify-css");
-var nib = require("nib");
-var livereloadPipes = require("./livereload");
+    concat          = require("gulp-concat"),
+    rename          = require("gulp-rename"),
+    stylus          = require("gulp-stylus"),
+    autoprefix      = require("gulp-autoprefixer"),
+    minifyCss       = require("gulp-minify-css"),
+    nib             = require("nib"),
+    path            = require("path"),
+    livereloadPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "livereload"
+        )),
 
-var stylusLibs = require("../../../project/config").gulp.paths.stylus;
-var src = require("../../../project/config").gulp.paths.src;
-var dest = require("../../../project/config").gulp.paths.dest;
-var prep = require("../../../project/config").gulp.paths.prep;
+    stylusLibs      = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.stylus,
+
+    src             = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src,
+
+    dest            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.dest,
+
+    prep            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.prep;
 
 exports.css = lazypipe().pipe(
     gulp.src,
@@ -22,11 +52,15 @@ exports.css = lazypipe().pipe(
     dest.css
 );
 
-exports.cssLive = exports.css.pipe(livereloadPipes.normal);
+exports.cssLive = exports.css
+    .pipe(livereloadPipes.normal);
 
-exports.cssPrefix = exports.css.pipe(autoprefix);
+exports.cssPrefix = exports.css
+    .pipe(autoprefix);
 
-exports.cssPrefixLive = exports.css.pipe(autoprefix).pipe(exports.cssLive);
+exports.cssPrefixLive = exports.css
+    .pipe(autoprefix)
+    .pipe(exports.cssLive);
 
 exports.stylus = lazypipe().pipe(
     gulp.src,
@@ -54,20 +88,38 @@ exports.stylus = lazypipe().pipe(
     dest.stylus
 );
 
-exports.stylusLive = exports.stylus.pipe(livereloadPipes.normal);
+exports.stylusLive = exports.stylus
+    .pipe(livereloadPipes.normal);
 
-exports.stylusPrefix = exports.stylus.pipe(autoprefix);
+exports.stylusPrefix = exports.stylus
+    .pipe(autoprefix);
 
-exports.stylusPrefixLive =
-exports.stylus.pipe(autoprefix).pipe(exports.stylusLive);
+exports.stylusPrefixLive = exports.stylus
+    .pipe(autoprefix)
+    .pipe(exports.stylusLive);
 
 exports.concat = lazypipe().pipe(
     gulp.src,
     [
-        dest.client + "/" + prep.stylesPrecompile,
-        dest.css + "/**/*.css",
-        dest.less + "/**/*.css",
-        dest.stylus + "/**/*.css"
+        path.resolve(
+            dest.client,
+            prep.stylesPrecompile
+        ),
+        path.resolve(
+            dest.css,
+            "**",
+            "*.css"
+        ),
+        path.resolve(
+            dest.less,
+            "**",
+            "*.css"
+        ),
+        path.resolve(
+            dest.stylus,
+            "**",
+            "*.css"
+        )
     ]
 ).pipe(
     concat,
@@ -77,7 +129,8 @@ exports.concat = lazypipe().pipe(
     dest.client
 );
 
-exports.concatLive = exports.concat.pipe(livereloadPipes.normal);
+exports.concatLive = exports.concat
+    .pipe(livereloadPipes.normal);
 
 exports.concatMinify = exports.concat.pipe(
     rename,
@@ -87,5 +140,6 @@ exports.concatMinify = exports.concat.pipe(
     dest.client
 );
 
-exports.concatMinifyLive =
-exports.concatLive.pipe(exports.concatMinify).pipe(livereloadPipes.normal);
+exports.concatMinifyLive = exports.concatLive
+    .pipe(exports.concatMinify)
+    .pipe(livereloadPipes.normal);

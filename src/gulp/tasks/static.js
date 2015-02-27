@@ -1,70 +1,99 @@
-"use strict";
+var gulp = require("gulp"),
+    runSequence = require("run-sequence"),
+    path = require("path"),
 
-var gulp = require("gulp");
-var runSequence = require('run-sequence');
-var staticPipes = require("../pipes/static");
-var names = require("../../../project/config").gulp.names;
+    staticPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "static"
+        )
+    ),
+
+    names = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names;
 
 gulp.task(
     names.staticClient,
-    function()
+    function doStaticClient()
     {
+        "use strict";
+
         return staticPipes.client();
     }
 );
 
 gulp.task(
     names.staticMedia,
-    function()
+    function doStaticMedia()
     {
+        "use strict";
+
         return staticPipes.media();
     }
 );
 
 gulp.task(
     names.staticPartials,
-    function()
+    function doStaticPartials()
     {
+        "use strict";
+
         return staticPipes.partials();
     }
 );
 
 gulp.task(
     names.staticTS,
-    function()
+    function doStaticTS()
     {
+        "use strict";
+
         return staticPipes.typescript();
     }
 );
 
 gulp.task(
     names.staticCoffeescript,
-    function()
+    function doStaticCoffeescript()
     {
+        "use strict";
+
         return staticPipes.coffeescript();
     }
 );
 
 gulp.task(
     names.staticLess,
-    function()
+    function doStaticLess()
     {
+        "use strict";
+
         return staticPipes.less();
     }
 );
 
 gulp.task(
     names.staticStylus,
-    function()
+    function doStaticStylus()
     {
+        "use strict";
+
         return staticPipes.stylus();
     }
 );
 
 gulp.task(
     names._static,
-    function(cb)
+    function doStatic(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.staticClient,

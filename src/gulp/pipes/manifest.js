@@ -1,15 +1,38 @@
-"use strict";
+var gulp            = require("gulp"),
+    lazypipe        = require("lazypipe"),
+    manifest        = require("gulp-manifest"),
+    path            = require("path"),
 
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
-var manifest = require("gulp-manifest");
-var livereloadPipes = require("./livereload");
-var dest = require("../../../project/config").gulp.paths.dest;
-var prep = require("../../../project/config").gulp.paths.prep;
+    livereloadPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "livereload"
+        )
+    ),
+
+    dest            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.dest,
+
+    prep            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.prep;
 
 exports.regular = lazypipe().pipe(
     gulp.src,
-    dest.client + "/**/*"
+    path.resolve(
+        dest.client,
+        "**",
+        "*"
+    )
 ).pipe(
     manifest,
     {
@@ -35,4 +58,5 @@ exports.regular = lazypipe().pipe(
     dest.client
 );
 
-exports.regularLive = exports.regular.pipe(livereloadPipes.normal);
+exports.regularLive = exports.regular
+    .pipe(livereloadPipes.normal);

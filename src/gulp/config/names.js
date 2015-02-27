@@ -1,15 +1,19 @@
-"use strict";
+/*
+ * These are program output messages
+ *
+ * Please don't include or use these directly as the user may have overridden
+ * some of these via one of many methods "rc" offers. Instead use them through
+ * the project config file will will automatically apply user changes.
+ */
 
-// Note: These are defaults and may be overidden via an rc file. Always use
-// the project config file to access these, never directly.
 module.exports = {
     bowerUpdate:  "bower:update",
     bowerInstall: "bower:install",
     bower:        "bower",
 
     gulpEslint: "gulp:lint@eslint",
-    gulpLint: "gulp:lint",
-    gulp: "gulp",
+    gulpLint:   "gulp:lint",
+    gulp:       "gulp",
 
     cleanClient:      "clean:client",
     cleanRoot:        "clean:root",

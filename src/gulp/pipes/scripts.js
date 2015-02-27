@@ -1,19 +1,37 @@
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
+var gulp            = require("gulp"),
+    lazypipe        = require("lazypipe"),
+    path            = require("path"),
 
-var ts = require("gulp-typescript");
-var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
-var rename = require("gulp-rename");
-var livereloadPipes = require("./livereload");
-var browserify = require("browserify");
-var _ = require('lodash');
-var source = require('vinyl-source-stream');
-var eslint = require("gulp-eslint");
+    ts              = require("gulp-typescript"),
+    concat          = require("gulp-concat"),
+    uglify          = require("gulp-uglify"),
+    rename          = require("gulp-rename"),
+    livereloadPipes = require(path.resolve("src", "gulp", "pipes", "livereload")),
+    browserify      = require("browserify"),
+    _               = require("lodash"),
+    source          = require("vinyl-source-stream"),
+    eslint          = require("gulp-eslint"),
 
-var src = require("../../../project/config").gulp.paths.src;
-var dest = require("../../../project/config").gulp.paths.dest;
-var prep = require("../../../project/config").gulp.paths.prep;
+    src             = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src,
+
+    dest            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.dest,
+
+    prep            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.prep;
 
 exports.javascript = lazypipe().pipe(
     gulp.src,
@@ -29,8 +47,10 @@ exports.typescript = lazypipe().pipe(
     gulp.src,
     src.typescript
 ).pipe(
-    function()
+    function processTS()
     {
+        "use strict";
+
         return ts(
             {
                 // Try to keep it looking like
@@ -51,54 +71,91 @@ exports.typescript = lazypipe().pipe(
     dest.typescript
 );
 
-exports.typescriptLive = exports.typescript.pipe(livereloadPipes.normal);
+exports.typescriptLive = exports.typescript
+    .pipe(livereloadPipes.normal);
 
 exports.eslint = lazypipe().pipe(
     gulp.src,
     [
-        dest.javascript + "/**/*.js",
-        dest.typescript + "/**/*.js",
-        dest.coffeescript + "/**/*.js"
+        // Remember, use the compiled output, .ts and .coffee will be .js
+        // on compile
+        path.resolve(
+            dest.javascript,
+            "**",
+            "*.js"
+        ),
+        path.resolve(
+            dest.typescript,
+            "**",
+            "*.js"
+        ),
+        path.resolve(
+            dest.coffeescript,
+            "**",
+            "*.js"
+        )
     ]
-).pipe(eslint).pipe(eslint.format).pipe(eslint.failOnError);
+)
+    .pipe(eslint)
+    .pipe(eslint.format)
+    .pipe(eslint.failOnError);
 
-exports.eslintLive = exports.eslint.pipe(livereloadPipes.normal);
+exports.eslintLive = exports.eslint
+    .pipe(livereloadPipes.normal);
 
 exports.browserify = lazypipe().pipe(
-    function()
+    function doBrowserify()
     {
+        "use strict";
+
         // Using entry point now for better organization
         // Takes possibly different entry points for each language
         // and strips entry points that have the exact same path
         var files = [
             require("path").resolve(
                 __dirname,
-                "../../..",
-                dest.javascript
-            ) + "/index.js",
+                "..",
+                "..",
+                "..",
+                dest.javascript,
+                "index.js"
+            ),
+
             require("path").resolve(
                 __dirname,
-                "../../..",
-                dest.typescript
-            ) + "/index.js"
+                "..",
+                "..",
+                "..",
+                dest.typescript,
+                "index.js"
+            )
         ];
         files = _.uniq(files);
 
         // Then return a useable stream from the bundling
-        return browserify(files).bundle().pipe(source(prep.scriptsBrowserify));
+        return browserify(files)
+            .bundle()
+            .pipe(source(prep.scriptsBrowserify));
     }
 ).pipe(
     gulp.dest,
     dest.client
 );
 
-exports.browserifyLive = exports.browserify.pipe(livereloadPipes.normal);
+exports.browserifyLive = exports.browserify
+    .pipe(livereloadPipes.normal);
 
 exports.concat = lazypipe().pipe(
     gulp.src,
     [
-        dest.client + "/" + prep.scriptsPrecompile,
-        dest.client + "/" + prep.scriptsBrowserify
+        path.resolve(
+            dest.client,
+            prep.scriptsPrecompile
+        ),
+        path.resolve(
+            dest.client,
+            prep.scriptsBrowserify
+        )
     ]
 ).pipe(
     concat,
@@ -108,9 +165,11 @@ exports.concat = lazypipe().pipe(
     dest.client
 );
 
-exports.concatLive = exports.concat.pipe(livereloadPipes.normal);
+exports.concatLive = exports.concat
+    .pipe(livereloadPipes.normal);
 
-exports.concatMinify = exports.concat.pipe(
+exports.concatMinify = exports.concat
+    .pipe(
     rename,
     prep.scriptsMinified
 ).pipe(uglify).pipe(
@@ -118,5 +177,6 @@ exports.concatMinify = exports.concat.pipe(
     dest.client
 );
 
-exports.concatMinifyLive =
-exports.concatLive.pipe(exports.concatMinify).pipe(livereloadPipes.normal);
+exports.concatMinifyLive = exports.concatLive
+    .pipe(exports.concatMinify)
+    .pipe(livereloadPipes.normal);

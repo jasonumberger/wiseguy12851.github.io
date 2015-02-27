@@ -16,42 +16,64 @@ module.exports = {
 };
 
 },{"./src/config":4,"./src/controllers/main":5,"./src/module":6}],4:[function(require,module,exports){
-module.exports = angular.module("app").config(["$stateProvider", "$urlRouterProvider",
-                              "$locationProvider",
-                              function moduleSetup($stateProvider, $urlRouterProvider,
-                                       $locationProvider) {
-                                "use strict";
+module.exports = angular.module("app").config(
+    [
+        "$stateProvider",
+        "$urlRouterProvider",
+        "$locationProvider",
+        function moduleSetup(
+            $stateProvider,
+            $urlRouterProvider,
+            $locationProvider)
+        {
+            "use strict";
 
-                                  // Redirect all unknown paths back to root
-                                  // page
-                                $urlRouterProvider.otherwise("/glyph");
+            // Redirect all unknown paths back to root
+            // page
+            $urlRouterProvider.otherwise("/glyph");
 
-                                  // Push States
-                                $locationProvider.html5Mode(false);
+            // Push States
+            $locationProvider.html5Mode(false);
 
-                                $stateProvider.state("glyph-test", {
-                                      url:         "/glyph",
-                                      templateUrl: "/build/client/partials/fragments/glyph-test.html"
-                                  });
-                              }]);
+            $stateProvider.state(
+                "glyph-test",
+                {
+                    url:         "/glyph",
+                    templateUrl: "/build/client/partials/fragments/glyph-test.html"
+                }
+            );
+        }
+    ]
+);
 
 },{}],5:[function(require,module,exports){
-module.exports = angular.module("app").controller("MainCtrl", function ctrlCb() {
-  "use strict";
+module.exports = angular.module("app").controller(
+    "MainCtrl",
+    function ctrlCb()
+    {
+        "use strict";
 
-  var self = this;
+        var self = this;
 
-  self.submit = function submitCb() {
-      console.log("User clicked submit with ", self.user);
-    };
-});
+        self.submit = function submitCb()
+        {
+            console.log(
+                "User clicked submit with ",
+                self.user
+            );
+        };
+    }
+);
 
 },{}],6:[function(require,module,exports){
 // Define the module
 
-module.exports = angular.module("app", [
-    "ui.bootstrap",
-    "ui.router"
-]);
+module.exports = angular.module(
+    "app",
+    [
+        "ui.bootstrap",
+        "ui.router"
+    ]
+);
 
 },{}]},{},[1]);

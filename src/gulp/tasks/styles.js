@@ -1,46 +1,69 @@
-"use strict";
+var gulp        = require("gulp"),
+    path        = require("path"),
 
-var gulp = require("gulp");
-var stylePipes = require("../pipes/styles");
-var names = require("../../../project/config").gulp.names;
-var runSequence = require('run-sequence');
+    stylePipes  = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "styles"
+        )
+    ),
+
+    names       = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names,
+    runSequence = require("run-sequence");
 
 gulp.task(
     names.stylesCSS,
-    function()
+    function doStylesCSS()
     {
+        "use strict";
+
         return stylePipes.css();
     }
 );
 
 gulp.task(
     names.stylesStylus,
-    function()
+    function doStylesStylus()
     {
+        "use strict";
+
         return stylePipes.stylus();
     }
 );
 
 gulp.task(
     names.stylesConcat,
-    function()
+    function doStylesConcat()
     {
+        "use strict";
+
         return stylePipes.concat();
     }
 );
 
 gulp.task(
     names.stylesMinify,
-    function()
+    function doStylesMinify()
     {
+        "use strict";
+
         return stylePipes.concatMinify();
     }
 );
 
 gulp.task(
     names.styles,
-    function(cb)
+    function doStyles(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.stylesCSS,

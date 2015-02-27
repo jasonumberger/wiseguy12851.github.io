@@ -1,30 +1,48 @@
-"use strict";
+var gulp = require("gulp"),
+    runSequence = require("run-sequence"),
+    path = require("path"),
 
-var gulp = require("gulp");
-var runSequence = require('run-sequence');
-var miscPipes = require("../pipes/misc");
-var names = require("../../../project/config").gulp.names;
+    miscPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "misc"
+        )
+    ),
+    names = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names;
 
 gulp.task(
     names.bowerInstall,
-    function()
+    function doBowerInstall()
     {
+        "use strict";
+
         return miscPipes.bowerInstall();
     }
 );
 
 gulp.task(
     names.bowerUpdate,
-    function()
+    function doBowerUpdate()
     {
+        "use strict";
+
         return miscPipes.bowerUpdate();
     }
 );
 
 gulp.task(
     names.bower,
-    function(cb)
+    function doBower(cb)
     {
+        "use strict";
+
         runSequence(
             names.bowerUpdate,
             cb

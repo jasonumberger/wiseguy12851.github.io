@@ -1,8 +1,5 @@
-"use strict";
-
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
-var bower = require('gulp-bower');
+var lazypipe = require("lazypipe"),
+    bower    = require("gulp-bower");
 
 exports.bowerInstall = lazypipe().pipe(
     bower,

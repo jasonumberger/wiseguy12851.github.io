@@ -1,7 +1,12 @@
-"use strict";
+var livereload = require("gulp-livereload"),
+    path       = require("path"),
 
-var livereload = require("gulp-livereload");
-var src = require("../../../project/config").gulp.paths.src;
+    src        = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src;
 
 livereload.options.reloadPage = src.initPageDev;
 

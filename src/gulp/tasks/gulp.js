@@ -1,23 +1,39 @@
-"use strict";
+var gulp        = require("gulp"),
+    path        = require("path"),
 
-var gulp = require("gulp");
-var gulpPipes = require("../pipes/gulp");
-var names = require("../../../project/config").gulp.names;
+    gulpPipes   = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "gulp"
+        )
+    ),
 
-var runSequence = require('run-sequence');
+    names       = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names,
+    runSequence = require("run-sequence");
 
 gulp.task(
     names.gulpEslint,
-    function()
+    function doGulpEslint()
     {
+        "use strict";
+
         return gulpPipes.eslint();
     }
 );
 
 gulp.task(
     names.gulpLint,
-    function(cb)
+    function doGulpLint(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.gulpEslint
@@ -29,8 +45,10 @@ gulp.task(
 
 gulp.task(
     names.gulp,
-    function(cb)
+    function doGulp(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.gulpLint

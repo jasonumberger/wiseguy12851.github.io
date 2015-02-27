@@ -1,14 +1,20 @@
-"use strict";
+var gulp        = require("gulp"),
+    runSequence = require("run-sequence"),
+    path        = require("path"),
 
-var gulp = require("gulp");
-var livereload = require("../wrapper/livereload");
-var runSequence = require('run-sequence');
-var names = require("../../../project/config").gulp.names;
+    names       = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names;
 
 gulp.task(
     "default",
-    function(cb)
+    function doDefault(cb)
     {
+        "use strict";
+
         runSequence(
             names.build,
             cb

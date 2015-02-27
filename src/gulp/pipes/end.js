@@ -1,10 +1,22 @@
-"use strict";
+var lazypipe = require("lazypipe"),
+    notify   = require("gulp-notify"),
+    path     = require("path"),
 
-var lazypipe = require('lazypipe');
-var notify = require("gulp-notify");
-var log = require("../wrapper/log");
+    log      = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "wrapper",
+            "log"
+        )
+    ),
 
-var msg = require("../../../project/config").gulp.msg;
+    msg      = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.msg;
 
 module.exports = lazypipe().pipe(
     notify,

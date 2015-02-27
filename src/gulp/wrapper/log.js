@@ -1,9 +1,18 @@
-var log = require('pretty-log');
-var _ = require("lodash");
-var logConfig = require("../../../project/config").gulp.log;
+var log       = require("pretty-log"),
+    _         = require("lodash"),
+    path      = require("path"),
 
-exports.error = function(msg)
+    logConfig = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.log;
+
+exports.error = function doError(msg)
 {
+    "use strict";
+
     if(_.indexOf(
             logConfig.enabledLogLevels,
             "error"
@@ -13,8 +22,10 @@ exports.error = function(msg)
     }
 };
 
-exports.warn = function(msg)
+exports.warn = function doWarn(msg)
 {
+    "use strict";
+
     if(_.indexOf(
             logConfig.enabledLogLevels,
             "warn"
@@ -24,8 +35,10 @@ exports.warn = function(msg)
     }
 };
 
-exports.success = function(msg)
+exports.success = function doSuccess(msg)
 {
+    "use strict";
+
     if(_.indexOf(
             logConfig.enabledLogLevels,
             "success"
@@ -35,8 +48,10 @@ exports.success = function(msg)
     }
 };
 
-exports.debug = function(msg)
+exports.debug = function doDebug(msg)
 {
+    "use strict";
+
     if(_.indexOf(
             logConfig.enabledLogLevels,
             "debug"

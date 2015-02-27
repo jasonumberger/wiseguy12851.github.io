@@ -1,16 +1,50 @@
-"use strict";
+var gulp     = require("gulp"),
+    lazypipe = require("lazypipe"),
+    path     = require("path"),
 
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
+    concat   = require("gulp-concat"),
 
-var concat = require("gulp-concat");
+    jsLibs   = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.js,
 
-var jsLibs = require("../../../project/config").gulp.paths.js;
-var cssLibs = require("../../../project/config").gulp.paths.css;
-var fontLibs = require("../../../project/config").gulp.paths.fonts;
-var src = require("../../../project/config").gulp.paths.src;
-var dest = require("../../../project/config").gulp.paths.dest;
-var prep = require("../../../project/config").gulp.paths.prep;
+    cssLibs  = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.css,
+
+    fontLibs = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.fonts,
+
+    src      = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src,
+
+    dest     = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.dest,
+
+    prep     = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.prep;
 
 exports.scripts = lazypipe().pipe(
     gulp.src,

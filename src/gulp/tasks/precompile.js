@@ -1,39 +1,57 @@
-"use strict";
+var gulp = require("gulp"),
+    path = require("path"),
 
-var gulp = require("gulp");
-var precompilePipes = require("../pipes/precompile");
-var names = require("../../../project/config").gulp.names;
-var runSequence = require('run-sequence');
+    precompilePipes = require(path.resolve(
+        "src",
+        "gulp",
+        "pipes",
+        "precompile"
+    )),
+    names = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names,
+    runSequence = require("run-sequence");
 
 // Now get all the scripts then concatenate and minify them
 gulp.task(
     names.precompileScripts,
-    function()
+    function doPrecompileScripts()
     {
+        "use strict";
+
         return precompilePipes.scripts();
     }
 );
 
 gulp.task(
     names.precompileStyles,
-    function()
+    function doPrecompileStyles()
     {
+        "use strict";
+
         return precompilePipes.styles();
     }
 );
 
 gulp.task(
     names.precompileFonts,
-    function()
+    function doPrecompileFonts()
     {
+        "use strict";
+
         return precompilePipes.fonts();
     }
 );
 
 gulp.task(
     names.precompileAll,
-    function(cb)
+    function doPrecompileAll(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.precompileScripts,
@@ -47,8 +65,10 @@ gulp.task(
 
 gulp.task(
     names.precompile,
-    function(cb)
+    function doPrecompile(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names.precompileAll

@@ -1,8 +1,35 @@
-"use strict";
+var path = require("path");
 
-// Note: These are defaults and may be overidden via an rc file. Always use
-// the project config file to access these, never directly.
+/*
+ * These are fonts from bower packages that are to be included in the build
+ *
+ * Please don't include or use these directly as the user may have overridden
+ * some of these via one of many methods "rc" offers. Instead use them through
+ * the project config file will will automatically apply user changes.
+ */
+
 module.exports = [
-    "./bower_components/fontawesome/fonts/**/*",
-    "./bower_components/bootstrap-stylus/fonts/**/*"
+    /*
+     * Fontawesome
+     * Large selection of amazing fonts
+     */
+    path.resolve(
+        "bower_components",
+        "fontawesome",
+        "fonts",
+        "**",
+        "*"
+    ),
+
+    /*
+     * Bootstrap Stylus
+     * Set of core fonts through bootstrap
+     */
+    path.resolve(
+        "bower_components",
+        "bootstrap-stylus",
+        "fonts",
+        "**",
+        "*"
+    )
 ];

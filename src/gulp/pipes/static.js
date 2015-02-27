@@ -1,10 +1,27 @@
-"use strict";
+var gulp            = require("gulp"),
+    lazypipe        = require("lazypipe"),
+    path            = require("path"),
+    livereloadPipes = require(
+        path.resolve(
+            "src",
+            "gulp",
+            "pipes",
+            "livereload"
+        )),
 
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
-var livereloadPipes = require("./livereload");
-var src = require("../../../project/config").gulp.paths.src;
-var dest = require("../../../project/config").gulp.paths.dest;
+    src             = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src,
+
+    dest            = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.dest;
 
 exports.client = lazypipe().pipe(
     gulp.src,
@@ -14,7 +31,8 @@ exports.client = lazypipe().pipe(
     dest.client
 );
 
-exports.clientLive = exports.client.pipe(livereloadPipes.normal);
+exports.clientLive = exports.client
+    .pipe(livereloadPipes.normal);
 
 exports.media = lazypipe().pipe(
     gulp.src,
@@ -24,7 +42,8 @@ exports.media = lazypipe().pipe(
     dest.media
 );
 
-exports.mediaLive = exports.media.pipe(livereloadPipes.normal);
+exports.mediaLive = exports.media
+    .pipe(livereloadPipes.normal);
 
 exports.partials = lazypipe().pipe(
     gulp.src,
@@ -34,7 +53,8 @@ exports.partials = lazypipe().pipe(
     dest.partials
 );
 
-exports.partialsLive = exports.partials.pipe(livereloadPipes.normal);
+exports.partialsLive = exports.partials
+    .pipe(livereloadPipes.normal);
 
 exports.typescript = lazypipe().pipe(
     gulp.src,
@@ -44,7 +64,8 @@ exports.typescript = lazypipe().pipe(
     dest.typescript
 );
 
-exports.typescriptLive = exports.typescript.pipe(livereloadPipes.normal);
+exports.typescriptLive = exports.typescript
+    .pipe(livereloadPipes.normal);
 
 exports.coffeescript = lazypipe().pipe(
     gulp.src,
@@ -54,7 +75,8 @@ exports.coffeescript = lazypipe().pipe(
     dest.coffeescript
 );
 
-exports.coffeescriptLive = exports.coffeescript.pipe(livereloadPipes.normal);
+exports.coffeescriptLive = exports.coffeescript
+    .pipe(livereloadPipes.normal);
 
 exports.less = lazypipe().pipe(
     gulp.src,
@@ -64,7 +86,8 @@ exports.less = lazypipe().pipe(
     dest.less
 );
 
-exports.lessLive = exports.less.pipe(livereloadPipes.normal);
+exports.lessLive = exports.less
+    .pipe(livereloadPipes.normal);
 
 exports.stylus = lazypipe().pipe(
     gulp.src,
@@ -74,4 +97,5 @@ exports.stylus = lazypipe().pipe(
     dest.stylus
 );
 
-exports.stylusLive = exports.stylus.pipe(livereloadPipes.normal);
+exports.stylusLive = exports.stylus
+    .pipe(livereloadPipes.normal);

@@ -1,13 +1,20 @@
-"use strict";
+var gulp        = require("gulp"),
+    path        = require("path"),
 
-var gulp = require("gulp");
-var names = require("../../../project/config").gulp.names;
-var runSequence = require('run-sequence');
+    names       = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.names,
+    runSequence = require("run-sequence");
 
 gulp.task(
     names.buildIncrement,
-    function(cb)
+    function doBuildIncrement(cb)
     {
+        "use strict";
+
         runSequence(
             [
                 names._static,
@@ -22,8 +29,10 @@ gulp.task(
 
 gulp.task(
     names.buildFresh,
-    function(cb)
+    function doBuildFresh(cb)
     {
+        "use strict";
+
         runSequence(
             names.clean,
             names.precompile,
@@ -35,8 +44,10 @@ gulp.task(
 
 gulp.task(
     names.build,
-    function(cb)
+    function doBuild(cb)
     {
+        "use strict";
+
         runSequence(
             names.buildIncrement,
             cb
@@ -46,8 +57,10 @@ gulp.task(
 
 gulp.task(
     names.init,
-    function(cb)
+    function doInit(cb)
     {
+        "use strict";
+
         runSequence(
             names.bowerInstall,
             names.buildFresh,

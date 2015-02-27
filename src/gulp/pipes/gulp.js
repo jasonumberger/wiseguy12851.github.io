@@ -1,9 +1,20 @@
-var gulp = require("gulp");
-var lazypipe = require('lazypipe');
+var gulp     = require("gulp"),
+    lazypipe = require("lazypipe"),
+    eslint   = require("gulp-eslint"),
+    path     = require("path"),
 
-var eslint = require("gulp-eslint");
+    src      = require(
+        path.resolve(
+            "project",
+            "config"
+        )
+    ).gulp.paths.src;
 
-var src = require("../../../project/config").gulp.paths.src;
-
-exports.eslint = lazypipe().pipe(gulp.src, src.gulp)
-    .pipe(eslint).pipe(eslint.format).pipe(eslint.failOnError);
+exports.eslint = lazypipe()
+    .pipe(
+    gulp.src,
+    src.gulp
+)
+    .pipe(eslint)
+    .pipe(eslint.format)
+    .pipe(eslint.failOnError);
