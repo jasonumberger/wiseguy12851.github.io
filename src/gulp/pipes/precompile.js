@@ -1,17 +1,18 @@
-var gulp     = require("gulp"),
+var gulp = require("gulp"),
     lazypipe = require("lazypipe"),
-    path     = require("path"),
+    path = require("path"),
+    cache = require("gulp-cached"),
 
-    concat   = require("gulp-concat"),
+    concat = require("gulp-concat"),
 
-    jsLibs   = require(
+    jsLibs = require(
         path.resolve(
             "project",
             "config"
         )
     ).gulp.paths.js,
 
-    cssLibs  = require(
+    cssLibs = require(
         path.resolve(
             "project",
             "config"
@@ -25,21 +26,21 @@ var gulp     = require("gulp"),
         )
     ).gulp.paths.fonts,
 
-    src      = require(
+    src = require(
         path.resolve(
             "project",
             "config"
         )
     ).gulp.paths.src,
 
-    dest     = require(
+    dest = require(
         path.resolve(
             "project",
             "config"
         )
     ).gulp.paths.dest,
 
-    prep     = require(
+    prep = require(
         path.resolve(
             "project",
             "config"
@@ -68,10 +69,17 @@ exports.styles = lazypipe().pipe(
     dest.client
 );
 
-exports.fonts = lazypipe().pipe(
+exports.fonts = lazypipe()
+    .pipe(
     gulp.src,
     fontLibs.concat([src.fonts])
-).pipe(
+)
+    .pipe(
+    cache,
+    "precompile-fonts",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.fonts
 );

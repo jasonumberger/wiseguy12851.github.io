@@ -1,6 +1,7 @@
 var gulp            = require("gulp"),
     lazypipe        = require("lazypipe"),
     path            = require("path"),
+    cache           = require("gulp-cached"),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -23,10 +24,17 @@ var gulp            = require("gulp"),
         )
     ).gulp.paths.dest;
 
-exports.client = lazypipe().pipe(
+exports.client = lazypipe()
+    .pipe(
     gulp.src,
     src.client
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-client",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.client
 );
@@ -34,10 +42,17 @@ exports.client = lazypipe().pipe(
 exports.clientLive = exports.client
     .pipe(livereloadPipes.normal);
 
-exports.media = lazypipe().pipe(
+exports.media = lazypipe()
+    .pipe(
     gulp.src,
     src.media
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-media",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.media
 );
@@ -45,10 +60,17 @@ exports.media = lazypipe().pipe(
 exports.mediaLive = exports.media
     .pipe(livereloadPipes.normal);
 
-exports.partials = lazypipe().pipe(
+exports.partials = lazypipe()
+    .pipe(
     gulp.src,
     src.partials
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-partials",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.partials
 );
@@ -56,10 +78,17 @@ exports.partials = lazypipe().pipe(
 exports.partialsLive = exports.partials
     .pipe(livereloadPipes.normal);
 
-exports.typescript = lazypipe().pipe(
+exports.typescript = lazypipe()
+    .pipe(
     gulp.src,
     src.typescript
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-typescript",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.typescript
 );
@@ -67,10 +96,17 @@ exports.typescript = lazypipe().pipe(
 exports.typescriptLive = exports.typescript
     .pipe(livereloadPipes.normal);
 
-exports.coffeescript = lazypipe().pipe(
+exports.coffeescript = lazypipe()
+    .pipe(
     gulp.src,
     src.coffeescript
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-coffeescript",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.coffeescript
 );
@@ -81,7 +117,13 @@ exports.coffeescriptLive = exports.coffeescript
 exports.less = lazypipe().pipe(
     gulp.src,
     src.less
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-less",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.less
 );
@@ -92,7 +134,13 @@ exports.lessLive = exports.less
 exports.stylus = lazypipe().pipe(
     gulp.src,
     src.stylus
-).pipe(
+)
+    .pipe(
+    cache,
+    "static-stylus",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.stylus
 );

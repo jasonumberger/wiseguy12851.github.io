@@ -11,6 +11,7 @@ var gulp            = require("gulp"),
     _               = require("lodash"),
     source          = require("vinyl-source-stream"),
     eslint          = require("gulp-eslint"),
+    cache           = require("gulp-cached"),
 
     src             = require(
         path.resolve(
@@ -33,20 +34,35 @@ var gulp            = require("gulp"),
         )
     ).gulp.paths.prep;
 
-exports.javascript = lazypipe().pipe(
+exports.javascript = lazypipe()
+    .pipe(
     gulp.src,
     src.javascript
-).pipe(
+)
+    .pipe(
+    cache,
+    "scripts-javascript",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.javascript
 );
 
-exports.javascriptLive = exports.javascript.pipe(livereloadPipes.normal);
+exports.javascriptLive = exports.javascript
+    .pipe(livereloadPipes.normal);
 
-exports.typescript = lazypipe().pipe(
+exports.typescript = lazypipe()
+    .pipe(
     gulp.src,
     src.typescript
-).pipe(
+)
+    .pipe(
+    cache,
+    "scripts-typescript",
+    {optimizeMemory: true}
+)
+    .pipe(
     function processTS()
     {
         "use strict";
@@ -74,7 +90,8 @@ exports.typescript = lazypipe().pipe(
 exports.typescriptLive = exports.typescript
     .pipe(livereloadPipes.normal);
 
-exports.eslint = lazypipe().pipe(
+exports.eslint = lazypipe()
+    .pipe(
     gulp.src,
     [
         // Remember, use the compiled output, .ts and .coffee will be .js
@@ -95,6 +112,11 @@ exports.eslint = lazypipe().pipe(
             "*.js"
         )
     ]
+)
+    .pipe(
+    cache,
+    "scripts-eslint",
+    {optimizeMemory: true}
 )
     .pipe(eslint)
     .pipe(eslint.format)

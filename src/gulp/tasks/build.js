@@ -50,6 +50,7 @@ gulp.task(
 
         runSequence(
             names.buildIncrement,
+            names.gulp,
             cb
         );
     }

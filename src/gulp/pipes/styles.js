@@ -8,6 +8,7 @@ var lazypipe        = require("lazypipe"),
     minifyCss       = require("gulp-minify-css"),
     nib             = require("nib"),
     path            = require("path"),
+    cache           = require("gulp-cached"),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -47,7 +48,13 @@ var lazypipe        = require("lazypipe"),
 exports.css = lazypipe().pipe(
     gulp.src,
     src.css
-).pipe(
+)
+    .pipe(
+    cache,
+    "styles-css",
+    {optimizeMemory: true}
+)
+    .pipe(
     gulp.dest,
     dest.css
 );
@@ -62,10 +69,17 @@ exports.cssPrefixLive = exports.css
     .pipe(autoprefix)
     .pipe(exports.cssLive);
 
-exports.stylus = lazypipe().pipe(
+exports.stylus = lazypipe()
+    .pipe(
     gulp.src,
     src.stylus
-).pipe(
+)
+    .pipe(
+    cache,
+    "styles-stylus",
+    {optimizeMemory: true}
+)
+    .pipe(
     stylus,
     {
 
