@@ -9,6 +9,7 @@ var lazypipe        = require("lazypipe"),
     nib             = require("nib"),
     path            = require("path"),
     cache           = require("gulp-cached"),
+    changed         = require("gulp-changed"),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -55,6 +56,11 @@ exports.css = lazypipe().pipe(
     {optimizeMemory: true}
 )
     .pipe(
+    changed,
+    dest.css
+)
+
+    .pipe(
     gulp.dest,
     dest.css
 );
@@ -79,6 +85,14 @@ exports.stylus = lazypipe()
     "styles-stylus",
     {optimizeMemory: true}
 )
+    .pipe(
+    changed,
+    dest.stylus,
+    {
+        extension: ".css"
+    }
+)
+
     .pipe(
     stylus,
     {

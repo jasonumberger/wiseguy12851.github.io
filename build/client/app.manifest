@@ -9,7 +9,6 @@ build.min.js
 bundle.js
 precompile.css
 precompile.js
-media/README.md
 fonts/FontAwesome.otf
 fonts/fontawesome-webfont.eot
 fonts/fontawesome-webfont.svg
@@ -25,6 +24,7 @@ fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
+media/README.md
 scripts/index.js
 partials/fragments/glyph-test.html
 partials/fragments/navbar.html
@@ -49,4 +49,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 70172e0c73df8b96bc5f018b71f7b240070deedd44c8bf092da08c500bc88542
+# hash: 095374f16f530d6d179dc42f1e4a22e7e3353e91a4c616ebfe274740b1a17169

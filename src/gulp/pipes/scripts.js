@@ -12,6 +12,7 @@ var gulp            = require("gulp"),
     source          = require("vinyl-source-stream"),
     eslint          = require("gulp-eslint"),
     cache           = require("gulp-cached"),
+    changed         = require("gulp-changed"),
 
     src             = require(
         path.resolve(
@@ -44,6 +45,8 @@ exports.javascript = lazypipe()
     "scripts-javascript",
     {optimizeMemory: true}
 )
+    .pipe(changed, dest.javascript)
+
     .pipe(
     gulp.dest,
     dest.javascript
@@ -62,6 +65,9 @@ exports.typescript = lazypipe()
     "scripts-typescript",
     {optimizeMemory: true}
 )
+    .pipe(changed, dest.typescript,
+    {extension: ".js"})
+
     .pipe(
     function processTS()
     {

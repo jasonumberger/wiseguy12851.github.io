@@ -2,6 +2,7 @@ var gulp            = require("gulp"),
     lazypipe        = require("lazypipe"),
     path            = require("path"),
     cache           = require("gulp-cached"),
+    changed         = require("gulp-changed"),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -34,6 +35,8 @@ exports.client = lazypipe()
     "static-client",
     {optimizeMemory: true}
 )
+    .pipe(changed, dest.client)
+
     .pipe(
     gulp.dest,
     dest.client
@@ -53,6 +56,11 @@ exports.media = lazypipe()
     {optimizeMemory: true}
 )
     .pipe(
+    changed,
+    dest.media
+)
+
+    .pipe(
     gulp.dest,
     dest.media
 );
@@ -70,6 +78,11 @@ exports.partials = lazypipe()
     "static-partials",
     {optimizeMemory: true}
 )
+    .pipe(
+    changed,
+    dest.partials
+)
+
     .pipe(
     gulp.dest,
     dest.partials
@@ -89,6 +102,11 @@ exports.typescript = lazypipe()
     {optimizeMemory: true}
 )
     .pipe(
+    changed,
+    dest.typescript
+)
+
+    .pipe(
     gulp.dest,
     dest.typescript
 );
@@ -107,6 +125,11 @@ exports.coffeescript = lazypipe()
     {optimizeMemory: true}
 )
     .pipe(
+    changed,
+    dest.coffeescript
+)
+
+    .pipe(
     gulp.dest,
     dest.coffeescript
 );
@@ -124,6 +147,11 @@ exports.less = lazypipe().pipe(
     {optimizeMemory: true}
 )
     .pipe(
+    changed,
+    dest.less
+)
+
+    .pipe(
     gulp.dest,
     dest.less
 );
@@ -140,6 +168,11 @@ exports.stylus = lazypipe().pipe(
     "static-stylus",
     {optimizeMemory: true}
 )
+    .pipe(
+    changed,
+    dest.stylus
+)
+
     .pipe(
     gulp.dest,
     dest.stylus
