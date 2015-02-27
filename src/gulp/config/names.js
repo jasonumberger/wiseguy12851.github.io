@@ -7,6 +7,8 @@
  */
 
 module.exports = {
+    watch:        "watch",
+
     bowerUpdate:  "bower:update",
     bowerInstall: "bower:install",
     bower:        "bower",
