@@ -26,6 +26,8 @@ fonts/icomoon.ttf
 fonts/icomoon.woff
 media/README.md
 scripts/index.js
+scripts/test.coffee
+scripts/test.js
 partials/fragments/glyph-test.html
 partials/fragments/navbar.html
 scripts/modules/index.js
@@ -49,4 +51,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 095374f16f530d6d179dc42f1e4a22e7e3353e91a4c616ebfe274740b1a17169
+# hash: 96ff9e4f997343dc283db86e63bd484208ae6d824be0d242ebf2c44495e7a04d

@@ -13,6 +13,8 @@ var gulp            = require("gulp"),
     eslint          = require("gulp-eslint"),
     cache           = require("gulp-cached"),
     changed         = require("gulp-changed"),
+    coffee          = require("gulp-coffee"),
+    gutil           = require("gulp-util"),
 
     src             = require(
         path.resolve(
@@ -96,6 +98,40 @@ exports.typescript = lazypipe()
 exports.typescriptLive = exports.typescript
     .pipe(livereloadPipes.normal);
 
+exports.coffeescript = lazypipe()
+    .pipe(
+    gulp.src,
+    src.coffeescript
+)
+    .pipe(
+    cache,
+    "scripts-coffeescript",
+    {optimizeMemory: true}
+)
+    .pipe(
+    changed,
+    dest.coffeescript,
+    {extension: ".js"}
+)
+    .pipe(
+    function processCoffee()
+    {
+        "use strict";
+
+        return coffee(
+            {
+                bare: false
+            }
+        ).on(
+            "error",
+            gutil.log
+        );
+    }
+).pipe(
+    gulp.dest,
+    dest.typescript
+);
+
 exports.eslint = lazypipe()
     .pipe(
     gulp.src,
@@ -141,20 +177,17 @@ exports.browserify = lazypipe().pipe(
         // and strips entry points that have the exact same path
         var files = [
             require("path").resolve(
-                __dirname,
-                "..",
-                "..",
-                "..",
                 dest.javascript,
                 "index.js"
             ),
 
             require("path").resolve(
-                __dirname,
-                "..",
-                "..",
-                "..",
                 dest.typescript,
+                "index.js"
+            ),
+
+            require("path").resolve(
+                dest.coffeescript,
                 "index.js"
             )
         ];

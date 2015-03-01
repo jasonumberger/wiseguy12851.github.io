@@ -38,6 +38,16 @@ gulp.task(
 );
 
 gulp.task(
+    names.scriptsCoffee,
+    function doScriptsCoffee()
+    {
+        "use strict";
+
+        return scriptPipes.coffeescript();
+    }
+);
+
+gulp.task(
     names.scriptsBrowserify,
     function doScriptsBrowserify()
     {
@@ -86,9 +96,10 @@ gulp.task(
         runSequence(
             [
                 names.scriptsJS,
-                names.scriptsTS
+                names.scriptsTS,
+                names.scriptsCoffee
             ],
-            names.scriptsLintEslint,
+            // names.scriptsLintEslint,
             names.scriptsBrowserify,
             names.scriptsMinify,
             cb

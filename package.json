@@ -28,7 +28,6 @@
     "gulp-changed": "*",
     "gulp-coffee": "*",
     "gulp-concat": "*",
-    "gulp-download": "*",
     "gulp-eslint": "*",
     "gulp-git": "*",
     "gulp-gzip": "*",

@@ -22,6 +22,7 @@ gulp.task(
                 names.styles
             ],
             names.manifest,
+            names.gulp,
             cb
         );
     }
@@ -50,7 +51,6 @@ gulp.task(
 
         runSequence(
             names.buildIncrement,
-            names.gulp,
             cb
         );
     }
