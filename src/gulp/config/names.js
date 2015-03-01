@@ -43,6 +43,11 @@ module.exports = {
     cleanStyles:           "clean:styles",
 
     cleanManifest: "clean:manifest",
+
+    cleanArchiveZip: "clean:archive@zip",
+    cleanArchiveGzip: "clean:archive@gzip",
+    cleanArchive: "clean:archive",
+
     clean:         "clean",
 
     liveReload: "livereload",
@@ -81,5 +86,10 @@ module.exports = {
     buildIncrement: "build:increment",
     buildFresh:     "build:fresh",
     build:          "build",
-    init:           "init"
+
+    init:           "init",
+
+    archiveZip:     "archive:zip",
+    archiveGzip:    "archive:gzip",
+    archive:        "archive"
 };

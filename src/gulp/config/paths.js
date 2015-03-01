@@ -174,5 +174,11 @@ exports.preperation = {
     stylesMinified:   "build.min.css",
     stylesPrecompile: "precompile.css",
 
-    manifest: "app.manifest"
+    manifest: "app.manifest",
+
+    // These are appended to the "root" path, not "client"
+    archiveZip: "app.zip",
+
+    // this file will also have .gz aded to the end due to being gzipped as well
+    archiveTar: "app.tar"
 };

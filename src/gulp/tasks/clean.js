@@ -268,6 +268,42 @@ gulp.task(
 );
 
 gulp.task(
+    names.cleanArchiveZip,
+    function doCleanManifest()
+    {
+        "use strict";
+
+        return cleanPipes.archiveZip();
+    }
+);
+
+gulp.task(
+    names.cleanArchiveGzip,
+    function doCleanManifest()
+    {
+        "use strict";
+
+        return cleanPipes.archiveGzip();
+    }
+);
+
+gulp.task(
+    names.cleanArchive,
+    function doClean(cb)
+    {
+        "use strict";
+
+        runSequence(
+            [
+                names.cleanArchiveZip,
+                names.cleanArchiveGzip
+            ],
+            cb
+        );
+    }
+);
+
+gulp.task(
     names.clean,
     function doClean(cb)
     {

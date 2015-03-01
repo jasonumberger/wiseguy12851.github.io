@@ -141,3 +141,17 @@ exports.manifest = makeDelPipe(
         prep.manifest
     )
 );
+
+exports.archiveZip = makeDelPipe(
+    path.resolve(
+        dest.root,
+        prep.archiveZip
+    )
+);
+
+exports.archiveGzip = makeDelPipe(
+    path.resolve(
+        dest.root,
+        prep.archiveTar
+    )
+);
