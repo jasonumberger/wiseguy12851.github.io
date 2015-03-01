@@ -50,6 +50,7 @@
     "gulp-unzip": "*",
     "gulp-util": "*",
     "gulp-zip": "*",
+    "imagemin-pngcrush": "*",
     "include-all": "*",
     "jscs": "*",
     "lazypipe": "*",

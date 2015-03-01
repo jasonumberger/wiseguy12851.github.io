@@ -3,6 +3,9 @@ var gulp            = require("gulp"),
     path            = require("path"),
     cache           = require("gulp-cached"),
     changed         = require("gulp-changed"),
+    imagemin        = require("gulp-imagemin"),
+    rename          = require("gulp-rename"),
+    pngcrush        = require('imagemin-pngcrush'),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -44,6 +47,66 @@ exports.client = lazypipe()
 
 exports.clientLive = exports.client
     .pipe(livereloadPipes.normal);
+
+exports.minifyImages = lazypipe()
+    .pipe(
+    gulp.src,
+    [
+        path.resolve(src.media, "**", "*.jpg"),
+        path.resolve(
+            src.media,
+            "**",
+            "*.jpeg"
+        ),
+        path.resolve(
+            src.media,
+            "**",
+            "*.png"
+        ),
+        path.resolve(
+            src.media,
+            "**",
+            "*.gif"
+        ),
+        path.resolve(
+            src.media,
+            "**",
+            "*.svg"
+        )
+    ]
+)
+    .pipe(
+    cache,
+    "static-minify-images",
+    {optimizeMemory: true}
+)
+    .pipe(
+    changed,
+    dest.media
+)
+    .pipe(imagemin, {
+        optimizationLevel: 7,
+        progressive: true,
+        interlaced: true,
+        multipass: true,
+        svgoPlugins: [
+            {removeViewBox: false},
+            {removeUselessStrokeAndFill: false}
+        ],
+        use: [pngcrush()]
+    })
+
+    .pipe(rename, function doImageminRename(path)
+    {
+        "use strict";
+
+        path.extname = ".min" + path.extname;
+    })
+
+    .pipe(
+    gulp.dest,
+    dest.media
+);
 
 exports.media = lazypipe()
     .pipe(

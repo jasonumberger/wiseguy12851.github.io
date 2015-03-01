@@ -54,7 +54,8 @@ module.exports = {
     manifest:   "manifest",
 
     staticClient:       "static:client",
-    staticMedia:        "static:media",
+    staticMedia:    "static:media",
+    staticMediaMinifyImages:  "static:media@minifyimages",
     staticPartials:     "static:partials",
     staticTS:           "static:typescript",
     staticCoffeescript: "static:coffeescript",

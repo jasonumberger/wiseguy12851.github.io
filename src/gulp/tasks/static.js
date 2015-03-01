@@ -29,6 +29,16 @@ gulp.task(
 );
 
 gulp.task(
+    names.staticMediaMinifyImages,
+    function doStaticMedia()
+    {
+        "use strict";
+
+        return staticPipes.minifyImages();
+    }
+);
+
+gulp.task(
     names.staticMedia,
     function doStaticMedia()
     {
@@ -97,6 +107,7 @@ gulp.task(
         runSequence(
             [
                 names.staticClient,
+                names.staticMediaMinifyImages,
                 names.staticMedia,
                 names.staticPartials,
                 names.staticTS,
