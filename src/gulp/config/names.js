@@ -13,10 +13,6 @@ module.exports = {
     bowerInstall: "bower:install",
     bower:        "bower",
 
-    gulpEslint: "gulp:lint@eslint",
-    gulpLint:   "gulp:lint",
-    gulp:       "gulp",
-
     cleanClient:      "clean:client",
     cleanRoot:        "clean:root",
     cleanPrecompiled: "clean:precompiled",
@@ -73,7 +69,6 @@ module.exports = {
     scriptsTS:         "scripts:ts",
     scriptsCoffee:     "scripts:coffee",
     scriptsBrowserify: "scripts:browserify",
-    scriptsLintEslint: "scripts:lint@eslint",
     scriptsConcat:     "scripts:concat",
     scriptsMinify:     "scripts:minify",
     scripts:           "scripts",

@@ -10,7 +10,6 @@ var gulp            = require("gulp"),
     browserify      = require("browserify"),
     _               = require("lodash"),
     source          = require("vinyl-source-stream"),
-    eslint          = require("gulp-eslint"),
     cache           = require("gulp-cached"),
     changed         = require("gulp-changed"),
     coffee          = require("gulp-coffee"),
@@ -131,41 +130,6 @@ exports.coffeescript = lazypipe()
     gulp.dest,
     dest.typescript
 );
-
-exports.eslint = lazypipe()
-    .pipe(
-    gulp.src,
-    [
-        // Remember, use the compiled output, .ts and .coffee will be .js
-        // on compile
-        path.resolve(
-            dest.javascript,
-            "**",
-            "*.js"
-        ),
-        path.resolve(
-            dest.typescript,
-            "**",
-            "*.js"
-        ),
-        path.resolve(
-            dest.coffeescript,
-            "**",
-            "*.js"
-        )
-    ]
-)
-    .pipe(
-    cache,
-    "scripts-eslint",
-    {optimizeMemory: true}
-)
-    .pipe(eslint)
-    .pipe(eslint.format)
-    .pipe(eslint.failOnError);
-
-exports.eslintLive = exports.eslint
-    .pipe(livereloadPipes.normal);
 
 exports.browserify = lazypipe().pipe(
     function doBrowserify()

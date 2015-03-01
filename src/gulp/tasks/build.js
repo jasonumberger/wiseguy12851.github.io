@@ -22,7 +22,6 @@ gulp.task(
                 names.styles
             ],
             names.manifest,
-            // names.gulp,
             cb
         );
     }

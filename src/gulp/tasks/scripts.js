@@ -58,16 +58,6 @@ gulp.task(
 );
 
 gulp.task(
-    names.scriptsLintEslint,
-    function doScriptsEslint()
-    {
-        "use strict";
-
-        return scriptPipes.eslint();
-    }
-);
-
-gulp.task(
     names.scriptsConcat,
     function doScriptsConcat()
     {
@@ -99,7 +89,6 @@ gulp.task(
                 names.scriptsTS,
                 names.scriptsCoffee
             ],
-            // names.scriptsLintEslint,
             names.scriptsBrowserify,
             names.scriptsMinify,
             cb

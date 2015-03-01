@@ -25,18 +25,19 @@ fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
 media/README.md
+media/test.png
 scripts/index.js
 partials/fragments/glyph-test.html
 partials/fragments/navbar.html
+scripts/modules/index.js
+styles/01-Custom/main.css
+styles/01-Custom/main.styl
 styles/00-Frameworks/bootstrap-variables.css
 styles/00-Frameworks/bootstrap-variables.styl
 styles/00-Frameworks/bootstrap.css
 styles/00-Frameworks/bootstrap.styl
 styles/00-Frameworks/font-awesome.css
 styles/00-Frameworks/icomoon.css
-styles/01-Custom/main.css
-styles/01-Custom/main.styl
-scripts/modules/index.js
 scripts/modules/main/index.js
 scripts/modules/main/src/config.js
 scripts/modules/main/src/module.js
@@ -49,4 +50,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 2894159bd0691558462ea414e1eaf0abc18e412dc898eed518113e217228f3c1
+# hash: c30152799aeb7148788437bcd957a521135782aafc0f3bb296744e148b8df5a1
