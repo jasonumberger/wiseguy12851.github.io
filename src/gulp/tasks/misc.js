@@ -25,3 +25,10 @@ gulp.task(names.bower, function doBower(cb)
 
     runSequence(names.bowerUpdate, cb);
 });
+
+gulp.task(names.gitCommitPush, function doGulpCommitPush()
+{
+    "use strict";
+
+    return miscPipes.gitCommitPush();
+});

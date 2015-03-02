@@ -13,6 +13,8 @@ module.exports = {
     bowerInstall: "bower:install",
     bower:        "bower",
 
+    gitCommitPush: "git",
+
     cleanClient:      "clean:client",
     cleanRoot:        "clean:root",
     cleanPrecompiled: "clean:precompiled",
