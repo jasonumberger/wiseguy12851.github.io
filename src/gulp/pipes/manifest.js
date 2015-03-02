@@ -2,7 +2,7 @@ var gulp            = require("gulp"),
     lazypipe        = require("lazypipe"),
     manifest        = require("gulp-manifest"),
     path            = require("path"),
-    newer           = require('gulp-newer'),
+    // newer           = require('gulp-newer'),
 
     livereloadPipes = require(path.resolve("src", "gulp", "pipes",
         "livereload")),
@@ -16,7 +16,7 @@ var gulp            = require("gulp"),
 exports.regular =
     lazypipe()
         .pipe(gulp.src, path.resolve(dest.client, "**", "*"))
-        .pipe(newer, path.resolve(dest.client, prep.manifest))
+        // .pipe(newer, path.resolve(dest.client, prep.manifest))
         .pipe(manifest, {
             filename: prep.manifest,
             exclude:  [

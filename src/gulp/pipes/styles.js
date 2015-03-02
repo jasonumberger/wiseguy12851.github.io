@@ -9,7 +9,7 @@ var lazypipe = require("lazypipe"),
     cache = require("gulp-cached"),
     changed = require("gulp-changed"),
     less = require('gulp-less'),
-    newer = require("gulp-newer"),
+    // newer = require("gulp-newer"),
 
     livereloadPipes = require(path.resolve("src", "gulp", "pipes",
         "livereload")),
@@ -24,7 +24,7 @@ exports.css =
         .pipe(gulp.src, src.css)
         .pipe(cache, "styles-css", {optimizeMemory: true})
         .pipe(changed, dest.css)
-        .pipe(newer, dest.css)
+        // .pipe(newer, dest.css)
         .pipe(autoprefix)
         .pipe(gulp.dest, dest.css)
         .pipe(livereloadPipes.normal);
@@ -34,10 +34,10 @@ exports.less =
         .pipe(gulp.src, src.less)
         .pipe(cache, "styles-less", {optimizeMemory: true})
         .pipe(changed, dest.less, {extension: ".css"})
-        .pipe(newer, {
-            dest: dest.less,
-            ext:  ".css"
-        })
+        // .pipe(newer, {
+        //     dest: dest.less,
+        //     ext:  ".css"
+        // })
         .pipe(less, src.less)
         .pipe(autoprefix)
         .pipe(gulp.dest, dest.less)
@@ -48,10 +48,10 @@ exports.stylus =
         .pipe(gulp.src, src.stylus)
         .pipe(cache, "styles-stylus", {optimizeMemory: true})
         .pipe(changed, dest.stylus, {extension: ".css"})
-        .pipe(newer, {
-            dest: dest.stylus,
-            ext:  ".css"
-        })
+        // .pipe(newer, {
+        //     dest: dest.stylus,
+        //     ext:  ".css"
+        // })
         .pipe(stylus, {
 
             // Preset some variables
@@ -80,14 +80,14 @@ exports.concat =
             path.resolve(dest.less, "**", "*.css"),
             path.resolve(dest.stylus, "**", "*.css")
         ])
-        .pipe(newer, path.resolve(dest.client, prep.stylesConcat))
+        // .pipe(newer, path.resolve(dest.client, prep.stylesConcat))
         .pipe(concat, prep.stylesConcat)
         .pipe(gulp.dest, dest.client)
         .pipe(livereloadPipes.normal);
 
 exports.concatMinify =
     exports.concat
-        .pipe(newer, path.resolve(dest.client, prep.stylesMinified))
+        // .pipe(newer, path.resolve(dest.client, prep.stylesMinified))
         .pipe(rename, prep.stylesMinified)
         .pipe(minifyCss)
         .pipe(gulp.dest, dest.client);
