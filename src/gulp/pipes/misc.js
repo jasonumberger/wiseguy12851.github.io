@@ -23,6 +23,8 @@ exports.gitCommitPush =
         {
             "use strict";
 
+            var res;
+
             argv = yargs
                 .usage("Usage: gulp " + names.gitCommitPush +
                     " -[message|m|msg] Commit Message Here",
@@ -36,12 +38,13 @@ exports.gitCommitPush =
                 })
                 .argv;
 
-            shell.task([
-                "echo Doing something",
+            res = shell.task([
                 "git add -A .",
                 "git commit -am \"" + argv.message + "\"",
                 "git push"
-            ])();
+            ]);
+
+            res();
 
             return res;
         });
