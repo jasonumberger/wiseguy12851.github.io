@@ -29,6 +29,16 @@ gulp.task(
 );
 
 gulp.task(
+    names.stylesLess,
+    function doStylesCSS()
+    {
+        "use strict";
+
+        return stylePipes.less();
+    }
+);
+
+gulp.task(
     names.stylesStylus,
     function doStylesStylus()
     {
@@ -67,6 +77,7 @@ gulp.task(
         runSequence(
             [
                 names.stylesCSS,
+                names.stylesLess,
                 names.stylesStylus
             ],
             names.stylesMinify,

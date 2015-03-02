@@ -10,6 +10,7 @@ var lazypipe        = require("lazypipe"),
     path            = require("path"),
     cache           = require("gulp-cached"),
     changed         = require("gulp-changed"),
+    less            = require('gulp-less'),
     livereloadPipes = require(
         path.resolve(
             "src",
@@ -74,6 +75,13 @@ exports.cssPrefix = exports.css
 exports.cssPrefixLive = exports.css
     .pipe(autoprefix)
     .pipe(exports.cssLive);
+
+exports.less = lazypipe()
+    .pipe(gulp.src, src.less)
+    .pipe(cache, "styles-less", {optimizeMemory: true})
+    .pipe(changed, dest.less, {extension: ".css"})
+    .pipe(less, src.less)
+    .pipe(gulp.dest, dest.less);
 
 exports.stylus = lazypipe()
     .pipe(

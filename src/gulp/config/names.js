@@ -74,6 +74,7 @@ module.exports = {
     scripts:           "scripts",
 
     stylesCSS:    "styles:css",
+    stylesLess:   "styles:less",
     stylesStylus: "styles:stylus",
     stylesConcat: "styles:concat",
     stylesMinify: "styles:minify",
