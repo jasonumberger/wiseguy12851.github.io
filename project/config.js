@@ -37,6 +37,9 @@ module.exports = require('rc')("wiseguy12851",
         // Task invoke names
         names: require("../src/gulp/config/names"),
 
+        // Args
+        args: require("../src/gulp/config/args"),
+
         // All messages and text
         msg: require("../src/gulp/config/msg")
     }
