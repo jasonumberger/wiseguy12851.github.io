@@ -1,319 +1,215 @@
-var gulp        = require("gulp"),
+var gulp = require("gulp"),
     runSequence = require("run-sequence"),
-    path        = require("path"),
+    path = require("path"),
 
-    names       = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.names,
-
-    cleanPipes  = require(
-        path.resolve(
-            "src",
-            "gulp",
-            "pipes",
-            "clean"
-        )
-    );
+    names = require(path.resolve("project", "config")).gulp.names,
+    cleanPipes = require(path.resolve("src", "gulp", "pipes", "clean"));
 
 // Erase the build folder, this erases everything that gulp ever processed or
 // touched resulting in a complete revert of anything gulp might have done
 
-gulp.task(
-    names.cleanClient,
-    function doClientClean()
-    {
-        "use strict";
-        return cleanPipes.client();
-    }
-);
+gulp.task(names.cleanClient, function doClientClean()
+{
+    "use strict";
 
-gulp.task(
-    names.cleanRoot,
-    function doCleanRoot()
-    {
-        "use strict";
-        return cleanPipes.root();
-    }
-);
+    return cleanPipes.client();
+});
 
-gulp.task(
-    names.cleanPrecompiled,
-    function doCleanPrecompiled(cb)
-    {
-        "use strict";
+gulp.task(names.cleanRoot, function doCleanRoot()
+{
+    "use strict";
 
-        runSequence(
-            [
-                names.cleanScriptsPrecompile,
-                names.cleanStylesPrecompile,
-                names.cleanFonts
-            ],
-            cb
-        );
-    }
-);
+    return cleanPipes.root();
+});
 
-gulp.task(
-    names.cleanFonts,
-    function doCleanFonts()
-    {
-        "use strict";
+gulp.task(names.cleanPrecompiled, function doCleanPrecompiled(cb)
+{
+    "use strict";
 
-        return cleanPipes.fonts();
-    }
-);
+    runSequence([
+        names.cleanScriptsPrecompile,
+        names.cleanStylesPrecompile,
+        names.cleanFonts
+    ], cb);
+});
 
-gulp.task(
-    names.cleanMedia,
-    function doCleanMedia()
-    {
-        "use strict";
+gulp.task(names.cleanFonts, function doCleanFonts()
+{
+    "use strict";
 
-        return cleanPipes.media();
-    }
-);
+    return cleanPipes.fonts();
+});
 
-gulp.task(
-    names.cleanPartials,
-    function doCleanPartials()
-    {
-        "use strict";
+gulp.task(names.cleanMedia, function doCleanMedia()
+{
+    "use strict";
 
-        return cleanPipes.partials();
-    }
-);
+    return cleanPipes.media();
+});
 
-gulp.task(
-    names.cleanScriptsJS,
-    function doCleanScriptsJS()
-    {
-        "use strict";
+gulp.task(names.cleanPartials, function doCleanPartials()
+{
+    "use strict";
 
-        return cleanPipes.scriptsJS();
-    }
-);
+    return cleanPipes.partials();
+});
 
-gulp.task(
-    names.cleanScriptsTS,
-    function doCleanScriptsTS()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsJS, function doCleanScriptsJS()
+{
+    "use strict";
 
-        return cleanPipes.scriptsTS();
-    }
-);
+    return cleanPipes.scriptsJS();
+});
 
-gulp.task(
-    names.cleanScriptsCoffee,
-    function doCleanScriptsCoffee()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsTS, function doCleanScriptsTS()
+{
+    "use strict";
 
-        return cleanPipes.scriptsCoffee();
-    }
-);
+    return cleanPipes.scriptsTS();
+});
 
-gulp.task(
-    names.cleanScriptsBrowserify,
-    function doCleanScriptsBrowserify()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsCoffee, function doCleanScriptsCoffee()
+{
+    "use strict";
 
-        return cleanPipes.scriptsBrowserify();
-    }
-);
+    return cleanPipes.scriptsCoffee();
+});
 
-gulp.task(
-    names.cleanScriptsConcat,
-    function doCleanScriptsConcat()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsBrowserify, function doCleanScriptsBrowserify()
+{
+    "use strict";
 
-        return cleanPipes.scriptsConcat();
-    }
-);
+    return cleanPipes.scriptsBrowserify();
+});
 
-gulp.task(
-    names.cleanScriptsMinified,
-    function doCleanScriptsMinified()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsConcat, function doCleanScriptsConcat()
+{
+    "use strict";
 
-        return cleanPipes.scriptsMinified();
-    }
-);
+    return cleanPipes.scriptsConcat();
+});
 
-gulp.task(
-    names.cleanScriptsPrecompile,
-    function doCleanScriptsPrecompile()
-    {
-        "use strict";
+gulp.task(names.cleanScriptsMinified, function doCleanScriptsMinified()
+{
+    "use strict";
 
-        return cleanPipes.scriptsPrecompile();
-    }
-);
+    return cleanPipes.scriptsMinified();
+});
 
-gulp.task(
-    names.cleanScripts,
-    function doCleanScripts(cb)
-    {
-        "use strict";
+gulp.task(names.cleanScriptsPrecompile, function doCleanScriptsPrecompile()
+{
+    "use strict";
 
-        runSequence(
-            [
-                names.cleanScriptsJS,
-                names.cleanScriptsTS,
-                names.cleanScriptsCoffee,
-                names.cleanScriptsBrowserify,
-                names.cleanScriptsConcat,
-                names.cleanScriptsMinified,
-                names.cleanScriptsPrecompile
-            ],
-            cb
-        );
-    }
-);
+    return cleanPipes.scriptsPrecompile();
+});
 
-gulp.task(
-    names.cleanStylesCSS,
-    function doCleanStylessCSS()
-    {
-        "use strict";
+gulp.task(names.cleanScripts, function doCleanScripts(cb)
+{
+    "use strict";
 
-        return cleanPipes.stylesCSS();
-    }
-);
+    runSequence([
+        names.cleanScriptsJS,
+        names.cleanScriptsTS,
+        names.cleanScriptsCoffee,
+        names.cleanScriptsBrowserify,
+        names.cleanScriptsConcat,
+        names.cleanScriptsMinified,
+        names.cleanScriptsPrecompile
+    ], cb);
+});
 
-gulp.task(
-    names.cleanStylesLess,
-    function doCleanStylesLess()
-    {
-        "use strict";
+gulp.task(names.cleanStylesCSS, function doCleanStylessCSS()
+{
+    "use strict";
 
-        return cleanPipes.stylesLess();
-    }
-);
+    return cleanPipes.stylesCSS();
+});
 
-gulp.task(
-    names.cleanStylesStylus,
-    function doCleanStylesStylus()
-    {
-        "use strict";
+gulp.task(names.cleanStylesLess, function doCleanStylesLess()
+{
+    "use strict";
 
-        return cleanPipes.stylesStylus();
-    }
-);
+    return cleanPipes.stylesLess();
+});
 
-gulp.task(
-    names.cleanStylesConcat,
-    function doCleanStylesConcat()
-    {
-        "use strict";
+gulp.task(names.cleanStylesStylus, function doCleanStylesStylus()
+{
+    "use strict";
 
-        return cleanPipes.stylesConcat();
-    }
-);
+    return cleanPipes.stylesStylus();
+});
 
-gulp.task(
-    names.cleanStylesMinified,
-    function doCleanStylesMinified()
-    {
-        "use strict";
+gulp.task(names.cleanStylesConcat, function doCleanStylesConcat()
+{
+    "use strict";
 
-        return cleanPipes.stylesMinified();
-    }
-);
+    return cleanPipes.stylesConcat();
+});
 
-gulp.task(
-    names.cleanStylesPrecompile,
-    function doCleanStylesPrecompile()
-    {
-        "use strict";
+gulp.task(names.cleanStylesMinified, function doCleanStylesMinified()
+{
+    "use strict";
 
-        return cleanPipes.stylesPrecompile();
-    }
-);
+    return cleanPipes.stylesMinified();
+});
 
-gulp.task(
-    names.cleanStyles,
-    function doCleanStyles(cb)
-    {
-        "use strict";
+gulp.task(names.cleanStylesPrecompile, function doCleanStylesPrecompile()
+{
+    "use strict";
 
-        runSequence(
-            [
-                names.cleanStylesCSS,
-                names.cleanStylesLess,
-                names.cleanStylesStylus,
-                names.cleanStylesConcat,
-                names.cleanStylesMinified,
-                names.cleanStylesPrecompile
-            ],
-            cb
-        );
-    }
-);
+    return cleanPipes.stylesPrecompile();
+});
 
-gulp.task(
-    names.cleanManifest,
-    function doCleanManifest()
-    {
-        "use strict";
+gulp.task(names.cleanStyles, function doCleanStyles(cb)
+{
+    "use strict";
 
-        return cleanPipes.manifest();
-    }
-);
+    runSequence([
+        names.cleanStylesCSS,
+        names.cleanStylesLess,
+        names.cleanStylesStylus,
+        names.cleanStylesConcat,
+        names.cleanStylesMinified,
+        names.cleanStylesPrecompile
+    ], cb);
+});
 
-gulp.task(
-    names.cleanArchiveZip,
-    function doCleanManifest()
-    {
-        "use strict";
+gulp.task(names.cleanManifest, function doCleanManifest()
+{
+    "use strict";
 
-        return cleanPipes.archiveZip();
-    }
-);
+    return cleanPipes.manifest();
+});
 
-gulp.task(
-    names.cleanArchiveGzip,
-    function doCleanManifest()
-    {
-        "use strict";
+gulp.task(names.cleanArchiveZip, function doCleanManifest()
+{
+    "use strict";
 
-        return cleanPipes.archiveGzip();
-    }
-);
+    return cleanPipes.archiveZip();
+});
 
-gulp.task(
-    names.cleanArchive,
-    function doClean(cb)
-    {
-        "use strict";
+gulp.task(names.cleanArchiveGzip, function doCleanManifest()
+{
+    "use strict";
 
-        runSequence(
-            [
-                names.cleanArchiveZip,
-                names.cleanArchiveGzip
-            ],
-            cb
-        );
-    }
-);
+    return cleanPipes.archiveGzip();
+});
 
-gulp.task(
-    names.clean,
-    function doClean(cb)
-    {
-        "use strict";
+gulp.task(names.cleanArchive, function doClean(cb)
+{
+    "use strict";
 
-        runSequence(
-            [
-                names.cleanRoot
-            ],
-            cb
-        );
-    }
-);
+    runSequence([
+        names.cleanArchiveZip,
+        names.cleanArchiveGzip
+    ], cb);
+});
+
+gulp.task(names.clean, function doClean(cb)
+{
+    "use strict";
+
+    runSequence([
+        names.cleanRoot
+    ], cb);
+});

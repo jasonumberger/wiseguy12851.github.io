@@ -9,14 +9,6 @@ var path = require("path");
  */
 
 module.exports = [
-    path.resolve(
-        "bower_components",
-        "bootstrap-stylus",
-        "bootstrap"
-    ),
-    path.resolve(
-        "src",
-        "client",
-        "styles"
-    )
+    path.resolve("bower_components", "bootstrap-stylus", "bootstrap"),
+    path.resolve("src", "client", "styles")
 ];

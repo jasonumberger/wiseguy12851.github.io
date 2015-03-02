@@ -1,12 +1,7 @@
 var livereload = require("gulp-livereload"),
-    path       = require("path"),
+    path = require("path"),
 
-    src        = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.paths.src;
+    src = require(path.resolve("project", "config")).gulp.paths.src;
 
 livereload.options.reloadPage = src.initPageDev;
 

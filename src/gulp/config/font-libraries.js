@@ -13,23 +13,11 @@ module.exports = [
      * Fontawesome
      * Large selection of amazing fonts
      */
-    path.resolve(
-        "bower_components",
-        "fontawesome",
-        "fonts",
-        "**",
-        "*"
-    ),
+    path.resolve("bower_components", "fontawesome", "fonts", "**", "*"),
 
     /*
      * Bootstrap Stylus
      * Set of core fonts through bootstrap
      */
-    path.resolve(
-        "bower_components",
-        "bootstrap-stylus",
-        "fonts",
-        "**",
-        "*"
-    )
+    path.resolve("bower_components", "bootstrap-stylus", "fonts", "**", "*")
 ];

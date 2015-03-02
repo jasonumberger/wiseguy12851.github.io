@@ -1,14 +1,5 @@
-var lazypipe = require("lazypipe"),
-    path = require("path"),
-
-    livereload = require(
-        path.resolve(
-            "src",
-            "gulp",
-            "wrapper",
-            "livereload"
-        )
-    );
+var lazypipe   = require("lazypipe"), path = require("path"),
+    livereload = require(path.resolve("src", "gulp", "wrapper", "livereload"));
 
 exports.normal = lazypipe()
     .pipe(livereload);

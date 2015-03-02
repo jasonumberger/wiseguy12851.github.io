@@ -1,27 +1,14 @@
 var gulp = require("gulp"),
     path = require("path"),
 
-    liveReloadPipes = require(
-        path.resolve(
-            "src",
-            "gulp",
-            "pipes",
-            "livereload"
-        )
-    ),
-    names = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.names;
+    liveReloadPipes = require(path.resolve("src", "gulp", "pipes",
+        "livereload")),
 
-gulp.task(
-    names.liveReload,
-    function doLiveReload()
-    {
-        "use strict";
+    names = require(path.resolve("project", "config")).gulp.names;
 
-        return liveReloadPipes.full();
-    }
-);
+gulp.task(names.liveReload, function doLiveReload()
+{
+    "use strict";
+
+    return liveReloadPipes.full();
+});

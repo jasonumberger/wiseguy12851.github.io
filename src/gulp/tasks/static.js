@@ -2,120 +2,77 @@ var gulp = require("gulp"),
     runSequence = require("run-sequence"),
     path = require("path"),
 
-    staticPipes = require(
-        path.resolve(
-            "src",
-            "gulp",
-            "pipes",
-            "static"
-        )
-    ),
+    staticPipes = require(path.resolve("src", "gulp", "pipes", "static")),
+    names       = require(path.resolve("project", "config")).gulp.names;
 
-    names = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.names;
+gulp.task(names.staticClient, function doStaticClient()
+{
+    "use strict";
 
-gulp.task(
-    names.staticClient,
-    function doStaticClient()
-    {
-        "use strict";
+    return staticPipes.client();
+});
 
-        return staticPipes.client();
-    }
-);
+gulp.task(names.staticMediaMinifyImages, function doStaticMedia()
+{
+    "use strict";
 
-gulp.task(
-    names.staticMediaMinifyImages,
-    function doStaticMedia()
-    {
-        "use strict";
+    return staticPipes.minifyImages();
+});
 
-        return staticPipes.minifyImages();
-    }
-);
+gulp.task(names.staticMedia, function doStaticMedia()
+{
+    "use strict";
 
-gulp.task(
-    names.staticMedia,
-    function doStaticMedia()
-    {
-        "use strict";
+    return staticPipes.media();
+});
 
-        return staticPipes.media();
-    }
-);
+gulp.task(names.staticPartials, function doStaticPartials()
+{
+    "use strict";
 
-gulp.task(
-    names.staticPartials,
-    function doStaticPartials()
-    {
-        "use strict";
+    return staticPipes.partials();
+});
 
-        return staticPipes.partials();
-    }
-);
+gulp.task(names.staticTS, function doStaticTS()
+{
+    "use strict";
 
-gulp.task(
-    names.staticTS,
-    function doStaticTS()
-    {
-        "use strict";
+    return staticPipes.typescript();
+});
 
-        return staticPipes.typescript();
-    }
-);
+gulp.task(names.staticCoffeescript, function doStaticCoffeescript()
+{
+    "use strict";
 
-gulp.task(
-    names.staticCoffeescript,
-    function doStaticCoffeescript()
-    {
-        "use strict";
+    return staticPipes.coffeescript();
+});
 
-        return staticPipes.coffeescript();
-    }
-);
+gulp.task(names.staticLess, function doStaticLess()
+{
+    "use strict";
 
-gulp.task(
-    names.staticLess,
-    function doStaticLess()
-    {
-        "use strict";
+    return staticPipes.less();
+});
 
-        return staticPipes.less();
-    }
-);
+gulp.task(names.staticStylus, function doStaticStylus()
+{
+    "use strict";
 
-gulp.task(
-    names.staticStylus,
-    function doStaticStylus()
-    {
-        "use strict";
+    return staticPipes.stylus();
+});
 
-        return staticPipes.stylus();
-    }
-);
+gulp.task(names._static, function doStatic(cb)
+{
+    "use strict";
 
-gulp.task(
-    names._static,
-    function doStatic(cb)
-    {
-        "use strict";
-
-        runSequence(
-            [
-                names.staticClient,
-                names.staticMediaMinifyImages,
-                names.staticMedia,
-                names.staticPartials,
-                names.staticTS,
-                names.staticCoffeescript,
-                names.staticLess,
-                names.staticStylus
-            ],
-            cb
-        );
-    }
-);
+    runSequence([
+        names.staticClient,
+        names.staticMediaMinifyImages,
+        names.staticMedia,
+        names.staticPartials,
+        names.staticTS,
+        names.staticCoffeescript,
+        names.staticLess,
+        names.staticStylus
+    ], cb);
+});

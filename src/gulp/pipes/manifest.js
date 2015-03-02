@@ -3,60 +3,35 @@ var gulp            = require("gulp"),
     manifest        = require("gulp-manifest"),
     path            = require("path"),
 
-    livereloadPipes = require(
-        path.resolve(
-            "src",
-            "gulp",
-            "pipes",
-            "livereload"
-        )
-    ),
+    livereloadPipes = require(path.resolve("src", "gulp", "pipes",
+        "livereload")),
 
-    dest            = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.paths.dest,
+    dest            = require(path.resolve("project",
+        "config")).gulp.paths.dest,
 
-    prep            = require(
-        path.resolve(
-            "project",
-            "config"
-        )
-    ).gulp.paths.prep;
+    prep            = require(path.resolve("project",
+        "config")).gulp.paths.prep;
 
-exports.regular = lazypipe().pipe(
-    gulp.src,
-    path.resolve(
-        dest.client,
-        "**",
-        "*"
-    )
-).pipe(
-    manifest,
-    {
-        filename: prep.manifest,
-        exclude:  [
-            prep.manifest
-        ],
+exports.regular =
+    lazypipe()
+        .pipe(gulp.src, path.resolve(dest.client, "**", "*"))
+        .pipe(manifest, {
+            filename: prep.manifest,
+            exclude:  [
+                prep.manifest
+            ],
 
-        network: [
-            "*"
-        ],
+            network: [
+                "*"
+            ],
 
-        fallback: [],
+            fallback: [],
 
-        preferOnline: false,
+            preferOnline: false,
 
-        timestamp: false,
-        hash:      true
+            timestamp: false,
+            hash:      true
 
-    }
-).pipe(
-    gulp.dest,
-    dest.client
-);
-
-exports.regularLive = exports.regular
-    .pipe(livereloadPipes.normal);
+        })
+        .pipe(gulp.dest, dest.client)
+        .pipe(livereloadPipes.normal);

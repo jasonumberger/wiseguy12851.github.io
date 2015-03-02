@@ -17,148 +17,46 @@ exports.source = {
     initPageDev:  path.resolve("index-dev.html"),
 
     // Gulp src files
-    gulp:         path.resolve(
-        "src",
-        "gulp",
-        "**",
-        "*.js"
-    ),
+    gulp:         path.resolve("src", "gulp", "**", "*.js"),
 
     // Project public root files
-    client:       path.resolve(
-        "src",
-        "client",
-        "*"
-    ),
+    client:       path.resolve("src", "client", "*"),
 
     // Project supplied fonts
-    fonts:        path.resolve(
-        "src",
-        "client",
-        "fonts",
-        "**",
-        "*"
-    ),
+    fonts:        path.resolve("src", "client", "fonts", "**", "*"),
 
     // Projct supplied media
-    media:        path.resolve(
-        "src",
-        "client",
-        "media",
-        "**",
-        "*"
-    ),
+    media:        path.resolve("src", "client", "media", "**", "*"),
 
     // Project supplied html partials
-    partials:     path.resolve(
-        "src",
-        "client",
-        "partials",
-        "**",
-        "*.html"
-    ),
+    partials:     path.resolve("src", "client", "partials", "**", "*.html"),
 
     // Project supplied scripts
-    javascript:   path.resolve(
-        "src",
-        "client",
-        "scripts",
-        "**",
-        "*.js"
-    ),
-    typescript:   path.resolve(
-        "src",
-        "client",
-        "scripts",
-        "**",
-        "*.ts"
-    ),
-    coffeescript: path.resolve(
-        "src",
-        "client",
-        "scripts",
-        "**",
-        "*.coffee"
-    ),
+    javascript:   path.resolve("src", "client", "scripts", "**", "*.js"),
+    typescript:   path.resolve("src", "client", "scripts", "**", "*.ts"),
+    coffeescript: path.resolve("src", "client", "scripts", "**", "*.coffee"),
 
     // Project supplied styles
-    css:          path.resolve(
-        "src",
-        "client",
-        "styles",
-        "**",
-        "*.css"
-    ),
-    less:         path.resolve(
-        "src",
-        "client",
-        "styles",
-        "**",
-        "*.less"
-    ),
-    stylus:       path.resolve(
-        "src",
-        "client",
-        "styles",
-        "**",
-        "*.styl"
-    )
+    css:          path.resolve("src", "client", "styles", "**", "*.css"),
+    less:         path.resolve("src", "client", "styles", "**", "*.less"),
+    stylus:       path.resolve("src", "client", "styles", "**", "*.styl")
 };
 
 // Directly copy source to here, no processing is done
 exports.destination = {
     root:     path.resolve("build"),
-    client:   path.resolve(
-        "build",
-        "client"
-    ),
-    fonts:    path.resolve(
-        "build",
-        "client",
-        "fonts"
-    ),
-    media:    path.resolve(
-        "build",
-        "client",
-        "media"
-    ),
-    partials: path.resolve(
-        "build",
-        "client",
-        "partials"
-    ),
+    client:   path.resolve("build", "client"),
+    fonts:    path.resolve("build", "client", "fonts"),
+    media:    path.resolve("build", "client", "media"),
+    partials: path.resolve("build", "client", "partials"),
 
-    javascript:   path.resolve(
-        "build",
-        "client",
-        "scripts"
-    ),
-    typescript:   path.resolve(
-        "build",
-        "client",
-        "scripts"
-    ),
-    coffeescript: path.resolve(
-        "build",
-        "client",
-        "scripts"
-    ),
+    javascript:   path.resolve("build", "client", "scripts"),
+    typescript:   path.resolve("build", "client", "scripts"),
+    coffeescript: path.resolve("build", "client", "scripts"),
 
-    css:    path.resolve(
-        "build",
-        "client",
-        "styles"
-    ),
-    less:   path.resolve(
-        "build",
-        "client",
-        "styles"
-    ),
-    stylus: path.resolve(
-        "build",
-        "client",
-        "styles"
-    )
+    css:    path.resolve("build", "client", "styles"),
+    less:   path.resolve("build", "client", "styles"),
+    stylus: path.resolve("build", "client", "styles")
 };
 
 // These are special generated files, they are placed in the client destination
@@ -174,7 +72,7 @@ exports.preperation = {
     stylesMinified:   "build.min.css",
     stylesPrecompile: "precompile.css",
 
-    manifest: "app.manifest",
+    manifest:   "app.manifest",
 
     // These are appended to the "root" path, not "client"
     archiveZip: "app.zip",

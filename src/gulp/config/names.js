@@ -7,7 +7,7 @@
  */
 
 module.exports = {
-    watch:        "watch",
+    watch: "watch",
 
     bowerUpdate:  "bower:update",
     bowerInstall: "bower:install",
@@ -40,24 +40,24 @@ module.exports = {
 
     cleanManifest: "clean:manifest",
 
-    cleanArchiveZip: "clean:archive@zip",
+    cleanArchiveZip:  "clean:archive@zip",
     cleanArchiveGzip: "clean:archive@gzip",
-    cleanArchive: "clean:archive",
+    cleanArchive:     "clean:archive",
 
-    clean:         "clean",
+    clean: "clean",
 
     liveReload: "livereload",
     manifest:   "manifest",
 
-    staticClient:       "static:client",
-    staticMedia:    "static:media",
-    staticMediaMinifyImages:  "static:media@minifyimages",
-    staticPartials:     "static:partials",
-    staticTS:           "static:typescript",
-    staticCoffeescript: "static:coffeescript",
-    staticLess:         "static:less",
-    staticStylus:       "static:stylus",
-    _static:            "static",
+    staticClient:            "static:client",
+    staticMedia:             "static:media",
+    staticMediaMinifyImages: "static:media@minifyimages",
+    staticPartials:          "static:partials",
+    staticTS:                "static:typescript",
+    staticCoffeescript:      "static:coffeescript",
+    staticLess:              "static:less",
+    staticStylus:            "static:stylus",
+    _static:                 "static",
 
     precompileScripts: "precompile:scripts",
     precompileStyles:  "precompile:styles",
@@ -84,9 +84,9 @@ module.exports = {
     buildFresh:     "build:fresh",
     build:          "build",
 
-    init:           "init",
+    init: "init",
 
-    archiveZip:     "archive:zip",
-    archiveGzip:    "archive:gzip",
-    archive:        "archive"
+    archiveZip:  "archive:zip",
+    archiveGzip: "archive:gzip",
+    archive:     "archive"
 };

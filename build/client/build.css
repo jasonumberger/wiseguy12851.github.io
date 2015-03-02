@@ -1370,6 +1370,10 @@ div.jqplot-noData-container {
     background-color: rgba(96%, 96%, 96%, 0.3);
 }
 
+#test {
+  color: #6c94be;
+}
+
 
 /*
  * Bootstrap v3.3.1 (http://getbootstrap.com)
