@@ -19,7 +19,7 @@ exports.zip =
 exports.gzip =
     lazypipe()
         .pipe(gulp.src, path.resolve(dest.client, "**", "*"))
-        .pipe(newer, path.resolve(dest.root, prep.archiveZip))
+        .pipe(newer, path.resolve(dest.root, prep.archiveTar + ".gz"))
         .pipe(tar, prep.archiveTar)
         .pipe(gzip)
         .pipe(gulp.dest, dest.root);

@@ -17,6 +17,7 @@ var gulp = require("gulp"),
     changed = require("gulp-changed"),
     coffee = require("gulp-coffee"),
     gutil = require("gulp-util"),
+    newer = require("gulp-newer"),
 
     src = require(path.resolve("project", "config")).gulp.paths.src,
     dest = require(path.resolve("project", "config")).gulp.paths.dest,
@@ -27,6 +28,7 @@ exports.javascript =
         .pipe(gulp.src, src.javascript)
         .pipe(cache, "scripts-javascript", {optimizeMemory: true})
         .pipe(changed, dest.javascript)
+        .pipe(newer, dest.javascript)
         .pipe(gulp.dest, dest.javascript)
         .pipe(livereloadPipes.normal);
 
@@ -35,6 +37,10 @@ exports.typescript =
         .pipe(gulp.src, src.typescript)
         .pipe(cache, "scripts-typescript", {optimizeMemory: true})
         .pipe(changed, dest.typescript, {extension: ".js"})
+        .pipe(newer, {
+            dest: dest.typescript,
+            ext: ".js"
+        })
         .pipe(function processTS()
         {
             "use strict";
@@ -60,6 +66,10 @@ exports.coffeescript =
         .pipe(gulp.src, src.coffeescript)
         .pipe(cache, "scripts-coffeescript", {optimizeMemory: true})
         .pipe(changed, dest.coffeescript, {extension: ".js"})
+        .pipe(newer, {
+            dest: dest.coffeescript,
+            ext:  ".js"
+        })
         .pipe(function processCoffee()
         {
             "use strict";
@@ -73,6 +83,12 @@ exports.coffeescript =
 
 exports.browserify =
     lazypipe()
+        .pipe(gulp.src, [
+            path.resolve(dest.javascript, "**", "*.js"),
+            path.resolve(dest.typescript, "**", "*.ts"),
+            path.resolve(dest.coffeescript, "**", "*.coffee")
+        ])
+        .pipe(newer, path.resolve(dest.client, prep.scriptsBrowserify))
         .pipe(function doBrowserify()
         {
             "use strict";
@@ -102,12 +118,14 @@ exports.concat =
             path.resolve(dest.client, prep.scriptsPrecompile),
             path.resolve(dest.client, prep.scriptsBrowserify)
         ])
+        .pipe(newer, path.resolve(dest.client, prep.scriptsConcat))
         .pipe(concat, prep.scriptsConcat)
         .pipe(gulp.dest, dest.client)
         .pipe(livereloadPipes.normal);
 
 exports.concatMinify =
     exports.concat
+        .pipe(newer, path.resolve(dest.client, prep.scriptsMinified))
         .pipe(rename, prep.scriptsMinified)
         .pipe(uglify)
         .pipe(gulp.dest, dest.client)

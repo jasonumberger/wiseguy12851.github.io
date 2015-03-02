@@ -2,48 +2,6 @@ CACHE MANIFEST
 
 
 CACHE:
-build.css
-build.js
-build.min.css
-build.min.js
-bundle.js
-precompile.css
-precompile.js
-fonts/FontAwesome.otf
-fonts/fontawesome-webfont.eot
-fonts/fontawesome-webfont.svg
-fonts/fontawesome-webfont.ttf
-fonts/fontawesome-webfont.woff
-fonts/fontawesome-webfont.woff2
-fonts/glyphicons-halflings-regular.eot
-fonts/glyphicons-halflings-regular.svg
-fonts/glyphicons-halflings-regular.ttf
-fonts/glyphicons-halflings-regular.woff
-fonts/glyphicons-halflings-regular.woff2
-fonts/icomoon.eot
-fonts/icomoon.svg
-fonts/icomoon.ttf
-fonts/icomoon.woff
-media/README.md
-media/test.png
-styles/test.css
-styles/test.less
-scripts/index.js
-partials/fragments/glyph-test.html
-partials/fragments/navbar.html
-styles/00-Frameworks/bootstrap-variables.css
-styles/00-Frameworks/bootstrap-variables.styl
-styles/00-Frameworks/bootstrap.css
-styles/00-Frameworks/bootstrap.styl
-styles/00-Frameworks/font-awesome.css
-styles/00-Frameworks/icomoon.css
-styles/01-Custom/main.css
-styles/01-Custom/main.styl
-scripts/modules/index.js
-scripts/modules/main/index.js
-scripts/modules/main/src/config.js
-scripts/modules/main/src/module.js
-scripts/modules/main/src/controllers/main.js
 
 
 NETWORK:
@@ -52,4 +10,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 2fcbfa0e64a173520809742ff047e2d0076bcdd41a120a21d6d46ccefc1be4b8
+# hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

@@ -1,11 +1,10 @@
-module.exports = angular.module("app").config(
-    [
+module.exports = angular.module("app")
+    .config([
         "$stateProvider",
         "$urlRouterProvider",
         "$locationProvider",
-        function moduleSetup(
-            $stateProvider,
-            $urlRouterProvider,
+
+        function moduleSetup($stateProvider, $urlRouterProvider,
             $locationProvider)
         {
             "use strict";
@@ -17,13 +16,9 @@ module.exports = angular.module("app").config(
             // Push States
             $locationProvider.html5Mode(false);
 
-            $stateProvider.state(
-                "glyph-test",
-                {
+            $stateProvider.state("glyph-test", {
                     url:         "/glyph",
                     templateUrl: "/build/client/partials/fragments/glyph-test.html"
-                }
-            );
+                });
         }
-    ]
-);
+    ]);

@@ -20,9 +20,6 @@ body {
 /*Make carousel's fade*/
 .carousel .item {
   -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  -o-transition: opacity 1s;
   transition: opacity 1s;
 }
 .carousel .active.left,
