@@ -45,7 +45,6 @@
     "gulp-tar": "*",
     "gulp-typescript": "*",
     "gulp-uglify": "*",
-    "gulp-unzip": "*",
     "gulp-util": "*",
     "gulp-zip": "*",
     "imagemin-pngcrush": "*",
