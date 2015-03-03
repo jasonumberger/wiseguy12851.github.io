@@ -6,7 +6,12 @@
 var path = require("path");
 
 // Load up argument parsing and everything tied to it
-require(path.resolve("src", "gulp", "wrapper", "args")).parse();
+// save results in cache
+
+var cache = require(path.resolve("src", "gulp", "wrapper", "cache"));
+cache.argv = require(path.resolve("src", "gulp", "wrapper", "args")).parse();
+
+console.log(cache.argv);
 
 require("include-all")({
         dirname: require("path").resolve("src", "gulp", "tasks"),

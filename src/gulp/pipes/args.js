@@ -1,7 +1,7 @@
 var lazypipe = require("lazypipe"),
     shell = require("gulp-shell"),
     path  = require("path"),
-    argv = require(path.resolve("src", "gulp", "wrapper", "args")).argv;
+    argv = require(path.resolve("src", "gulp", "wrapper", "cache")).argv;
 
 exports.gitCommitPush =
     lazypipe()
