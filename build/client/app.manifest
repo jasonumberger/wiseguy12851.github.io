@@ -27,9 +27,9 @@ fonts/icomoon.woff
 media/README.md
 media/test.png
 scripts/index.js
+scripts/modules/index.js
 partials/fragments/glyph-test.html
 partials/fragments/navbar.html
-scripts/modules/index.js
 styles/00-Frameworks/bootstrap-variables.css
 styles/00-Frameworks/bootstrap-variables.styl
 styles/00-Frameworks/bootstrap.css
@@ -50,4 +50,4 @@ NETWORK:
 
 FALLBACK:
 
-# hash: 0ff982dba1af7acc8db0a0c6b16ec562afd72c945ce165dfd910f13faa623cd2
+# hash: 9f25b52c3d4d835831573e983a71137025211134cc4e85e5122464b0ffc6b937
