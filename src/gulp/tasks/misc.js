@@ -25,3 +25,10 @@ gulp.task(names.bower, function doBower(cb)
 
     runSequence(names.bowerUpdate, cb);
 });
+
+gulp.task(names.nodeWebkit, function doNodeWebkit()
+{
+    "use strict";
+
+    return miscPipes.nodeWebkit();
+});

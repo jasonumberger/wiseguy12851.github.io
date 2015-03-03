@@ -113,6 +113,13 @@ module.exports = function(){
                 "Perform a bower update, alias for " + names.bowerUpdate),
 
             /*
+             * Node Webkit
+             */
+
+            genSimpleCmd(names.nodeWebkit,
+                "Perform a NodeWebkit build"),
+
+            /*
              * Git
              */
             {

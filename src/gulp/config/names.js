@@ -12,6 +12,7 @@ module.exports = {
     bowerUpdate:  "bower:update",
     bowerInstall: "bower:install",
     bower:        "bower",
+    nodeWebkit:   "nodewebkit",
 
     gitCommitPush: "git",
 

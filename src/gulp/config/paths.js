@@ -56,7 +56,10 @@ exports.destination = {
 
     css:    path.resolve("build", "client", "styles"),
     less:   path.resolve("build", "client", "styles"),
-    stylus: path.resolve("build", "client", "styles")
+    stylus: path.resolve("build", "client", "styles"),
+
+    nodeWebkitBuild: path.resolve("build", "node-webkit"),
+    nodeWebkitDownloads: path.resolve("cache", "node-webkit")
 };
 
 // These are special generated files, they are placed in the client destination
@@ -78,5 +81,8 @@ exports.preperation = {
     archiveZip: "app.zip",
 
     // this file will also have .gz aded to the end due to being gzipped as well
-    archiveTar: "app.tar"
+    archiveTar: "app.tar",
+
+    // Extensions and all will automatically be applied
+    nodeWebkitBuildName: "app"
 };

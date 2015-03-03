@@ -10,8 +10,11 @@ Thumbs.db
 .DS_Store
 .trash
 
-#Until I have time to go through all waht needs to be included and not included
+#Webstorm and other products from the company
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/dictionaries/*
+
+#Symlinks
+src/package.json
