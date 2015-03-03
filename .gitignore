@@ -15,6 +15,3 @@ Thumbs.db
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/dictionaries/*
-
-#Symlinks
-src/package.json
