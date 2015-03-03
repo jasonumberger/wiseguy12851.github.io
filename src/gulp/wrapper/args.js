@@ -21,36 +21,47 @@ var keyProcess = function(keyChain)
         var config = undefined;
 
         // Skip the key all-together if a name isn't present
+        // If the name is "_" then its treated specially and not all options
+        // apply
         if(!_(key).has("name")) {return;}
 
-        if(_(key).has("describe"))
+        // No non-hyphenated option allowed
+        if(_(key).has("describe") && key.name !== "_")
         {
             _yargs = _yargs.describe(key.name, key.describe);
         }
 
-        if(_(key).has("alias"))
+        if(_(key).has("alias") && key.name !== "_")
         {
             var tmp = {};
             tmp[key.name] = key.alias;
             _yargs = _yargs.alias(tmp);
         }
 
-        if(_(key).has("default"))
+        if(_(key).has("default") && key.name !== "_")
         {
             _yargs = _yargs.default(key.name, key.default.value, key.default.desc);
         }
 
+        // Allow non-hyphenated options to be present but its treated specially
         if(_(key).has("demand"))
         {
-            _yargs = _yargs.demand(key.name, key.demand);
+            if(key.name === "_")
+            {
+                _yargs = _yargs.demand(key.demand);
+            }
+            else
+            {
+                _yargs = _yargs.demand(key.name, key.demand);
+            }
         }
 
-        if(_(key).has("requiresArg") && key.requiresArg)
+        if(_(key).has("requiresArg") && key.name !== "_" && key.requiresArg)
         {
             _yargs = _yargs.requiresArg(key.name);
         }
 
-        if(_(key).has("implies"))
+        if(_(key).has("implies") && key.name !== "_")
         {
             _.forEach(key.implies, function(imply, index2, implies)
             {
@@ -58,22 +69,22 @@ var keyProcess = function(keyChain)
             });
         }
 
-        if(_(key).has("boolean") && key.boolean)
+        if(_(key).has("boolean") && key.name !== "_" && key.boolean)
         {
             _yargs = _yargs.boolean(key.name);
         }
 
-        if(_(key).has("string") && key.string)
+        if(_(key).has("string") && key.name !== "_" && key.string)
         {
             _yargs = _yargs.string(key.name);
         }
 
-        if(_(key).has("array") && key.array)
+        if(_(key).has("array") && key.name !== "_" && key.array)
         {
             _yargs = _yargs.array(key.name);
         }
 
-        if(_(key).has("config") && key.config)
+        if(_(key).has("config") && key.name !== "_" && key.config)
         {
             _yargs = _yargs.config(key.name);
         }
