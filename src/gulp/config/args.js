@@ -1,5 +1,16 @@
+var path = require("path");
+
 /*
- * Program-wide arguments and such, processed by yargs
+ * These are the args configuration for the program and describe command line
+ * processing.
+ *
+ * Its messy, needs revisions, and as of now doesnt make too much sense with rc
+ * as its practically impossible to easily override these. That wil be saved for
+ * an upcomming revision
+ *
+ * Please don't include or use these directly as the user may have overridden
+ * some of these via one of many methods "rc" offers. Instead use them through
+ * the project config file will will automatically apply user changes.
  */
 
 // Used for the tasks that dont really make use of args
@@ -22,7 +33,6 @@ module.exports = function(){
     // The files won't be ready until rc is done processing, since this file is
     // only a part of rc, we must stash this into a function so that when its
     // executed rc will be done and we can pull other needed info from it
-    var path = require("path");
     names = require(path.resolve("project", "config")).gulp.names;
 
     return {

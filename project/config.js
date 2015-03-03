@@ -1,5 +1,7 @@
 "use strict";
 
+var path = require("path");
+
 module.exports = require('rc')("wiseguy12851",
 {
     // All possible options and their defaults are here
@@ -11,36 +13,36 @@ module.exports = require('rc')("wiseguy12851",
         paths:
         {
             // Source files to work with
-            src: require("../src/gulp/config/paths").source,
+            src: require(path.resolve("src", "gulp", "config", "paths")).source,
 
             // Destination paths to placed worked with items
-            dest: require("../src/gulp/config/paths").destination,
+            dest: require(path.resolve("src", "gulp", "config", "paths")).destination,
 
             // Processed files
-            prep: require("../src/gulp/config/paths").preperation,
+            prep: require(path.resolve("src", "gulp", "config", "paths")).preperation,
 
             // Bower CSS Libraries
-            css: require("../src/gulp/config/css-libraries"),
+            css: require(path.resolve("src", "gulp", "config", "css-libraries")),
 
             // Bower Font Libraries
-            fonts: require("../src/gulp/config/font-libraries"),
+            fonts: require(path.resolve("src", "gulp", "config", "font-libraries")),
 
             // Bower Javascript libraries
-            js: require("../src/gulp/config/js-libraries"),
+            js: require(path.resolve("src", "gulp", "config", "js-libraries")),
 
             // Bower stylus search paths
-            stylus: require("../src/gulp/config/stylus-libraries")
+            stylus: require(path.resolve("src", "gulp", "config", "stylus-libraries"))
         },
 
-        log: require("../src/gulp/config/log"),
+        log: require(path.resolve("src", "gulp", "config", "log")),
 
         // Task invoke names
-        names: require("../src/gulp/config/names"),
+        names: require(path.resolve("src", "gulp", "config", "names")),
 
         // Args
-        args: require("../src/gulp/config/args"),
+        args: require(path.resolve("src", "gulp", "config", "args")),
 
         // All messages and text
-        msg: require("../src/gulp/config/msg")
+        msg: require(path.resolve("src", "gulp", "config", "msg"))
     }
 });
